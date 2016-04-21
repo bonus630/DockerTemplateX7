@@ -1,0 +1,15 @@
+﻿ body 
+    {
+      margin: 4px;
+      font-family:'Segoe UI',Tahoma,Arial,sans-serif;
+      font-size:11;
+      overflow-x:hidden;      
+      overflow-y:auto;        
+      background:ButtonFace;  
+    }
+    input
+    {
+      margin: 0px;
+      font-family:'Segoe UI',Tahoma,Arial,sans-serif;
+      font-size:11;
+    }

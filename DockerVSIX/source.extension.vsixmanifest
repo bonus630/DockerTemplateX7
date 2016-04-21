@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="1.312" Language="en-US" Publisher="Bonus630" />
+    <DisplayName>CorelDraw Docker Template</DisplayName>
+    <Description xml:space="preserve">CSharp Docker Project Template for CorelDraw X7 and X8 , CorelDraw is trademaker from Corel Corporation</Description>
+    <MoreInfo>http://bonus630.tk</MoreInfo>
+    <Icon>DockerTemplateX7.ico</Icon>
+    <Tags>coreldraw,x7,x8,docker</Tags>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0]" />
+    <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Wizard001" Path="|Wizard001|" AssemblyName="|Wizard001;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateX7" d:TargetPath="|DockerTemplateX7;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateVB" d:TargetPath="|DockerTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateJS" d:TargetPath="|DockerTemplateJS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+  </Assets>
+</PackageManifest>

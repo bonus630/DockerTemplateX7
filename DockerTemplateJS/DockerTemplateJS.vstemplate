@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>DockerTemplateJS</Name>
+    <Description>DockerTemplateJS</Description>
+    <Icon>DockerTemplateJS.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>Web</ProjectSubType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>455c5a41-28ad-4e06-8af0-f384a35f03d9</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>DockerTemplateJS</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <!--<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Class1.cs</ProjectItem>-->
+      <ProjectItem ReplaceParameters="true" TargetFileName="DockerUI.html" OpenInEditor="10">DockerUI.html</ProjectItem>
+      
+     
+      
+
+      <ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
+      <ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
+
+      <Folder Name="3rdParties" TargetFolderName="3rdParties">
+        <ProjectItem TargetFileName="jquery-1.12.3.min.js" >jquery-1.12.3.min.js</ProjectItem>
+        <ProjectItem TargetFileName="jquery-2.2.3.min.js" >jquery-2.2.3.min.js</ProjectItem>
+      </Folder>
+      <Folder Name="js" TargetFolderName="js">
+        <ProjectItem TargetFileName="basic.js" OpenInEditor="20">basic.js</ProjectItem>
+      </Folder>
+      <Folder Name="styles" TargetFolderName="styles">
+        <ProjectItem TargetFileName="basicStyle.css" >basicStyle.css</ProjectItem>
+      </Folder>
+      <Folder Name="images" TargetFolderName="images" />
+      <Folder Name="pages" TargetFolderName="pages" />
+    </Project>
+  </TemplateContent>
+ 
+  <WizardExtension>
+    <Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>Wizard001.Wizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>
+

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>CorelDraw Docker Project</Name>
+    <Description>CSharp Project Template for create custom CorelDRAW X7 and X8 dockers. CorelDraw is trademaker from Corel Corporation</Description>
+    <Icon>DockerTemplateX7.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>d544180d-595b-4d71-b1ab-520a528892cc</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>DockerTemplateX7</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="20">DockerUI.xaml.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="10">DockerUI.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
+      <ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
+      
+      <ProjectItem ReplaceParameters="false" TargetFileName="Properties\Resources.resx">Resources.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="Properties\Settings.settings">Settings.settings</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.csproj.user">ProjectTemplate.csproj.user</ProjectItem>
+
+      <!--  Erro - <ProjectItem SubType="ProjectTemplate.csproj.user" ReplaceParameters="true"></ProjectItem>-->
+    </Project>
+    
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>Wizard001.Wizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>
