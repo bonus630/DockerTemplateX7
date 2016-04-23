@@ -11,7 +11,14 @@
 		<RootNamespace>$safeprojectname$</RootNamespace>
 		<AssemblyName>$safeprojectname$</AssemblyName>
     <OutDir>$outdir$</OutDir>
-    <TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
+    $if$ ($CorelVersion$ == 17)
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    $endif$
+    $if$ ($CorelVersion$ == 18)
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    $endif$
+    <!--<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>-->
+    
 		<FileAlignment>512</FileAlignment>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,6 +55,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsBase" />
     <Reference Include="$CorelProgramPath$Assemblies\Corel.Interop.VGCore.dll">
+      <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
 	</ItemGroup>

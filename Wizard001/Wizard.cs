@@ -9,26 +9,13 @@ namespace Wizard001
     {
         private int corelVersion;
 
-        public void BeforeOpeningFile(global::EnvDTE.ProjectItem projectItem)
-        {
-            
-        }
+        public void BeforeOpeningFile(global::EnvDTE.ProjectItem projectItem) {}
 
-        public void ProjectFinishedGenerating(global::EnvDTE.Project project)
-        {
-            
-        }
+        public void ProjectFinishedGenerating(global::EnvDTE.Project project){}
+       
+        public void ProjectItemFinishedGenerating(global::EnvDTE.ProjectItem projectItem){}
 
-        //Não utilizarei
-        public void ProjectItemFinishedGenerating(global::EnvDTE.ProjectItem projectItem)
-        {
-            
-        }
-
-        public void RunFinished()
-        {
-           
-        }
+        public void RunFinished(){}
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
@@ -37,7 +24,7 @@ namespace Wizard001
                 Form1 form = new Form1();
                 form.ShowDialog();
                 this.corelVersion = form.CorelVersion;
-                //   Recupero os caminhos aqui
+                
                 CorelVersionInfo corel = new CorelVersionInfo(this.corelVersion);
                 if (corel.CorelInstallationNotFound)
                     System.Windows.Forms.MessageBox.Show(string.Format("{0} not found", corel.CorelFullName));
@@ -53,13 +40,13 @@ namespace Wizard001
                     replacementsDictionary.Add("$GuidC$", Guid.NewGuid().ToString());
                     replacementsDictionary.Add("$Caption$", form.DockerCaption);
                     replacementsDictionary.Add("$CorelProgramPath$", corel.CorelExePath);
+                    replacementsDictionary.Add("$CorelVersion$", this.corelVersion.ToString());
                 }
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show(e.Message); }
         }
 
-
-        //Não usarei
+      
         public bool ShouldAddProjectItem(string filePath)
         {
             return true;

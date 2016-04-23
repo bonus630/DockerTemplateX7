@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CorelDrw.addon" />
-    <None Include="ProjectTemplate.csproj" />
+    <None Include="ProjectTemplate.jsproj" />
     <None Include="DockerTemplateJS.ico" />
   </ItemGroup>
   <ItemGroup>

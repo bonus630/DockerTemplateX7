@@ -4,8 +4,8 @@
     <Name>DockerTemplateJS</Name>
     <Description>DockerTemplateJS</Description>
     <Icon>DockerTemplateJS.ico</Icon>
-    <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>Web</ProjectSubType>
+    <ProjectType>JavaScript</ProjectType>
+    <!--<ProjectSubType>Web</ProjectSubType>-->
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>455c5a41-28ad-4e06-8af0-f384a35f03d9</TemplateID>
@@ -14,7 +14,7 @@
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+    <Project File="ProjectTemplate.jsproj" ReplaceParameters="true">
       <!--<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Class1.cs</ProjectItem>-->
       <ProjectItem ReplaceParameters="true" TargetFileName="DockerUI.html" OpenInEditor="10">DockerUI.html</ProjectItem>
