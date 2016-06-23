@@ -6,9 +6,10 @@
     <Description xml:space="preserve">CSharp, VisualBasic, JavaScript Docker Project Template for CorelDraw X7 and X8 , CorelDraw is trademaker from Corel Corporation</Description>
     <MoreInfo>http://bonus630.tk</MoreInfo>
     <Icon>DockerTemplateX7.ico</Icon>
+    <PreviewImage>coreldraw.png</PreviewImage>
     <Tags>coreldraw,x7,x8,docker</Tags>
   </Metadata>
-  <Installation AllUsers="true">
+  <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0]" />
     <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Pro" />

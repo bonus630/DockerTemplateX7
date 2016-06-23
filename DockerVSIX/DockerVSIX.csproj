@@ -49,6 +49,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="coreldraw.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="DockerTemplateX7.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
