@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>CorelDraw Docker Project JS</Name>
-    <Description>JavaScript Project Template for create custom CorelDRAW X7 and X8 dockers. CorelDraw is trademaker from Corel Corporation</Description>
+    <Name>DockerTemplateJS</Name>
+    <Description>DockerTemplateJS</Description>
     <Icon>DockerTemplateJS.ico</Icon>
     <ProjectType>JavaScript</ProjectType>
     <!--<ProjectSubType>Web</ProjectSubType>-->

@@ -42,10 +42,37 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
 
+  <!--<ItemGroup>
+    <Import Include="System" />
+    <Import Include="System.Data" />
+    <Import Include="System.Xml" />
+$if$ ($targetframeworkversion$ >= 3.5)
+    <Import Include="System.Core" />
+  <Import Include="System.Xml.Linq" />
+  <Import Include="System.Data.DataSetExtensions" />
+    $endif$
+    
+  
+    <Import Include="System.Data"/>
+  <Import Include="System.Xml"/>
+  <Import Include="System.Xaml"/>
+  <Import Include="PresentationCore" />
+  <Import Include="PresentationFramework" />
+  <Import Include="WindowsBase" />  -->
   <ItemGroup>
     <Import Include="$CorelProgramPath$Assemblies\Corel.Interop.VGCore.dll" />  
   </ItemGroup>
+ <!-- </ItemGroup>
 
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+   
+  </ItemGroup>-->
 
   <ItemGroup>
     <Reference Include="System"/>
@@ -76,7 +103,29 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-
+  <!--<ItemGroup>
+    $if$ ($targetframeworkversion$ >= 4.5)
+    <Import Include="System.Threading.Tasks" />
+    $endif$
+    $if$ ($targetframeworkversion$ >= 3.5)
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    $endif$
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+  </ItemGroup>-->
 
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb">
@@ -104,7 +153,45 @@
     <AppDesigner Include="My Project\" />
   </ItemGroup>
   
+  <!--<ItemGroup>
+   
+    <Compile Include="My Project\AssemblyInfo.vb"/>
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>-->
   <ItemGroup>
     <Content Include="AppUI.xslt" />
     <Content Include="UserUI.xslt" />

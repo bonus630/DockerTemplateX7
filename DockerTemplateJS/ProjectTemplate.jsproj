@@ -1,32 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <!--<UsingTask TaskFactory="PowershellTaskFactory" TaskName="AddBinPathToEnvironment" AssemblyFile="$(SolutionDir)\packages\MSBuild.Extension.Pack.1.4.0\tools\net40\MSBuild.ExtensionPack.TaskFactory.PowerShell.dll">
-    <Task>
-      <![CDATA[
-	$log.LogMessage([Microsoft.Build.Framework.MessageImportance]"High", "Adding .bin to Environment Path.")
-	Try
-	{
-		$bin_name = ".bin"
-		$path = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::User)
-
-		if ($path -notmatch ";$bin_name") {
-			[Environment]::SetEnvironmentVariable('Path', "$path;$bin_name", [EnvironmentVariableTarget]::User)
-		}
-	}
-	Catch
-	{
-		$log.LogError("Failed to add .bin to Environment Path.")
-	}
-]]>
-    </Task>
-  </UsingTask>
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+   
+  </PropertyGroup>
+  <!--<PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CF1B6833-04FA-4C3E-BBC1-B131AD48B17D}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>$guid1$</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <OutDir>$outdir$</OutDir>
+    <TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -46,6 +34,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>-->
+
+
+
+
   <ItemGroup>
     <Content Include="DockerUI.html" />
     <Content Include="AppUI.xslt" />
@@ -61,20 +53,30 @@
     <Content Include="3rdParties\jquery-2.2.3.min.js" />
     <Content Include="js\basic.js" />
     <Content Include="styles\basicStyle.css" />
+
+
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Target Name="Build" Inputs="@(Content)" Outputs="$(OutputPath)\DockerUI.html">
-    <!-- Ensure .bin exists in Environment Path -->
-    <AddBinPathToEnvironment />
-    <Exec Command=".bin\npm install" ContinueOnError="ErrorAndContinue" />
-    <Exec Command=".bin\bower install" ContinueOnError="ErrorAndContinue" />
-    <Exec Command=".bin\grunt" ContinueOnError="ErrorAndContinue" />
-    <!-- Remove node_modules folder after a Release build because it tends to cause path length issues -->
-    <Exec Command="rd /s /q  node_modules" Condition=" '$(Configuration)' == 'Release' And Exists('node_modules') " />
+ 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
   </Target>
-  <Target Name="Clean">
-    <Exec Command="rd /s /q $(OutputPath)" Condition="Exists($(OutputPath))" />
+  <Target Name="AfterBuild">
   </Target>
-  <Target Name="Rebuild" DependsOnTargets="Clean;Build">
-  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath$$(SolutionName)" md "$CorelAddonsPath$$(SolutionName)"
+      xcopy "$(ProjectDir)3rdParties" "$CorelAddonsPath$3rdParties" /e /y /i /r
+      copy "$(TargetPath)" "$CorelAddonsPath$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
+      copy "$(ProjectDir)DockerUI.html" "$CorelAddonsPath$$(SolutionName)" /y
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
 </Project>
