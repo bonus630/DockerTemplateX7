@@ -13,6 +13,7 @@
     <AssemblyName>$safeprojectname$</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Custom</MyType>
+    <OutDir>$(SolutionName)</OutDir>
     $if$ ($CorelVersion$ == 17)
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     $endif$
@@ -28,6 +29,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
+    <OutDir>bin\Debug\$(SolutionName)</OutDir>
     <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -38,6 +40,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
+    <OutDir>bin\Release\$(SolutionName)</OutDir>
     <DocumentationFile>$safeprojectname$.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -193,9 +196,15 @@ $if$ ($targetframeworkversion$ >= 3.5)
     </None>
   </ItemGroup>-->
   <ItemGroup>
-    <Content Include="AppUI.xslt" />
-    <Content Include="UserUI.xslt" />
-    <Content Include="CorelDrw.addon" />
+    <Content Include="AppUI.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UserUI.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CorelDrw.addon">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
 
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
