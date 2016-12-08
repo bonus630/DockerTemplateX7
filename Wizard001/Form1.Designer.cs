@@ -68,6 +68,7 @@
             // 
             // btn_done
             // 
+            this.btn_done.Enabled = false;
             this.btn_done.Location = new System.Drawing.Point(253, 178);
             this.btn_done.Name = "btn_done";
             this.btn_done.Size = new System.Drawing.Size(91, 23);

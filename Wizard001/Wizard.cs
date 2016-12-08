@@ -11,37 +11,40 @@ namespace Wizard001
         private int corelVersion;
         private bool finish = false;
         private string projectDir;
+        private EnvDTE.Project project;
 
         public void BeforeOpeningFile(global::EnvDTE.ProjectItem projectItem) {}
 
         public void ProjectFinishedGenerating(global::EnvDTE.Project project){
-            
+            this.project = project;
         }
        
         public void ProjectItemFinishedGenerating(global::EnvDTE.ProjectItem projectItem){}
 
-        public void RunFinished(){
+        public void RunFinished()
+        {
             if(!finish)
             {
+                this.project.DTE.Solution.Close();
                 try
                 {
-                    //this.projectDir = replacementsDictionary["$destinationdirectory$"];
-                    if (Directory.Exists(this.projectDir))
+                    DirectoryInfo dirInfo = new DirectoryInfo(this.projectDir);
+                    if (dirInfo.Parent.Exists)
                     {
-                        Directory.Delete(this.projectDir, true);
+                        dirInfo.Parent.Delete(true);
                     }
-                    throw new WizardCancelledException();
                 }
-                catch(WizardCancelledException e)
+                catch (IOException e)
                 {
-                    
+                    System.Windows.Forms.MessageBox.Show(e.Message);
                 }
                 catch (Exception e)
                 {
                     System.Windows.Forms.MessageBox.Show(e.Message);
                 }
+                throw new WizardBackoutException();
             }
-           
+            
         }
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
@@ -53,12 +56,11 @@ namespace Wizard001
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     this.corelVersion = form.CorelVersion;
-
-                    //CorelVersionInfo corel = new CorelVersionInfo(this.corelVersion);
-                    CorelVersionInfo corel = form.corelVersionInfo;
+                    CorelVersionInfo corel = form.CorelVersionSelected;
                     if (corel.CorelInstallationNotFound)
                     {
                         System.Windows.Forms.MessageBox.Show(string.Format("{0} not found", corel.CorelFullName));
+                        
                         throw new WizardCancelledException();
                         
                     }
@@ -84,21 +86,20 @@ namespace Wizard001
                     throw new WizardCancelledException();
                 }
             }
-            catch(WizardCancelledException erro)
+            catch(WizardCancelledException)
             {
                 finish = false;
+               
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 finish = false;
-                System.Windows.Forms.MessageBox.Show(e.Message);
+               
             }
         }
-
-      
         public bool ShouldAddProjectItem(string filePath)
         {
-            return finish;
+            return true;
         }
         
     }

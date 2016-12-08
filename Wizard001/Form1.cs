@@ -11,7 +11,13 @@ namespace Wizard001
         public int CorelVersion { get; private set; }
         public string DockerCaption { get; private set; }
         private List<CorelVersionInfo> installedVersions = new List<CorelVersionInfo>();
-        public CorelVersionInfo corelVersionInfo{ get; private set; }
+        private CorelVersionInfo corelVersionSelected;
+        public CorelVersionInfo CorelVersionSelected{ get { return this.corelVersionSelected; }
+            private set {
+                this.corelVersionSelected = value;
+                this.btn_done.Enabled = !value.CorelInstallationNotFound;
+                        
+                        } }
         public Form1()
         {
             InitializeComponent();
@@ -30,14 +36,7 @@ namespace Wizard001
             }
 
         }
-              
-        //private void rd_corelX8_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (rd_corelX7.Checked)
-        //        CorelVersion = 17;
-        //    if (rd_corelX8.Checked)
-        //        CorelVersion = 18;
-        //}
+      
 
         private void txt_dockerCaption_TextChanged(object sender, EventArgs e)
         {
@@ -71,9 +70,9 @@ namespace Wizard001
         private void Ck_Click(object sender, EventArgs e)
         {
             RadioButton ck = sender as RadioButton;
-            this.corelVersionInfo = installedVersions.Find(r => r.CorelVersion == (int)ck.Tag);
-            if (this.corelVersionInfo.CorelInstallationNotFound)
-                this.corelVersionInfo.recoverPathManually(this.corelVersionInfo.CorelVersion);
+            this.CorelVersionSelected = installedVersions.Find(r => r.CorelVersion == (int)ck.Tag);
+            if (this.CorelVersionSelected.CorelInstallationNotFound)
+                this.CorelVersionSelected.recoverPathManually(this.CorelVersionSelected.CorelVersion);
         }
     }
 }

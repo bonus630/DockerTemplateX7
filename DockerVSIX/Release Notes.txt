@@ -1,0 +1,4 @@
+Version 1.604
+
+Prepare for new CorelDraw version
+Add cancel button in Project Wizard
