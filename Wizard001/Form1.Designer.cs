@@ -28,37 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rd_corelX7 = new System.Windows.Forms.RadioButton();
-            this.rd_corelX8 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_dockerCaption = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_done = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.flowLayoutPanel_Versions = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // rd_corelX7
-            // 
-            this.rd_corelX7.AutoSize = true;
-            this.rd_corelX7.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.rd_corelX7.Location = new System.Drawing.Point(16, 81);
-            this.rd_corelX7.Name = "rd_corelX7";
-            this.rd_corelX7.Size = new System.Drawing.Size(90, 17);
-            this.rd_corelX7.TabIndex = 0;
-            this.rd_corelX7.TabStop = true;
-            this.rd_corelX7.Text = "CorelDraw X7";
-            this.rd_corelX7.UseVisualStyleBackColor = true;
-            // 
-            // rd_corelX8
-            // 
-            this.rd_corelX8.AutoSize = true;
-            this.rd_corelX8.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.rd_corelX8.Location = new System.Drawing.Point(164, 81);
-            this.rd_corelX8.Name = "rd_corelX8";
-            this.rd_corelX8.Size = new System.Drawing.Size(90, 17);
-            this.rd_corelX8.TabIndex = 0;
-            this.rd_corelX8.TabStop = true;
-            this.rd_corelX8.Text = "CorelDraw X8";
-            this.rd_corelX8.UseVisualStyleBackColor = true;
-            this.rd_corelX8.CheckedChanged += new System.EventHandler(this.rd_corelX8_CheckedChanged);
             // 
             // label1
             // 
@@ -75,7 +51,7 @@
             // 
             this.txt_dockerCaption.Location = new System.Drawing.Point(16, 30);
             this.txt_dockerCaption.Name = "txt_dockerCaption";
-            this.txt_dockerCaption.Size = new System.Drawing.Size(258, 20);
+            this.txt_dockerCaption.Size = new System.Drawing.Size(386, 20);
             this.txt_dockerCaption.TabIndex = 2;
             this.txt_dockerCaption.Text = "Enter Caption";
             this.txt_dockerCaption.TextChanged += new System.EventHandler(this.txt_dockerCaption_TextChanged);
@@ -90,17 +66,45 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Version:";
             // 
+            // btn_done
+            // 
+            this.btn_done.Location = new System.Drawing.Point(253, 178);
+            this.btn_done.Name = "btn_done";
+            this.btn_done.Size = new System.Drawing.Size(91, 23);
+            this.btn_done.TabIndex = 3;
+            this.btn_done.Text = "Done";
+            this.btn_done.UseVisualStyleBackColor = true;
+            this.btn_done.Click += new System.EventHandler(this.btn_done_Click);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(350, 178);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(52, 23);
+            this.btn_cancel.TabIndex = 3;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // flowLayoutPanel_Versions
+            // 
+            this.flowLayoutPanel_Versions.Location = new System.Drawing.Point(16, 91);
+            this.flowLayoutPanel_Versions.Name = "flowLayoutPanel_Versions";
+            this.flowLayoutPanel_Versions.Size = new System.Drawing.Size(231, 110);
+            this.flowLayoutPanel_Versions.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(286, 111);
+            this.ClientSize = new System.Drawing.Size(414, 215);
+            this.Controls.Add(this.flowLayoutPanel_Versions);
+            this.Controls.Add(this.btn_cancel);
+            this.Controls.Add(this.btn_done);
             this.Controls.Add(this.txt_dockerCaption);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rd_corelX8);
-            this.Controls.Add(this.rd_corelX7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -115,12 +119,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton rd_corelX7;
-        private System.Windows.Forms.RadioButton rd_corelX8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_dockerCaption;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_done;
+        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Versions;
     }
 }
 

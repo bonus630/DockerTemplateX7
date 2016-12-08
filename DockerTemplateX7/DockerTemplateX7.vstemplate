@@ -11,6 +11,7 @@
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>DockerTemplateX7</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">

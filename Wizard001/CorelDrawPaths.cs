@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 namespace Wizard001
 {
-    class CorelVersionInfo
+    public class CorelVersionInfo
     {
       
         public enum CorelIs64Bit
@@ -99,8 +99,8 @@ namespace Wizard001
                     search = recoverPathFromRegistryProgramID(corelVersion);
                 if (!search)
                     search = recoverGSMPathFromAssembly(corelVersion);
-                if (!search)
-                    search = recoverPathManually(corelVersion);
+               // if (!search)
+                //    search = recoverPathManually(corelVersion);
 
                 this.corelInstallationNotFound = !search;
               
@@ -127,7 +127,7 @@ namespace Wizard001
                 // Parallel.ForEach() 
                 return result;
             }
-            private bool recoverPathManually(int corelVersion)
+            public bool recoverPathManually(int corelVersion)
             {
                 OpenFileDialog fd = new OpenFileDialog();
                 fd.Filter = "|CorelDRW.exe";
