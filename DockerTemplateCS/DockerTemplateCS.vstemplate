@@ -2,14 +2,14 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>CorelDraw Docker Project</Name>
-    <Description>CSharp Project Template for create custom CorelDRAW X7 and X8 dockers. CorelDraw is trademaker from Corel Corporation</Description>
+    <Description>CSharp Project Template for create custom CorelDRAW X7,X8 and 2017 dockers. CorelDraw is trademaker from Corel Corporation</Description>
     <Icon>DockerTemplateX7.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>d544180d-595b-4d71-b1ab-520a528892cc</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>DockerTemplateX7</DefaultName>
+    <DefaultName>DockerTemplateCS</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     
   </TemplateData>

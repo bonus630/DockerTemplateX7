@@ -21,9 +21,9 @@ namespace Wizard001
             public string CorelFolderName { get { return this.corelFolderList[this.CorelVersion - 10]; } }
             public string Corel64FullName { get { return string.Format("{0} {1} 64bit", corelName, this.corelAbb[this.CorelVersion - 10]); } }
             private string corelGMSPath;
-            private string corelAddonsPath;
-            private string corelGMSPath64;
-            private string corelAddonsPath64;
+            //private string corelAddonsPath;
+            //private string corelGMSPath64;
+            //private string corelAddonsPath64;
             public bool InList { get; private set; }
             private bool defaultInstallationPath = false;
             public bool CorelInstallationNotFound { get { return this.corelInstallationNotFound; } protected set { } }
@@ -32,13 +32,13 @@ namespace Wizard001
             public string CorelInstallationPath64 { get; private set; }
             public CorelIs64Bit Corel64Bit { get; set; }
             public int CorelVersion { get; private set; }
-            private string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "X9" };
-            private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12", "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5", "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8", "CorelDRAW Graphics Suite X9" };
+            private string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017" };
+            private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12", "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5", "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8", "CorelDRAW Graphics Suite 2017" };
 
             private const string corelName = "CorelDraw Graphics Suite";
 
-            //Pasta do corel 13- CorelDRAW Graphics Suite 13
-            //Pasta do corel 10 -  Graphics10
+            //Corel 13 folder - CorelDRAW Graphics Suite 13
+            //Corel 10 folder -  Graphics10
 
             public CorelVersionInfo(int corelVersion, CorelIs64Bit corel64Bit)
             {
@@ -71,7 +71,7 @@ namespace Wizard001
             }
             public void setInstallationPath(string corelExePath)
             {
-                //este método esta errado
+                //Wrong method
                 DirectoryInfo dir = new DirectoryInfo(corelExePath.ToLower());
                 this.corelInstallationNotFound = false;
                 this.CorelExePath = corelExePath;
@@ -112,7 +112,7 @@ namespace Wizard001
                 bool result = false;
                 DriveInfo[] drives = DriveInfo.GetDrives();
                 string systemDir = System.Environment.SystemDirectory;
-                string seachDir = "Corel";
+                //string seachDir = "Corel";
                 DirectoryInfo dir = new DirectoryInfo(systemDir);
                 IEnumerable<DirectoryInfo> testes = dir.EnumerateDirectories(systemDir, SearchOption.AllDirectories);
                 if (this.Corel64Bit.Equals(CorelIs64Bit.Corel32))
@@ -171,10 +171,10 @@ namespace Wizard001
             //        return String.Format("{0}\\Programs\\Addons", this.CorelInstallationPath);
             //}
             /// <summary>
-            /// Recupera caminho para a pasta GMS em versões 32bit
+            /// Recovery GMS path in 64bit version
             /// </summary>
-            /// <param name="corelGmsPath">String de armazenagem do caminho</param>
-            /// <returns>Retorna false se o caminho não existir</returns>
+            /// <param name="corelGmsPath">Container path</param>
+            /// <returns>Return false if not exists</returns>
             public bool CorelGMSPath(out string corelGmsPath)
             {
                 corelGmsPath = "";
@@ -188,10 +188,10 @@ namespace Wizard001
 
             }
             /// <summary>
-            /// Recupera caminho para a pasta Addons em versões 32bit
+            /// Recovery Addons path in 32bit version
             /// </summary>
-            /// <param name="corelAddonsPath">String de armazenagem do caminho</param>
-            /// <returns>Retorna false se o caminho não existir</returns>
+            /// <param name="corelAddonsPath">Container path</param>
+            /// <returns>Return false if not exists</returns>
             public bool CorelAddonsPath(out string corelAddonsPath)
             {
                 corelAddonsPath = "";
@@ -204,12 +204,12 @@ namespace Wizard001
                     return true;
             }
             /// <summary>
-            /// Recupera caminho para a pasta GMS em versões 64bit
+            /// Recovery GMS path in 64bit version
             /// </summary>
-            /// <param name="corelGmsPath">String de armazenagem do caminho</param>
-            /// <returns>Retorna false se o caminho não existir</returns>
+            /// <param name="corelGmsPath64">Container path</param>
+            /// <returns>Return false if not exists</returns>
             public bool CorelGMSPath64(out string corelGmsPath64)
-            {
+                {
                 corelGmsPath64 = "";
                 if (!string.IsNullOrEmpty(this.CorelInstallationPath64))
                     corelGmsPath64 = string.Format("{0}{1}\\Draw\\GMS\\", this.CorelInstallationPath64, this.defaultInstallationPath ? "\\" + this.CorelFolderName : "");
@@ -220,10 +220,10 @@ namespace Wizard001
 
             }
             /// <summary>
-            /// Recupera caminho para a pasta Addons em versões 64bit
+            /// Recovery Addons path in 64bit version
             /// </summary>
-            /// <param name="corelGmsPath">String de armazenagem do caminho</param>
-            /// <returns>Retorna false se o caminho não existir</returns>
+            /// <param name="corelAddonsPath64">Container path</param>
+            /// <returns>Return false if not exists</returns>
             public bool CorelAddonsPath64(out string corelAddonsPath64)
             {
                 corelAddonsPath64 = "";
@@ -236,7 +236,7 @@ namespace Wizard001
             }
             private bool recoverGSMPathFromAssembly(int version)
             {
-                //Este método retorna até programs
+                //Return programs path
                 try
                 {
                     Type type2 = Type.GetTypeFromProgID("CorelDRAW.Application." + version, true);
@@ -265,7 +265,7 @@ namespace Wizard001
             }
             private bool checkDefaultInstalationPath(int version)
             {
-                //retorna o caminho até pasta do coreldraw
+                //return exe path
                 if (Environment.Is64BitOperatingSystem)
                 {
                     DirectoryInfo dir64 = new DirectoryInfo(String.Format("{0}\\Corel\\{1}\\programs64", Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), this.CorelFolderName));
@@ -307,7 +307,7 @@ namespace Wizard001
 
             private bool recoverPathFromRegistryRoot(int version)
             {
-                //retorna caminho ate programs
+                //Return programs path
                 try
                 {
                     Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(String.Format("CorelDRAW.Graphic.{0}\\shell\\Open\\command", version));
@@ -336,7 +336,7 @@ namespace Wizard001
             }
             private bool recoverPathFromRegistryApplicationPreference(int version)
             {
-                //Este não está retornando nada, portanto não é um método seguro
+                //this it's not safe
                 try
                 {
                     Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(String.Format(
@@ -368,7 +368,7 @@ namespace Wizard001
             }
             private bool recoverPathFromRegistryProgramID(int version)
             {
-                //Retorna caminho até programs
+                //Return programs path
                 Microsoft.Win32.RegistryKey key;
                 try
                 {

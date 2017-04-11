@@ -1,7 +1,7 @@
 ﻿<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>CorelDraw Docker Project VB</Name>
-    <Description>Visual Basic Docker Project Template for CorelDraw X7 and X8 , CorelDraw is trademaker from Corel Corporation</Description>
+    <Description>Visual Basic Docker Project Template for CorelDraw X7,X8 and 2017, CorelDraw is trademaker from Corel Corporation</Description>
     <Icon>DockerTemplateVB.ico</Icon>
     <ProjectType>VisualBasic</ProjectType>
     <TemplateID>678f71b7-abf7-4164-8850-df07f94c2fd9</TemplateID>

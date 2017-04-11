@@ -1,4 +1,7 @@
-Version 1.604
+Version 1.721
 
-Prepare for new CorelDraw version
-Add cancel button in Project Wizard
+Add VS2017 Template
+
+Version 1.723
+
+Add support to new CorelDraw 2017
