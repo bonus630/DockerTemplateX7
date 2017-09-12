@@ -1,7 +1,14 @@
 Version 1.721
 
+
 Add VS2017 Template
+
+
 
 Version 1.723
 
+
 Add support to new CorelDraw 2017
+
+Version 1.803
+Add support to multi compile configuration

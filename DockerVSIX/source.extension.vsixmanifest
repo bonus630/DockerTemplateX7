@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="1.723" Language="en-US" Publisher="Bonus630" />
+    <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="1.803" Language="en-US" Publisher="Bonus630" />
     <DisplayName>CorelDraw Docker Template</DisplayName>
     <Description xml:space="preserve">CSharp, VisualBasic, JavaScript Docker Project Template for CorelDraw X7 ,X8 and 2017 , CorelDraw is trademaker from Corel Corporation</Description>
     <MoreInfo>http://bonus630.tk</MoreInfo>

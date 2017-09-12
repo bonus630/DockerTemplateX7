@@ -110,7 +110,9 @@
     <Content Include="DockerTemplateVB.ico" />
     <Content Include="MyApplication.Designer.vb" />
     <Content Include="MyApplication.myapp" />
-    <Content Include="ProjectTemplate.vbproj" />
+    <Content Include="ProjectTemplate.vbproj">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="DockerTemplateVB.vstemplate" />

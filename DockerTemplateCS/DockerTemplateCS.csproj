@@ -91,6 +91,7 @@
     <Content Include="AssemblyInfo.cs" />
     <Content Include="ProjectTemplate.csproj">
       <IncludeInVSIX>true</IncludeInVSIX>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="DockerTemplateX7.ico" />
   </ItemGroup>

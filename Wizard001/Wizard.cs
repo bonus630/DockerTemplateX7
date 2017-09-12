@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.VisualStudio.TemplateWizard;
+using Microsoft.VisualStudio.Shell.Interop;
 
 
 namespace Wizard001
 {
     class Wizard : IWizard
     {
-        private int corelVersion;
+       
         private bool finish = false;
         private string projectDir;
         private EnvDTE.Project project;
+        private List<CorelVersionInfo> selectedVersions;
 
-        public void BeforeOpeningFile(global::EnvDTE.ProjectItem projectItem) {}
+        public void BeforeOpeningFile(global::EnvDTE.ProjectItem projectItem) {
+            
+        }
 
         public void ProjectFinishedGenerating(global::EnvDTE.Project project){
             this.project = project;
         }
        
-        public void ProjectItemFinishedGenerating(global::EnvDTE.ProjectItem projectItem){}
+        public void ProjectItemFinishedGenerating(global::EnvDTE.ProjectItem projectItem){
+            
+        }
 
         public void RunFinished()
         {
@@ -44,42 +50,105 @@ namespace Wizard001
                 }
                 throw new WizardBackoutException();
             }
+            EnvDTE.SolutionConfiguration[] configurations = new EnvDTE.SolutionConfiguration[3] { null, null, null };
+
+            foreach (EnvDTE.SolutionConfiguration item in this.project.DTE.Solution.SolutionBuild.SolutionConfigurations)
+            {
+               
+                
+
+                if(item.Name == "2017 Debug")
+                {
+                    configurations[2] = item;
+                }
+                if(item.Name == "X7 Debug")
+                {
+                    configurations[0] = item;
+                }
+                if(item.Name == "X8 Debug")
+                {
+                    configurations[1] = item;
+                }
+
+            }
+            for (int i = 0; i < configurations.Length; i++)
+            {
+                if (configurations[i] != null)
+                {
+                    configurations[i].Activate();
+                    break;
+                }
+                   
+            }
+          
+            this.project.Save();
             
+            
+
+
         }
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
+           
             this.projectDir = replacementsDictionary["$destinationdirectory$"];
             try
             {
                 Form1 form = new Form1();
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    this.corelVersion = form.CorelVersion;
-                    CorelVersionInfo corel = form.CorelVersionSelected;
-                    if (corel.CorelInstallationNotFound)
+                    bool cancel = true;
+                    
+                    this.selectedVersions = form.SelectedVersions;
+                    for (int i = 17; i < 20; i++)
                     {
-                        System.Windows.Forms.MessageBox.Show(string.Format("{0} not found", corel.CorelFullName));
-                        
-                        throw new WizardCancelledException();
-                        
+
+                        replacementsDictionary.Add("$corel" + i.ToString() + "$", "0");
+
                     }
-                    else
+                    for (int i = 0; i <selectedVersions.Count; i++)
                     {
-                        string corelAddonsPath = "";
-                        if (corel.Corel64Bit == CorelVersionInfo.CorelIs64Bit.Corel32)
-                            corel.CorelAddonsPath(out corelAddonsPath);
+                        CorelVersionInfo corel = selectedVersions[i];
+                        if (corel.CorelInstallationNotFound)
+                        {
+                            System.Windows.Forms.MessageBox.Show(string.Format("{0} not found", corel.CorelFullName));
+                            
+                           
+                        }
                         else
-                            corel.CorelAddonsPath64(out corelAddonsPath);
-                        replacementsDictionary.Add("$CorelAddonsPath$", corelAddonsPath);
-                        replacementsDictionary.Add("$GuidA$", Guid.NewGuid().ToString());
-                        replacementsDictionary.Add("$GuidB$", Guid.NewGuid().ToString());
-                        replacementsDictionary.Add("$GuidC$", Guid.NewGuid().ToString());
-                        replacementsDictionary.Add("$Caption$", form.DockerCaption);
-                        replacementsDictionary.Add("$CorelProgramPath$", corel.CorelExePath);
-                        replacementsDictionary.Add("$CorelVersion$", this.corelVersion.ToString());
-                        finish = true;
+                        {
+                            cancel = false;
+                            string corelAddonsPath = "";
+                            if (corel.Corel64Bit == CorelVersionInfo.CorelIs64Bit.Corel32)
+                                corel.CorelAddonsPath(out corelAddonsPath);
+                            else
+                                corel.CorelAddonsPath64(out corelAddonsPath);
+                            replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = "1";
+                            
+                            replacementsDictionary.Add("$CorelAddonsPath" + corel.CorelVersion + "$", corelAddonsPath);
+                         
+                            replacementsDictionary.Add("$CorelProgramPath" + corel.CorelVersion + "$", corel.CorelExePath);
+                         
+                        }
                     }
+                 
+                    if (cancel)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Operation is canceled!");
+
+                        throw new WizardCancelledException();
+
+                    }
+                   
+                   
+                   
+                    replacementsDictionary.Add("$GuidA$", Guid.NewGuid().ToString());
+                    replacementsDictionary.Add("$GuidB$", Guid.NewGuid().ToString());
+                    replacementsDictionary.Add("$GuidC$", Guid.NewGuid().ToString());
+                    replacementsDictionary.Add("$Caption$", form.DockerCaption);
+
+                    finish = true;
+                    
                 }
                 else
                 {

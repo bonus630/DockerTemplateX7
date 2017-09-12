@@ -2,7 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
-
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio;
 
 namespace Wizard001
 {
@@ -11,13 +12,9 @@ namespace Wizard001
         public int CorelVersion { get; private set; }
         public string DockerCaption { get; private set; }
         private List<CorelVersionInfo> installedVersions = new List<CorelVersionInfo>();
-        private CorelVersionInfo corelVersionSelected;
-        public CorelVersionInfo CorelVersionSelected{ get { return this.corelVersionSelected; }
-            private set {
-                this.corelVersionSelected = value;
-                this.btn_done.Enabled = !value.CorelInstallationNotFound;
-                        
-                        } }
+        private List<CorelVersionInfo> selectedVersions = new List<CorelVersionInfo>();
+        public List<CorelVersionInfo> SelectedVersions { get { return this.selectedVersions; } }
+    
         public Form1()
         {
             InitializeComponent();
@@ -34,6 +31,7 @@ namespace Wizard001
                 AddCheckBox(temp.Corel64FullName,i,!temp.CorelInstallationNotFound);
                
             }
+           
 
         }
       
@@ -54,12 +52,12 @@ namespace Wizard001
         }
         private void AddCheckBox(string text,int id,bool enabled)
         {
-            RadioButton ck = new RadioButton();
+            CheckBox ck = new CheckBox();
             ck.Text = text;
             ck.Tag = id;
             ck.Enabled = true;
             if (enabled)
-                ck.ForeColor = Color.Black;
+                ck.ForeColor = Color.White;
             else
                 ck.ForeColor = Color.Red;
             ck.AutoSize = true;
@@ -69,10 +67,22 @@ namespace Wizard001
 
         private void Ck_Click(object sender, EventArgs e)
         {
-            RadioButton ck = sender as RadioButton;
-            this.CorelVersionSelected = installedVersions.Find(r => r.CorelVersion == (int)ck.Tag);
-            if (this.CorelVersionSelected.CorelInstallationNotFound)
-                this.CorelVersionSelected.recoverPathManually(this.CorelVersionSelected.CorelVersion);
+            CheckBox ck = sender as CheckBox;
+            CorelVersionInfo temp = installedVersions.Find(r => r.CorelVersion == (int)ck.Tag);
+            if (ck.Checked)
+            {
+                if (temp.CorelInstallationNotFound)
+                    temp.recoverPathManually(temp.CorelVersion);
+                this.selectedVersions.Add(temp);
+            }
+            if (!ck.Checked && this.selectedVersions.Count > 0)
+                this.selectedVersions.Remove(installedVersions.Find(r => r.CorelVersion == (int)ck.Tag));
+            if (this.selectedVersions.Count > 0)
+                btn_done.Enabled = true;
+            else
+                btn_done.Enabled = false;
+            
         }
+      
     }
 }

@@ -10,13 +10,13 @@
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<RootNamespace>$safeprojectname$</RootNamespace>
 		<AssemblyName>$safeprojectname$</AssemblyName>
-    
-    $if$ ($CorelVersion$ == 17)
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <!--$if$ ($CorelVersion$ == 17)
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     $endif$
     $if$ ($CorelVersion$ == 18 || $CorelVersion$ == 19)
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    $endif$
+    $endif$-->
     <!--<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>-->
     
 		<FileAlignment>512</FileAlignment>
@@ -26,12 +26,12 @@
 		<DebugType>full</DebugType>
 		<Optimize>false</Optimize>
 		<OutputPath>bin\Debug\</OutputPath>
-    <OutDir>bin\Debug\$(SolutionName)</OutDir>
+    <!--<OutDir>bin\Debug\$(SolutionName)</OutDir>-->
 		<DefineConstants>DEBUG;TRACE</DefineConstants>
 		<ErrorReport>prompt</ErrorReport>
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<!--<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<DebugType>pdbonly</DebugType>
  		<Optimize>true</Optimize>
 		<OutputPath>bin\Release\</OutputPath>
@@ -39,8 +39,80 @@
 		<DefineConstants>TRACE</DefineConstants>
 		<ErrorReport>prompt</ErrorReport>
 		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<ItemGroup>
+	</PropertyGroup>-->
+  $if$ ($corel17$ == 1)
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <!--<OutputPath>bin\Debug\X7\</OutputPath>
+    <OutDir>bin\Debug\X7\$(SolutionName)</OutDir>-->
+    <DefineConstants>DEBUG;TRACE;X7</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\X7\</OutputPath>
+    <OutDir>bin\Release\X7\$(SolutionName)</OutDir>
+    <DefineConstants>TRACE;X7</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+
+  </PropertyGroup>
+  $endif$
+  $if$ ($corel18$ == 1)
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <!--<OutputPath>bin\Debug\X8\</OutputPath>
+    <OutDir>bin\Debug\X8\$(SolutionName)</OutDir>-->
+    <DefineConstants>DEBUG;TRACE;X8</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\X8\</OutputPath>
+    <OutDir>bin\Release\X8\$(SolutionName)</OutDir>
+    <DefineConstants>TRACE;X8</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+
+  </PropertyGroup>
+  $endif$
+  $if$ ($corel19$ == 1)
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <!--<OutputPath>bin\Debug\2017\</OutputPath>
+    <OutDir>bin\Debug\2017\$(SolutionName)</OutDir>-->
+    <DefineConstants>DEBUG;TRACE;X9</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\2017\</OutputPath>
+    <OutDir>bin\Release\2017\$(SolutionName)</OutDir>
+    <DefineConstants>TRACE;X9</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+
+  </PropertyGroup>
+  $endif$
+  <ItemGroup>
 		<Reference Include="System"/>
 		$if$ ($targetframeworkversion$ >= 3.5)
 		<Reference Include="System.Core"/>
@@ -56,11 +128,43 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsBase" />
-    <Reference Include="$CorelProgramPath$Assemblies\Corel.Interop.VGCore.dll">
+    $if$ ($corel17$ == 1)
+    <Reference Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X7 Debug'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
-	</ItemGroup>
+    $endif$
+    $if$ ($corel18$ == 1)
+    <Reference Include="$CorelProgramPath18$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X8 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    $endif$
+    $if$ ($corel19$ == 1)
+    <Reference Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2017 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    $endif$
+    $if$ ($corel17$ == 1)
+    <Reference Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X7 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    $endif$
+    $if$ ($corel18$ == 1)
+    <Reference Include="$CorelProgramPath18$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X8 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    $endif$
+    $if$ ($corel19$ == 1)
+    <Reference Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2017 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    $endif$
+  </ItemGroup>
   
 	<ItemGroup>
     <Page Include="DockerUI.xaml">
@@ -126,19 +230,106 @@
   </Target>
   <Target Name="AfterBuild">
   </Target>
-  -->
-  <PropertyGroup>
+  --> 
+  
+
+   $if$ ($corel17$ == 1)
+  <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
     <PostBuildEvent>
-      if not exist "$CorelAddonsPath$$(SolutionName)" md "$CorelAddonsPath$$(SolutionName)"
-      copy "$(TargetPath)" "$CorelAddonsPath$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
-      if $(ConfigurationName) == Debug copy "$(TargetDir)\$(SolutionName).pdb" "$CorelAddonsPath$$(SolutionName)\$(SolutionName).pdb"
+      if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
+      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath17$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath17$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
+      copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath17$$(SolutionName)" /y
+      </PostBuildEvent>
+  </PropertyGroup>
+  
+    <PropertyGroup  Condition="'$(Configuration)'=='X7 Release'">
+      <PostBuildEvent>
+        if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
+        copy "$(ProjectDir)bin\Release\X8\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath17$$(SolutionName)" /y
+        copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath17$$(SolutionName)" /y
+        copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
+        copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
+      </PostBuildEvent>
+  </PropertyGroup>
+   $endif$
+   
+  $if$ ($corel18$ == 1)
+    <PropertyGroup  Condition="'$(Configuration)'=='X8 Debug'">
+      <PostBuildEvent>
+        if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
+        copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath18$$(SolutionName)" /y
+        copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath18$$(SolutionName)" /y
+        copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+        copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+        copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath18$$(SolutionName)" /y
+        </PostBuildEvent>
+  </PropertyGroup>
+  
+    <PropertyGroup  Condition="'$(Configuration)'=='X8 Release'">
+       <PostBuildEvent>
+        if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
+        copy "$(ProjectDir)bin\Release\X8\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath18$$(SolutionName)" /y
+        copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath18$$(SolutionName)" /y
+        copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+        copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+       </PostBuildEvent>
+    </PropertyGroup>
+    $endif$
+    
+  $if$ ($corel19$ == 1)
+    <PropertyGroup  Condition="'$(Configuration)'=='2017 Debug'">
+      <PostBuildEvent>
+         if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
+          copy "$(ProjectDir)bin\Debug\2017\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
+          copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
+          copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+          copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+          copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath19$$(SolutionName)" /y
     </PostBuildEvent>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartAction>Program</StartAction>
-    <StartProgram>$CorelProgramPath$CorelDRW.exe</StartProgram>
+  
+   <PropertyGroup  Condition="'$(Configuration)'=='2017 Release'">
+      <PostBuildEvent>
+         if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
+          copy "$(ProjectDir)bin\Release\2017\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
+          copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
+          copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+          copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+    </PostBuildEvent>
   </PropertyGroup>
- </Project>
+$endif$
+
+  $if$ ($corel17$ == 1)
+  <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath17$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X7 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath17$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  $endif$
+  $if$ ($corel18$ == 1)
+  <PropertyGroup  Condition="'$(Configuration)'=='X8 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath18$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X8 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath18$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  $endif$
+  $if$ ($corel19$ == 1)
+  <PropertyGroup  Condition="'$(Configuration)'=='2017 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath19$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='2017 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath19$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  $endif$
+</Project>
