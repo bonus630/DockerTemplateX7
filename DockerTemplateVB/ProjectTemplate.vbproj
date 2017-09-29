@@ -13,34 +13,14 @@
     <AssemblyName>$safeprojectname$</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Custom</MyType>
-    <OutDir>$(SolutionName)</OutDir>
- 
+    <OutputPath>bin\Debug\</OutputPath>
+    <OutDir>bin\Debug\</OutDir>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   
     <!--<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>-->
  </PropertyGroup>
 
-  <!--<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
-    <OutDir>bin\Debug\$(SolutionName)</OutDir>
-    <DocumentationFile></DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-  </PropertyGroup>-->
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <DefineDebug>false</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <OutDir>bin\Release\$(SolutionName)</OutDir>
-    <DocumentationFile>$safeprojectname$.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-  </PropertyGroup>
   $if$ ($corel17$ == 1)
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,19 +28,19 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    
+    <OutDir>bin\Debug\</OutDir>
     <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X7</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\X7\</OutputPath>
     <OutDir>bin\Release\X7\$(SolutionName)</OutDir>
-    <DocumentationFile>$safeprojectname$.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X7</DefineConstants>
   </PropertyGroup>
@@ -72,19 +52,19 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-   
+    <OutDir>bin\Debug\</OutDir>
     <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X8</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\X8\</OutputPath>
     <OutDir>bin\Release\X8\$(SolutionName)</OutDir>
-    <DocumentationFile>$safeprojectname$.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X8</DefineConstants>
   </PropertyGroup>
@@ -96,19 +76,19 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-  
+    <OutDir>bin\Debug\</OutDir>
     <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X9</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\2017\</OutputPath>
     <OutDir>bin\Release\2017\$(SolutionName)</OutDir>
-    <DocumentationFile>$safeprojectname$.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X9</DefineConstants>
   </PropertyGroup>
