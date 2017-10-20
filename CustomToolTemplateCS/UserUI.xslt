@@ -51,7 +51,7 @@
       <xsl:with-param name="content">
         <xsl:if test="not(./item[@guidRef='$GuidA$'])">
           <!-- Only insert if its not already there -->
-          <item guidRef="$guid1$"/>
+          <item guidRef="$GuidA$"/>
         </xsl:if>
       </xsl:with-param>
     </xsl:apply-templates>

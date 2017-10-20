@@ -16,6 +16,7 @@ namespace Wizard001
         public List<CorelVersionInfo> SelectedVersions { get { return this.selectedVersions; } }
         private VsTheme vsTheme = VsTheme.Unknown;
         private string type = "Docker";
+        private Color CkVersionColor { get; set; }
         public Form1()
         {
             InitializeForm();
@@ -30,7 +31,7 @@ namespace Wizard001
         private void InitializeForm()
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(45, 45, 48);
+            
             txt_dockerCaption.Focus();
             DockerCaption = txt_dockerCaption.Text;
             btn_cancel.DialogResult = DialogResult.Cancel;
@@ -43,29 +44,36 @@ namespace Wizard001
                 AddCheckBox(temp.Corel64FullName, i, !temp.CorelInstallationNotFound);
 
             }
+            ChangeTheme();
+            ChangeType();
         }
         private void ChangeTheme()
         { 
             switch(vsTheme)
             {
                 case VsTheme.Dark:
-                    this.BackColor = Color.Black;
+                    this.BackColor = Color.FromArgb(45, 45, 48);
+                    this.CkVersionColor = Color.White;
+                    break;
+                default:
+                    this.BackColor = Color.White;
+                    this.CkVersionColor = Color.FromArgb(165,154,151);
                 break;
-                case VsTheme.Blue:
-                    this.BackColor = Color.Blue;
-                break;
+            }
+            foreach (CheckBox item in this.flowLayoutPanel_Versions.Controls)
+            {
+                item.ForeColor = CkVersionColor;
             }
         }
         private void ChangeType()
         {
             if(type == "Tool")
             {
-
+                panel_dockerCaption.Visible = false;
+                panel_middler.Top = 3;
+                this.Text = "Configure Custom Tool Project";
             }
-            if (type == "Docker")
-            {
-
-            }
+          
         }
         private void txt_dockerCaption_TextChanged(object sender, EventArgs e)
         {
@@ -88,7 +96,7 @@ namespace Wizard001
             ck.Tag = id;
             ck.Enabled = true;
             if (enabled)
-                ck.ForeColor = Color.White;
+                ck.ForeColor = CkVersionColor;
             else
                 ck.ForeColor = Color.Red;
             ck.AutoSize = true;
@@ -104,7 +112,8 @@ namespace Wizard001
             {
                 if (temp.CorelInstallationNotFound)
                     temp.recoverPathManually(temp.CorelVersion);
-                this.selectedVersions.Add(temp);
+                if(!temp.CorelInstallationNotFound)
+                    this.selectedVersions.Add(temp);
             }
             if (!ck.Checked && this.selectedVersions.Count > 0)
                 this.selectedVersions.Remove(installedVersions.Find(r => r.CorelVersion == (int)ck.Tag));
