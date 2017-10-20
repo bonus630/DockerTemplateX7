@@ -12,3 +12,6 @@ Add support to new CorelDraw 2017
 
 Version 1.803
 Add support to multi compile configuration
+
+Version 1.804
+Fix debugs configurations in vb template

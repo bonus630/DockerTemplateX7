@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wizard001", "Wizard001\Wizard001.csproj", "{FE07A5D6-33B1-4C90-B17D-45DC6AEA0DDA}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerTemplateJS", "DockerTemplateJS\DockerTemplateJS.csproj", "{9A2292E6-CDBA-42AA-AFFE-76B5860C3222}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerTemplateCS", "DockerTemplateCS\DockerTemplateCS.csproj", "{15571839-170E-486E-9BE5-A69B4D3B7126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomToolTemplateCS", "CustomToolTemplateCS\CustomToolTemplateCS.csproj", "{F642EDD1-9D30-4DE8-B3D8-9732C4089891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +41,15 @@ Global
 		{15571839-170E-486E-9BE5-A69B4D3B7126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15571839-170E-486E-9BE5-A69B4D3B7126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15571839-170E-486E-9BE5-A69B4D3B7126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F642EDD1-9D30-4DE8-B3D8-9732C4089891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F642EDD1-9D30-4DE8-B3D8-9732C4089891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F642EDD1-9D30-4DE8-B3D8-9732C4089891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F642EDD1-9D30-4DE8-B3D8-9732C4089891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C67B0612-AC1C-4996-B91F-70FCD0B2F528}
 	EndGlobalSection
 EndGlobal

@@ -18,9 +18,9 @@ namespace Wizard001
 
     public class ThemeManager
     {
-        private EnvDTE.DTE dte;
+        private EnvDTE80.DTE2 dte;
 
-        public ThemeManager(EnvDTE.DTE dte)
+        public ThemeManager(EnvDTE80.DTE2 dte)
         {
             this.dte = dte;
         }
@@ -48,10 +48,9 @@ namespace Wizard001
 
         public  string GetThemeId()
         {
-            System.Windows.Forms.MessageBox.Show(dte.Version);
             const string CategoryName = "General";
             const string ThemePropertyName = "CurrentTheme";
-            string keyName = string.Format(@"Software\Microsoft\VisualStudio\11.0\{0}", CategoryName);
+            string keyName = string.Format(@"Software\Microsoft\VisualStudio\{0}\{1}",dte.Version, CategoryName);
 
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyName))
             {

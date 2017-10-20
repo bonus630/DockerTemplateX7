@@ -39,6 +39,9 @@
       <Folder Name="images" TargetFolderName="images" />
       <Folder Name="pages" TargetFolderName="pages" />
     </Project>
+    <CustomParameters>
+      <CustomParameter Name="Type" Value="Docker"/>
+    </CustomParameters>
   </TemplateContent>
  
   <WizardExtension>

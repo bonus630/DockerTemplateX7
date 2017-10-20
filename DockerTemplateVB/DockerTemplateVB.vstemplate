@@ -30,6 +30,9 @@
       <ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
     </Project>
+    <CustomParameters>
+      <CustomParameter Name="Type" Value="Docker"/>
+    </CustomParameters>
   </TemplateContent>
   <WizardExtension>
     <Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>

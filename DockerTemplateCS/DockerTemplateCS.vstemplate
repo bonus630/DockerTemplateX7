@@ -31,10 +31,13 @@
 
       <!--  Erro - <ProjectItem SubType="ProjectTemplate.csproj.user" ReplaceParameters="true"></ProjectItem>-->
     </Project>
-    
+    <CustomParameters>
+      <CustomParameter Name="Type" Value="Docker"/>
+    </CustomParameters>
   </TemplateContent>
   <WizardExtension>
     <Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
     <FullClassName>Wizard001.Wizard</FullClassName>
   </WizardExtension>
+
 </VSTemplate>

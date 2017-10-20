@@ -14,8 +14,20 @@ namespace Wizard001
         private List<CorelVersionInfo> installedVersions = new List<CorelVersionInfo>();
         private List<CorelVersionInfo> selectedVersions = new List<CorelVersionInfo>();
         public List<CorelVersionInfo> SelectedVersions { get { return this.selectedVersions; } }
-    
+        private VsTheme vsTheme = VsTheme.Unknown;
+        private string type = "Docker";
         public Form1()
+        {
+            InitializeForm();
+        }
+      
+        public Form1(VsTheme vsTheme,string type)
+        {
+            this.vsTheme = vsTheme;
+            this.type = type;
+            InitializeForm();
+        }
+        private void InitializeForm()
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(45, 45, 48);
@@ -28,14 +40,33 @@ namespace Wizard001
             {
                 CorelVersionInfo temp = new CorelVersionInfo(i);
                 installedVersions.Add(temp);
-                AddCheckBox(temp.Corel64FullName,i,!temp.CorelInstallationNotFound);
-               
+                AddCheckBox(temp.Corel64FullName, i, !temp.CorelInstallationNotFound);
+
             }
-           
-
         }
-      
+        private void ChangeTheme()
+        { 
+            switch(vsTheme)
+            {
+                case VsTheme.Dark:
+                    this.BackColor = Color.Black;
+                break;
+                case VsTheme.Blue:
+                    this.BackColor = Color.Blue;
+                break;
+            }
+        }
+        private void ChangeType()
+        {
+            if(type == "Tool")
+            {
 
+            }
+            if (type == "Docker")
+            {
+
+            }
+        }
         private void txt_dockerCaption_TextChanged(object sender, EventArgs e)
         {
             DockerCaption = txt_dockerCaption.Text;
