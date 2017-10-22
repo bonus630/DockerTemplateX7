@@ -15,3 +15,6 @@ Add support to multi compile configuration
 
 Version 1.804
 Fix debugs configurations in vb template
+
+Version 1.968
+Add the Custom Tool official template for uses in newers version of VS

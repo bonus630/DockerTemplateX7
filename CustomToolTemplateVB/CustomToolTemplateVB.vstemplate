@@ -1,0 +1,53 @@
+﻿<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>CorelDRAW Tool Addon</Name>
+    <Description>A project template for creating custom tools for CorelDRAW X7.1 or higher. For more information on creating custom tools, please see http://community.coreldraw.com/sdk </Description>
+    <Icon>CustomToolTemplateVB.ico</Icon>
+    <ProjectType>VisualBasic</ProjectType>
+    <TemplateID>fbfe3c6a-4e7a-4a3f-bd53-a9f520432a12</TemplateID>
+    <SortOrder>1000</SortOrder>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>SampleTool</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.png</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.vbproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.vbproj.user">ProjectTemplate.vbproj.user</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Addon.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$.vb">DrawTool.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="AppUI.xslt">AppUI.xslt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="UserUI.xslt">UserUI.xslt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="config.xml">config.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="CorelDrw.addon">CorelDrw.addon</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="Readme.txt">Readme.txt</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="My Project\Application.myapp">MyApplication.myapp</ProjectItem>
+
+    </Project> 
+    <CustomParameters>
+      <CustomParameter Name="Type" Value="Tool"/>
+    </CustomParameters>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>Wizard001.Wizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>
+
+
+
+
+
+  
+    
+   
+    
+  
+

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>CorelDraw Docker Project</Name>
+    <Name>CorelDRAW Docker Addon</Name>
     <Description>CSharp Project Template for create custom CorelDRAW X7,X8 and 2017 dockers. CorelDraw is trademaker from Corel Corporation</Description>
     <Icon>DockerTemplateX7.ico</Icon>
     <ProjectType>CSharp</ProjectType>

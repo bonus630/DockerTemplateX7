@@ -77,6 +77,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\CustomToolTemplateVB\CustomToolTemplateVB.vbproj">
+      <Project>{9F4172F5-3854-4C9C-8FAF-FBE082020B39}</Project>
+      <Name>CustomToolTemplateVB</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\DockerTemplateCS\DockerTemplateCS.csproj">
       <Project>{15571839-170e-486e-9be5-a69b4d3b7126}</Project>
       <Name>DockerTemplateCS</Name>
