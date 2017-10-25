@@ -55,8 +55,6 @@ namespace Wizard001
 
             foreach (EnvDTE.SolutionConfiguration item in this.project.DTE.Solution.SolutionBuild.SolutionConfigurations)
             {
-               
-                
 
                 if(item.Name == "2017 Debug")
                 {

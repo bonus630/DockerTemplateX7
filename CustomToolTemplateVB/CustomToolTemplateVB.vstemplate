@@ -2,35 +2,38 @@
   <TemplateData>
     <Name>CorelDRAW Tool Addon</Name>
     <Description>A project template for creating custom tools for CorelDRAW X7.1 or higher. For more information on creating custom tools, please see http://community.coreldraw.com/sdk </Description>
-    <Icon>CustomToolTemplateVB.ico</Icon>
+    <Icon>__TemplateIcon.png</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
     <ProjectType>VisualBasic</ProjectType>
-    <TemplateID>fbfe3c6a-4e7a-4a3f-bd53-a9f520432a12</TemplateID>
+    <TemplateID>2005f455-f415-4dfb-a4de-d6d9562b3813</TemplateID>
     <SortOrder>1000</SortOrder>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SampleTool</DefaultName>
+    <DefaultName>CustomTool</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
-    <LocationField>Enabled</LocationField>
-    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
-    <Icon>__TemplateIcon.png</Icon>
-    <PreviewImage>__PreviewImage.png</PreviewImage>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.vbproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.vbproj.user">ProjectTemplate.vbproj.user</ProjectItem>
-      <ProjectItem ReplaceParameters="true">Addon.vb</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$.vb">DrawTool.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="10" TargetFileName="$safeprojectname$.vb">DrawTool.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Addon.vb">Addon.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="My Project\Application.myapp">MyApplication.myapp</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\Application.Designer.vb">MyApplication.Designer.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="My Project\Resources.resx">Resources.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\Resources.Designer.vb">Resources.Designer.vb</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="My Project\Settings.settings">Settings.settings</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\Settings.Designer.vb">Settings.Designer.vb</ProjectItem>
+      
       <ProjectItem ReplaceParameters="true" TargetFileName="AppUI.xslt">AppUI.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="UserUI.xslt">UserUI.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="config.xml">config.xml</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="CorelDrw.addon">CorelDrw.addon</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="Readme.txt">Readme.txt</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
-      <ProjectItem ReplaceParameters="false" TargetFileName="My Project\Application.myapp">MyApplication.myapp</ProjectItem>
 
-    </Project> 
+    </Project>
     <CustomParameters>
       <CustomParameter Name="Type" Value="Tool"/>
     </CustomParameters>
@@ -39,15 +42,5 @@
     <Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
     <FullClassName>Wizard001.Wizard</FullClassName>
   </WizardExtension>
+
 </VSTemplate>
-
-
-
-
-
-  
-    
-   
-    
-  
-

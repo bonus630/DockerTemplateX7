@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("CustomToolTemplateVB")>
+<Assembly: AssemblyTitle("CustomToolTemplateTeste")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Bonus630")>
-<Assembly: AssemblyProduct("CustomToolTemplateVB")>
+<Assembly: AssemblyProduct("CustomToolTemplateTeste")>
 <Assembly: AssemblyCopyright("Copyright © Bonus630 2017")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("9f4172f5-3854-4c9c-8faf-fbe082020b39")>
+<Assembly: Guid("20c4b870-6b94-494a-b157-8fbb2fc8f0c4")>
 
 ' Version information for an assembly consists of the following four values:
 '

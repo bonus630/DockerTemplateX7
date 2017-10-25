@@ -8,16 +8,24 @@
     <SchemaVersion>
     </SchemaVersion>
     <ProjectGuid>{$guid2$}</ProjectGuid>
+  
     <OutputType>Library</OutputType>
     <RootNamespace>$safeprojectname$</RootNamespace>
     <AssemblyName>$safeprojectname$</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Custom</MyType>
+    <MyType>Windows</MyType>
+    
+    <TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
+ </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <OutDir>bin\Debug\</OutDir>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-
-    <!--<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>-->
+    <DocumentationFile>$safeprojectname$.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
 
 
@@ -95,6 +103,30 @@
   $endif$
 
   <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+$if$ ($targetframeworkversion$ >= 3.5)
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+$endif$
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    $if$ ($targetframeworkversion$ >= 3.5)
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    $endif$
+  </ItemGroup>
+<!--Add corel reference-->
+  <ItemGroup>
     <!--<Import Include="$CorelProgramPath$Assemblies\Corel.Interop.VGCore.dll" />-->
     $if$ ($corel17$ == 1)
     <Import Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll" />
@@ -115,7 +147,7 @@
     <Reference Include="System.Xml.Linq"/>
     <Reference Include="System.Data.DataSetExtensions"/>
     $endif$
-   
+
     $if$ ($corel17$ == 1)
     <Reference Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X7 Debug'">
       <Name>Corel.Interop.VGCore</Name>
@@ -153,24 +185,37 @@
     </Reference>
     $endif$
   </ItemGroup>
-
-
-
+  
   <ItemGroup>
-    <Compile Include="My Project\AssemblyInfo.vb">
-      <SubType>Code</SubType>
+    <Compile Include="$safeprojectname$.vb"/>
+    <Compile Include="Addon.vb"/>
+    <Compile Include="My Project\AssemblyInfo.vb"/>
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-   
-    <AppDesigner Include="My Project\" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
-
   <ItemGroup>
-    <Compile Include="Addon.vb" />
-    <Compile Include="$safeprojectname$.vb" />
-    <Compile Include="AssemblyInfo.vb" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources.rct">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="AppUI.xslt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="UserUI.xslt">
@@ -179,16 +224,28 @@
     <Content Include="CorelDrw.addon">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="config.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="resources.rct">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
-  
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
 
- 
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -198,7 +255,6 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
 
   $if$ ($corel17$ == 1)
   <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
