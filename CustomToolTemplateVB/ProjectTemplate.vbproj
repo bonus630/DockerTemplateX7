@@ -306,7 +306,7 @@ $endif$
   <PropertyGroup  Condition="'$(Configuration)'=='2017 Debug'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
-      copy "$(ProjectDir)bin\Debug\2017\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
+      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
       copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
       copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
       copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
