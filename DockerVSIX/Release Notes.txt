@@ -18,3 +18,9 @@ Fix debugs configurations in vb template
 
 Version 1.968
 Add the Custom Tool official template for uses in newers version of VS
+
+Version 1.970
+Fix debug configurations
+
+Version 1.972
+Add new project template, create a button in standard bar

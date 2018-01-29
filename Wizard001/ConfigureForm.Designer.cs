@@ -1,6 +1,6 @@
 ﻿namespace Wizard001
 {
-    partial class Form1
+    partial class ConfigureForm
     {
         /// <summary>
         /// Required designer variable.
@@ -56,6 +56,7 @@
             this.txt_dockerCaption.Size = new System.Drawing.Size(384, 20);
             this.txt_dockerCaption.TabIndex = 4;
             this.txt_dockerCaption.Text = "Enter Caption";
+            this.txt_dockerCaption.TextChanged += new System.EventHandler(this.txt_dockerCaption_TextChanged);
             // 
             // label1
             // 
@@ -115,7 +116,7 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Add one or more CorelDraw Version(s) to your Project:";
             // 
-            // Form1
+            // ConfigureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,7 +127,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "ConfigureForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

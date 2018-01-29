@@ -45,19 +45,22 @@ namespace Wizard001
 
             return VsTheme.Unknown;
         }
-
-        public  string GetThemeId()
+        //C:\Users\Reginaldo\AppData\Local\Microsoft\VisualStudio
+        //Pinvoke RegLoadAppKey
+        public string GetThemeId()
         {
             const string CategoryName = "General";
             const string ThemePropertyName = "CurrentTheme";
+            string result = "";
             string keyName = string.Format(@"Software\Microsoft\VisualStudio\{0}\{1}",dte.Version, CategoryName);
 
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyName))
             {
                 if (key != null)
                 {
-                    return (string)key.GetValue(ThemePropertyName, string.Empty);
+                    result =  (string)key.GetValue(ThemePropertyName, string.Empty);
                 }
+               
             }
 
             return null;

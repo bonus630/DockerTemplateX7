@@ -105,7 +105,7 @@ namespace Wizard001
                     ThemeManager tManager = new ThemeManager(dte);
                     vsTheme = tManager.GetCurrentTheme();
                 }
-                Form1 form = new Form1(vsTheme,replacementsDictionary["Type"]);
+                ConfigureForm form = new ConfigureForm(vsTheme,replacementsDictionary["Type"]);
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     bool cancel = true;

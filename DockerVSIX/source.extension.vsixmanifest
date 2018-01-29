@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="1.970" Language="en-US" Publisher="Bonus630" />
-        <DisplayName>CorelDraw Docker Template</DisplayName>
-        <Description xml:space="preserve">CSharp, VisualBasic, JavaScript Docker Project Template for CorelDraw X7 ,X8 and 2017 , CorelDraw is trademaker from Corel Corporation</Description>
+        <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="1.972" Language="en-US" Publisher="Bonus630" />
+        <DisplayName>CorelDraw Addons Templates</DisplayName>
+        <Description xml:space="preserve">CSharp, VisualBasic, JavaScript Addons Projects Templates for CorelDraw X7 ,X8 and 2017 , CorelDraw is trademaker from Corel Corporation</Description>
         <MoreInfo>http://bonus630.tk</MoreInfo>
         <GettingStartedGuide>https://youtu.be/3jqkj06zAdo</GettingStartedGuide>
         <ReleaseNotes>Release Notes.txt</ReleaseNotes>
@@ -27,6 +27,8 @@
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateCS" d:TargetPath="|DockerTemplateCS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:TargetPath="|CustomToolTemplateCS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" d:ProjectName="CustomToolTemplateCS" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:TargetPath="|CustomToolTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ButtonTemplateCS" d:TargetPath="|ButtonTemplateCS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ButtonTemplateVB" d:TargetPath="|ButtonTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     </Assets>
     <Prerequisites>
         <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0.26208.0,16.0)" DisplayName="Visual Studio core editor" />

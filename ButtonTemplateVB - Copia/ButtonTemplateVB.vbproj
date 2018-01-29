@@ -29,10 +29,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{F184B08F-C81C-45f6-A57F-5ABD9991F28F}</ProjectTypeGuids>
-    <ProjectGuid>{09963A79-C60E-420E-A5B9-4F97F2B6CD8A}</ProjectGuid>
+    <ProjectGuid>{B14F8A3C-95F3-4CD9-AA27-93211559E4CC}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>DockerTemplateVB</RootNamespace>
-    <AssemblyName>DockerTemplateVB</AssemblyName>
+    <RootNamespace>ButtonTemplateVB</RootNamespace>
+    <AssemblyName>ButtonTemplateVB</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
@@ -89,9 +89,9 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DockerUI.xaml.vb">
+    <Compile Include="DockerUI.xaml.vb">
       <DependentUpon>DockerUI.xaml</DependentUpon>
-    </Content>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Settings1.Designer.vb">
       <DependentUpon>Settings.settings</DependentUpon>
@@ -110,7 +110,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="DockerTemplateVB.vstemplate" />
+    <VSTemplate Include="ButtonTemplateVB.vstemplate" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppUI.xslt" />

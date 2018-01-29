@@ -7,7 +7,7 @@ using Microsoft.VisualStudio;
 
 namespace Wizard001
 {
-    public partial class Form1 : Form
+    public partial class ConfigureForm : Form
     {
         public int CorelVersion { get; private set; }
         public string DockerCaption { get; private set; }
@@ -17,12 +17,12 @@ namespace Wizard001
         private VsTheme vsTheme = VsTheme.Unknown;
         private string type = "Docker";
         private Color CkVersionColor { get; set; }
-        public Form1()
+        public ConfigureForm()
         {
             InitializeForm();
         }
       
-        public Form1(VsTheme vsTheme,string type)
+        public ConfigureForm(VsTheme vsTheme,string type)
         {
             this.vsTheme = vsTheme;
             this.type = type;
