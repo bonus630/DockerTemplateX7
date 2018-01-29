@@ -43,7 +43,7 @@ This file defines new UI elements that all workspaces will contain
 
       <itemData guid="$GuidB$"
                 type="wpfhost"
-                hostedType="Addons\$safeprojectname$\$safeprojectname$.dll,$safeprojectname$.DockerUI"
+                hostedType="Addons\$safeprojectname$\$safeprojectname$.dll,$safeprojectname$.ControlUI"
                 enable="true"/>
 
     </xsl:copy>
