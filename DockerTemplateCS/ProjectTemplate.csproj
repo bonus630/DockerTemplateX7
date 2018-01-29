@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<ProductVersion>8.0.30703</ProductVersion>
-		<SchemaVersion>2.0</SchemaVersion>
-		<ProjectGuid>$guid1$</ProjectGuid>
-		<OutputType>Library</OutputType>
-		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<RootNamespace>$safeprojectname$</RootNamespace>
-		<AssemblyName>$safeprojectname$</AssemblyName>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>$guid1$</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <!--$if$ ($CorelVersion$ == 17)
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -18,20 +18,20 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     $endif$-->
     <!--<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>-->
-    
-		<FileAlignment>512</FileAlignment>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<Optimize>false</Optimize>
-		<OutputPath>bin\Debug\</OutputPath>
+
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
     <!--<OutDir>bin\Debug\$(SolutionName)</OutDir>-->
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-	</PropertyGroup>
-	<!--<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!--<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<DebugType>pdbonly</DebugType>
  		<Optimize>true</Optimize>
 		<OutputPath>bin\Release\</OutputPath>
@@ -112,18 +112,21 @@
 
   </PropertyGroup>
   $endif$
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
   <ItemGroup>
-		<Reference Include="System"/>
-		$if$ ($targetframeworkversion$ >= 3.5)
-		<Reference Include="System.Core"/>
-		<Reference Include="System.Xml.Linq"/>
-		<Reference Include="System.Data.DataSetExtensions"/>
-		$endif$
-		$if$ ($targetframeworkversion$ >= 4.0)
-		<Reference Include="Microsoft.CSharp"/>
- 		$endif$
-		<Reference Include="System.Data"/>
-		<Reference Include="System.Xml"/>
+    <Reference Include="System"/>
+    $if$ ($targetframeworkversion$ >= 3.5)
+    <Reference Include="System.Core"/>
+    <Reference Include="System.Xml.Linq"/>
+    <Reference Include="System.Data.DataSetExtensions"/>
+    $endif$
+    $if$ ($targetframeworkversion$ >= 4.0)
+    <Reference Include="Microsoft.CSharp"/>
+    $endif$
+    <Reference Include="System.Data"/>
+    <Reference Include="System.Xml"/>
     <Reference Include="System.Xaml"/>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -165,8 +168,8 @@
     </Reference>
     $endif$
   </ItemGroup>
-  
-	<ItemGroup>
+
+  <ItemGroup>
     <Page Include="DockerUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,66 +177,66 @@
     <Compile Include="DockerUI.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-		
-	</ItemGroup>
+
+  </ItemGroup>
   <!--<ItemGroup>
     <Compile Include="DockerUI.xaml" />
     <Compile Include="DockerUI.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>-->
   <ItemGroup>
-      <Compile Include="Properties\AssemblyInfo.cs">
-        <SubType>Code</SubType>
-      </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
 
-      <Compile Include="Properties\Resources.Designer.cs">
-        <AutoGen>True</AutoGen>
-        <DesignTime>True</DesignTime>
-        <DependentUpon>Resources.resx</DependentUpon>
-      </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
 
-      <Compile Include="Properties\Settings.Designer.cs">
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Settings.settings</DependentUpon>
-        <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
 
-      <EmbeddedResource Include="Properties\Resources.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
 
-      <None Include="Properties\Settings.settings">
-        <Generator>SettingsSingleFileGenerator</Generator>
-        <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-      </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
 
-      <AppDesigner Include="Properties\" />
+    <AppDesigner Include="Properties\" />
 
-    </ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="AppUI.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="UserUI.xslt">
-       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CorelDrw.addon">
-       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    
+
   </ItemGroup>
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
   </Target>
-  --> 
-  
+  -->
 
-   $if$ ($corel17$ == 1)
+
+  $if$ ($corel17$ == 1)
   <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
@@ -242,65 +245,65 @@
       copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
       copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
       copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath17$$(SolutionName)" /y
-      </PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
-  
-    <PropertyGroup  Condition="'$(Configuration)'=='X7 Release'">
-      <PostBuildEvent>
-        if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
-        copy "$(ProjectDir)bin\Release\X8\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath17$$(SolutionName)" /y
-        copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath17$$(SolutionName)" /y
-        copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
-        copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
-      </PostBuildEvent>
+
+  <PropertyGroup  Condition="'$(Configuration)'=='X7 Release'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
+      copy "$(ProjectDir)bin\Release\X8\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath17$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath17$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
+    </PostBuildEvent>
   </PropertyGroup>
-   $endif$
-   
+  $endif$
+
   $if$ ($corel18$ == 1)
-    <PropertyGroup  Condition="'$(Configuration)'=='X8 Debug'">
-      <PostBuildEvent>
-        if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
-        copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath18$$(SolutionName)" /y
-        copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath18$$(SolutionName)" /y
-        copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
-        copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
-        copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath18$$(SolutionName)" /y
-        </PostBuildEvent>
+  <PropertyGroup  Condition="'$(Configuration)'=='X8 Debug'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
+      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath18$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath18$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+      copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath18$$(SolutionName)" /y
+    </PostBuildEvent>
   </PropertyGroup>
-  
-    <PropertyGroup  Condition="'$(Configuration)'=='X8 Release'">
-       <PostBuildEvent>
-        if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
-        copy "$(ProjectDir)bin\Release\X8\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath18$$(SolutionName)" /y
-        copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath18$$(SolutionName)" /y
-        copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
-        copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
-       </PostBuildEvent>
-    </PropertyGroup>
-    $endif$
-    
+
+  <PropertyGroup  Condition="'$(Configuration)'=='X8 Release'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
+      copy "$(ProjectDir)bin\Release\X8\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath18$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath18$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+    </PostBuildEvent>
+  </PropertyGroup>
+  $endif$
+
   $if$ ($corel19$ == 1)
-    <PropertyGroup  Condition="'$(Configuration)'=='2017 Debug'">
-      <PostBuildEvent>
-         if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
-          copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
-          copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
-          copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
-          copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
-          copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath19$$(SolutionName)" /y
+  <PropertyGroup  Condition="'$(Configuration)'=='2017 Debug'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
+      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+      copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath19$$(SolutionName)" /y
     </PostBuildEvent>
   </PropertyGroup>
-  
-   <PropertyGroup  Condition="'$(Configuration)'=='2017 Release'">
-      <PostBuildEvent>
-         if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
-          copy "$(ProjectDir)bin\Release\2017\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
-          copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
-          copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
-          copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+
+  <PropertyGroup  Condition="'$(Configuration)'=='2017 Release'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
+      copy "$(ProjectDir)bin\Release\2017\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
     </PostBuildEvent>
   </PropertyGroup>
-$endif$
+  $endif$
 
   $if$ ($corel17$ == 1)
   <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">

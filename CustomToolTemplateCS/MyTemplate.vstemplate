@@ -32,7 +32,7 @@
    
     </Project>
     <CustomParameters>
-      <CustomParameter Name="Type" Value="Tool"/>
+      <CustomParameter Name="$type$" Value="Tool"/>
     </CustomParameters>
  
     

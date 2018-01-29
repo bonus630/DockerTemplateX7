@@ -16,9 +16,9 @@
     <OutputPath>bin\Debug\</OutputPath>
     <OutDir>bin\Debug\</OutDir>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-  
+
     <!--<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>-->
- </PropertyGroup>
+  </PropertyGroup>
 
 
   $if$ ($corel17$ == 1)
@@ -93,7 +93,9 @@
     <DefineConstants>X9</DefineConstants>
   </PropertyGroup>
   $endif$
-    
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
   <ItemGroup>
     <!--<Import Include="$CorelProgramPath$Assemblies\Corel.Interop.VGCore.dll" />-->
     $if$ ($corel17$ == 1)
@@ -106,7 +108,7 @@
     <Import Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  />
     $endif$
   </ItemGroup>
- 
+
 
   <ItemGroup>
     <Reference Include="System"/>
@@ -158,7 +160,7 @@
     </Reference>
     $endif$
   </ItemGroup>
-  
+
   <ItemGroup>
     <Page Include="DockerUI.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -169,7 +171,7 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
- 
+
 
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb">
@@ -196,7 +198,7 @@
     </None>
     <AppDesigner Include="My Project\" />
   </ItemGroup>
-  
+
 
   <ItemGroup>
     <Content Include="AppUI.xslt">

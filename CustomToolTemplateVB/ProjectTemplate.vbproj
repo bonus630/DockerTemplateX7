@@ -8,16 +8,16 @@
     <SchemaVersion>
     </SchemaVersion>
     <ProjectGuid>{$guid2$}</ProjectGuid>
-  
+
     <OutputType>Library</OutputType>
     <RootNamespace>$safeprojectname$</RootNamespace>
     <AssemblyName>$safeprojectname$</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    
+
     <TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
- </PropertyGroup>
-  
+  </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -101,16 +101,18 @@
     <DefineConstants>X9</DefineConstants>
   </PropertyGroup>
   $endif$
-
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-$if$ ($targetframeworkversion$ >= 3.5)
+    $if$ ($targetframeworkversion$ >= 3.5)
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-$endif$
+    $endif$
   </ItemGroup>
 
   <ItemGroup>
@@ -125,7 +127,7 @@ $endif$
     <Import Include="System.Xml.Linq" />
     $endif$
   </ItemGroup>
-<!--Add corel reference-->
+  <!--Add corel reference-->
   <ItemGroup>
     <!--<Import Include="$CorelProgramPath$Assemblies\Corel.Interop.VGCore.dll" />-->
     $if$ ($corel17$ == 1)
@@ -185,7 +187,7 @@ $endif$
     </Reference>
     $endif$
   </ItemGroup>
-  
+
   <ItemGroup>
     <Compile Include="$safeprojectname$.vb"/>
     <Compile Include="Addon.vb"/>

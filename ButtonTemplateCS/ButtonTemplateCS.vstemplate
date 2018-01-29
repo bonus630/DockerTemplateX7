@@ -32,7 +32,7 @@
       <!--  Erro - <ProjectItem SubType="ProjectTemplate.csproj.user" ReplaceParameters="true"></ProjectItem>-->
     </Project>
     <CustomParameters>
-      <CustomParameter Name="Type" Value="Docker"/>
+      <CustomParameter Name="$type$" Value="Docker"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

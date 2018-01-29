@@ -40,7 +40,7 @@
       <Folder Name="pages" TargetFolderName="pages" />
     </Project>
     <CustomParameters>
-      <CustomParameter Name="Type" Value="Docker"/>
+      <CustomParameter Name="$type$" Value="Docker"/>
     </CustomParameters>
   </TemplateContent>
  

@@ -31,7 +31,7 @@
       <ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
     </Project>
     <CustomParameters>
-      <CustomParameter Name="Type" Value="Docker"/>
+      <CustomParameter Name="$type$" Value="Docker"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>
