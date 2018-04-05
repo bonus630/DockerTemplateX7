@@ -32,8 +32,11 @@ namespace Wizard001
             public string CorelInstallationPath64 { get; private set; }
             public CorelIs64Bit Corel64Bit { get; set; }
             public int CorelVersion { get; private set; }
-            private string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017" };
-            private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12", "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5", "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8", "CorelDRAW Graphics Suite 2017" };
+            private string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017","2018" };
+            private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12",
+                "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5",
+                "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8",
+                "CorelDRAW Graphics Suite 2017","CorelDRAW Graphics Suite 2018" };
 
             private const string corelName = "CorelDraw Graphics Suite";
 

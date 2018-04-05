@@ -93,6 +93,30 @@
     <DefineConstants>X9</DefineConstants>
   </PropertyGroup>
   $endif$
+  $if$ ($corel20$ == 1)
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2018 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <OutDir>bin\Debug\</OutDir>
+    <DocumentationFile></DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X10</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2018 Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\2018\</OutputPath>
+    <OutDir>bin\Release\2018\$(SolutionName)</OutDir>
+    <DocumentationFile></DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X10</DefineConstants>
+  </PropertyGroup>
+  $endif$
   <PropertyGroup>
     <OutputType>Library</OutputType>
   </PropertyGroup>
@@ -106,6 +130,9 @@
     $endif$
     $if$ ($corel19$ == 1)
     <Import Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  />
+    $endif$
+    $if$ ($corel20$ == 1)
+    <Import Include="$CorelProgramPath20$Assemblies\Corel.Interop.VGCore.dll"  />
     $endif$
   </ItemGroup>
 
@@ -141,6 +168,12 @@
       <Private>False</Private>
     </Reference>
     $endif$
+    $if$ ($corel20$ == 1)
+    <Reference Include="$CorelProgramPath20$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2018 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    $endif$
     $if$ ($corel17$ == 1)
     <Reference Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X7 Release'">
       <Name>Corel.Interop.VGCore</Name>
@@ -155,6 +188,12 @@
     $endif$
     $if$ ($corel19$ == 1)
     <Reference Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2017 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    $endif$
+    $if$ ($corel20$ == 1)
+    <Reference Include="$CorelProgramPath20$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2018 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
@@ -292,6 +331,28 @@
   </PropertyGroup>
   $endif$
 
+  $if$ ($corel20$ == 1)
+  <PropertyGroup  Condition="'$(Configuration)'=='2018 Debug'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath20$$(SolutionName)" md "$CorelAddonsPath20$$(SolutionName)"
+      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath20$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath20$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath20$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath20$$(SolutionName)" /y
+      copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath20$$(SolutionName)" /y
+    </PostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup  Condition="'$(Configuration)'=='2018 Release'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath20$$(SolutionName)" md "$CorelAddonsPath20$$(SolutionName)"
+      copy "$(ProjectDir)bin\Release\2018\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath20$$(SolutionName)" /y
+      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath20$$(SolutionName)" /y
+      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath20$$(SolutionName)" /y
+      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath20$$(SolutionName)" /y
+    </PostBuildEvent>
+  </PropertyGroup>
+  $endif$
 
   $if$ ($corel17$ == 1)
   <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
@@ -321,6 +382,16 @@
   <PropertyGroup Condition="'$(Configuration)'=='2017 Release'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath19$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  $endif$
+  $if$ ($corel20$ == 1)
+  <PropertyGroup  Condition="'$(Configuration)'=='2018 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath20$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='2018 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath20$CorelDRW.exe</StartProgram>
   </PropertyGroup>
   $endif$
 </Project>

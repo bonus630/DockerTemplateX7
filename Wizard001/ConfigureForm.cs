@@ -37,7 +37,7 @@ namespace Wizard001
             btn_cancel.DialogResult = DialogResult.Cancel;
             btn_done.DialogResult = DialogResult.OK;
 
-            for (int i = 17; i < 20; i++)
+            for (int i = 17; i < 21; i++)
             {
                 CorelVersionInfo temp = new CorelVersionInfo(i);
                 installedVersions.Add(temp);
@@ -111,7 +111,8 @@ namespace Wizard001
             if (ck.Checked)
             {
                 if (temp.CorelInstallationNotFound)
-                    temp.recoverPathManually(temp.CorelVersion);
+                    if (!temp.recoverPathManually(temp.CorelVersion))
+                        ck.Checked = false;
                 if(!temp.CorelInstallationNotFound)
                     this.selectedVersions.Add(temp);
             }

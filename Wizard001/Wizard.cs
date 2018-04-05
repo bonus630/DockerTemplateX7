@@ -55,8 +55,11 @@ namespace Wizard001
 
             foreach (EnvDTE.SolutionConfiguration item in this.project.DTE.Solution.SolutionBuild.SolutionConfigurations)
             {
-
-                if(item.Name == "2017 Debug")
+                if (item.Name == "2018 Debug")
+                {
+                    configurations[3] = item;
+                }
+                if (item.Name == "2017 Debug")
                 {
                     configurations[2] = item;
                 }
@@ -111,7 +114,7 @@ namespace Wizard001
                     bool cancel = true;
                     
                     this.selectedVersions = form.SelectedVersions;
-                    for (int i = 17; i < 20; i++)
+                    for (int i = 17; i < 21; i++)
                     {
 
                         replacementsDictionary.Add("$corel" + i.ToString() + "$", "0");
