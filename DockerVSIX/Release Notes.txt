@@ -27,3 +27,6 @@ Add new project template, create a button in standard bar
 
 Version 1.973
 Fix "the console application" issue, now all projects will be create in correct type
+
+Version 1.981
+Add support to new CorelDraw 2018
