@@ -255,7 +255,7 @@
   <PropertyGroup  Condition="'$(Configuration)'=='X7 Release'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
-      copy "$(ProjectDir)bin\Release\X8\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath17$$(SolutionName)" /y
+      copy "$(ProjectDir)bin\Release\X7\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath17$$(SolutionName)" /y
       copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath17$$(SolutionName)" /y
       copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
       copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
