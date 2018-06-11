@@ -36,10 +36,10 @@ namespace Wizard001
             DockerCaption = txt_dockerCaption.Text;
             btn_cancel.DialogResult = DialogResult.Cancel;
             btn_done.DialogResult = DialogResult.OK;
-
-            for (int i = 17; i < 21; i++)
+            CorelVersionInfo temp;
+            for (int i = CorelVersionInfo.MinVersion; i < CorelVersionInfo.MaxVersion; i++)
             {
-                CorelVersionInfo temp = new CorelVersionInfo(i);
+                temp = new CorelVersionInfo(i);
                 installedVersions.Add(temp);
                 AddCheckBox(temp.Corel64FullName, i, !temp.CorelInstallationNotFound);
 

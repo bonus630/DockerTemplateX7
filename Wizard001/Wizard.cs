@@ -51,7 +51,11 @@ namespace Wizard001
                 }
                 throw new WizardBackoutException();
             }
-            EnvDTE.SolutionConfiguration[] configurations = new EnvDTE.SolutionConfiguration[3] { null, null, null };
+            List<EnvDTE.SolutionConfiguration> configurations = new List<EnvDTE.SolutionConfiguration>();
+            for (int i = 0; i < CorelVersionInfo.MaxVersion - CorelVersionInfo.MinVersion; i++)
+            {
+                configurations.Add(null);
+            }
 
             foreach (EnvDTE.SolutionConfiguration item in this.project.DTE.Solution.SolutionBuild.SolutionConfigurations)
             {
@@ -73,13 +77,16 @@ namespace Wizard001
                 }
 
             }
-            for (int i = 0; i < configurations.Length; i++)
+            configurations.RemoveAll(r => r == null);
+            for (int i = 0; i < configurations.Count; i++)
             {
                 if (configurations[i] != null)
                 {
                     configurations[i].Activate();
                     break;
+                    
                 }
+                
                    
             }
           
@@ -114,7 +121,7 @@ namespace Wizard001
                     bool cancel = true;
                     
                     this.selectedVersions = form.SelectedVersions;
-                    for (int i = 17; i < 21; i++)
+                    for (int i = CorelVersionInfo.MinVersion; i < CorelVersionInfo.MaxVersion; i++)
                     {
 
                         replacementsDictionary.Add("$corel" + i.ToString() + "$", "0");

@@ -21,6 +21,8 @@ namespace Wizard001
             public string CorelFolderName { get { return this.corelFolderList[this.CorelVersion - 10]; } }
             public string Corel64FullName { get { return string.Format("{0} {1} 64bit", corelName, this.corelAbb[this.CorelVersion - 10]); } }
             private string corelGMSPath;
+            public static readonly int MinVersion = 17;
+            public static readonly int MaxVersion = 21;
             //private string corelAddonsPath;
             //private string corelGMSPath64;
             //private string corelAddonsPath64;
