@@ -85,7 +85,7 @@
   <ItemGroup>
     <Content Include="AppUI.xslt" />
     <Content Include="config.xml" />
-    <Content Include="MyTemplate.csproj">
+    <Content Include="ToolProjectTemplateCS.csproj">
       <IncludeInVSIX>true</IncludeInVSIX>
       <SubType>Designer</SubType>
     </Content>

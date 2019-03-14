@@ -5,12 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:$safeprojectname$"
              mc:Ignorable="d" 
-             Height="26" Width="26">
-
+             Height="24" Width="24" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Colors.xaml"/>
+                <ResourceDictionary Source="Resources/Styles.xaml"/>
+                <ResourceDictionary Source="Resources/Images.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Button Content="B" Name="btn_Command" >
             <Button.ToolTip>
-                <ToolTip Background="White">
+                <ToolTip>
                     <StackPanel>
                         <Label Content="$Caption$" FontWeight="Bold" FontSize="12"/>
                         <Label Content="Click ME!" FontSize="11"/>

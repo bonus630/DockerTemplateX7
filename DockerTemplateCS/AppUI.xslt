@@ -52,7 +52,7 @@ This file defines new UI elements that all workspaces will contain
       <!-- Define the web control which will be placed on our docker -->
       <itemData guid="$GuidB$"
                 type="wpfhost"
-                hostedType="Addons\$safeprojectname$\$safeprojectname$.dll,$safeprojectname$.DockerUI"
+                hostedType="Addons\$specifiedsolutionname$\$specifiedsolutionname$.dll,$safeprojectname$.DockerUI"
                 enable="true"/>
 
     </xsl:copy>

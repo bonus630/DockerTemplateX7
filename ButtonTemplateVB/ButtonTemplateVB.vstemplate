@@ -1,9 +1,10 @@
 ﻿<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>CorelDRAW Control Addon</Name>
-    <Description>Visual Basic Control Project Template for CorelDraw X7,X8 and 2017.Creates a single button in standard bar, for use in fast single command project. CorelDraw is trademaker from Corel Corporation</Description>
+    <Description>A project template for creating a control for CorelDRAW X7 or higher.Creates a single button in standard bar, for use in fast single command project.For more information on creating custom tools, please see http://community.coreldraw.com/sdk CorelDraw is trademaker from Corel Corporation</Description>
     <Icon>DockerTemplateVB.ico</Icon>
     <ProjectType>VisualBasic</ProjectType>
+    <ProjectSubType>CorelDRAW Addons</ProjectSubType>
     <TemplateID>CF565DDA-4446-48A5-947E-DD67D439F0C0</TemplateID>
     <SortOrder>1000</SortOrder>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
@@ -13,12 +14,20 @@
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.vbproj" ReplaceParameters="true">
+    <Project File="ButtonProjectTemplateVB.vbproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="20">ControlUI.xaml.vb</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="10">ControlUI.xaml</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="My Project\Application.myapp">MyApplication.myapp</ProjectItem>
        <ProjectItem ReplaceParameters="true" TargetFileName="My Project\Application.Designer.vb">MyApplication.Designer.vb</ProjectItem>
-      
+      <ProjectItem ReplaceParameters="true" TargetFileName="MessageBox.vb">MessageBox.vb</ProjectItem>
+      <Folder Name="Converters" TargetFolderName="Converters">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ResourceToMediaImageConverter.vb">ResourceToMediaImageConverter.vb</ProjectItem>
+      </Folder>
+      <Folder Name="Resources" TargetFolderName="Resources">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Images.xaml">Images.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Colors.xaml">Colors.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Styles.xaml">Styles.xaml</ProjectItem>
+      </Folder>
       
      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="My Project\Resources.resx">Resources.resx</ProjectItem>

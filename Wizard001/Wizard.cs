@@ -59,6 +59,10 @@ namespace Wizard001
 
             foreach (EnvDTE.SolutionConfiguration item in this.project.DTE.Solution.SolutionBuild.SolutionConfigurations)
             {
+                if (item.Name == "2019 Debug")
+                {
+                    configurations[4] = item;
+                }
                 if (item.Name == "2018 Debug")
                 {
                     configurations[3] = item;
@@ -83,13 +87,14 @@ namespace Wizard001
                 if (configurations[i] != null)
                 {
                     configurations[i].Activate();
+                    configurations[i].DTE.Solution.SolutionBuild.Build(true);
                     break;
                     
                 }
                 
                    
             }
-          
+            
             this.project.Save();
             
             

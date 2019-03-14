@@ -92,6 +92,7 @@
     <Content Include="ControlUI.xaml.vb">
       <DependentUpon>ControlUI.xaml</DependentUpon>
     </Content>
+    <Content Include="MessageBox.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Settings1.Designer.vb">
       <DependentUpon>Settings.settings</DependentUpon>
@@ -101,11 +102,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssemblyInfo.vb" />
+    <Content Include="Converters\ResourceToMediaImageConverter.vb" />
     <Content Include="CorelDrw.addon" />
     <Content Include="DockerTemplateVB.ico" />
     <Content Include="MyApplication.Designer.vb" />
     <Content Include="MyApplication.myapp" />
-    <Content Include="ProjectTemplate.vbproj">
+    <Content Include="ButtonProjectTemplateVB.vbproj">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -136,10 +138,22 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ControlUI.xaml">
+    <Content Include="ControlUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </Content>
+    <Content Include="Resources\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Images.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

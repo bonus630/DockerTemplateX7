@@ -2,32 +2,45 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>CorelDRAW Docker Addon</Name>
-    <Description>CSharp Project Template for create custom CorelDRAW X7,X8 and 2017 dockers. CorelDraw is trademaker from Corel Corporation</Description>
+    <Description>A project template for creating a docker for CorelDRAW X7 or higher.For more information on creating custom tools, please see http://community.coreldraw.com/sdk. CorelDraw is trademaker from Corel Corporation</Description>
     <Icon>DockerTemplateX7.ico</Icon>
     <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>CorelDRAW Addons</ProjectSubType>
     <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>d544180d-595b-4d71-b1ab-520a528892cc</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>DockerTemplateCS</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
-   
+
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
-      
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+    <Project File="DockerProjectTemplateCS.csproj" ReplaceParameters="true">
+
+
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="20">DockerUI.xaml.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="10">DockerUI.xaml</ProjectItem>
+
+      <ProjectItem ReplaceParameters="true" TargetFileName="MessageBox.cs">MessageBox.cs</ProjectItem>
+      <Folder Name="Converters" TargetFolderName="Converters">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ResourceToMediaImageConverter.cs">ResourceToMediaImageConverter.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Resources" TargetFolderName="Resources">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Images.xaml">Images.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Colors.xaml">Colors.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Styles.xaml">Styles.xaml</ProjectItem>
+      </Folder>
+
       <ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
-      
+
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="Properties\Resources.resx">Resources.resx</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="Properties\Settings.settings">Settings.settings</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.csproj.user">ProjectTemplate.csproj.user</ProjectItem>
+
 
       <!--  Erro - <ProjectItem SubType="ProjectTemplate.csproj.user" ReplaceParameters="true"></ProjectItem>-->
     </Project>

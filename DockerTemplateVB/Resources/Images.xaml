@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:Converters="clr-namespace:$safeprojectname$.Converters">
+    <Converters:ResourceToMediaImageConverter x:Key="ResourceToMediaImageConverter" />
+    <!-- Usage exemple-->
+    <!--<System:String x:Key="OpenFolder">Opened_Folder_32px</System:String>
+    <Style x:Key="OpenFolderImage" TargetType="Image">
+        <Setter Property="Source" Value="{Binding Source={StaticResource OpenFolder},Converter={StaticResource ResourceToMediaImageConverter}}"/>
+    </Style>-->
+</ResourceDictionary>

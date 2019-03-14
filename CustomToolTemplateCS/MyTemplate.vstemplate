@@ -3,8 +3,7 @@
     <Name>CorelDRAW Tool Addon</Name>
     <Description>A project template for creating custom tools for CorelDRAW X7.1 or higher. For more information on creating custom tools, please see http://community.coreldraw.com/sdk </Description>
     <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>
-    </ProjectSubType>
+    <ProjectSubType>CorelDRAW Addons</ProjectSubType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>SampleTool</DefaultName>
@@ -15,7 +14,7 @@
     <PreviewImage>__PreviewImage.png</PreviewImage>
   </TemplateData>
   <TemplateContent>
-    <Project File="MyTemplate.csproj" ReplaceParameters="true">
+    <Project File="ToolProjectTemplateCS.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.csproj.user">MyTemplate.csproj.user</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Addon.cs">Addon.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$.cs">DrawTool.cs</ProjectItem>

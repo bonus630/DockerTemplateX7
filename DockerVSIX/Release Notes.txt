@@ -1,13 +1,7 @@
 Version 1.721
-
-
 Add VS2017 Template
 
-
-
 Version 1.723
-
-
 Add support to new CorelDraw 2017
 
 Version 1.803
@@ -30,3 +24,16 @@ Fix "the console application" issue, now all projects will be create in correct 
 
 Version 1.981
 Add support to new CorelDraw 2018
+
+Version 1.982
+Fix size of solution configurations array
+
+Version 2.007
+Add one more Configuration for new CorelDraw 2019
+Add Theme System for X8 and heigher
+---Include Color Resource to add themes color
+---Include Style Resouce to add controls styles to themes
+---Include Extension methods to VGCore.Application interface to call CorelDraw MessageBox (2017 to heigher MessageBox has stylized)
+Add System.Drawing to Media.Image Converter, to use WindowsForm Resources images in WPF controls
+Changed method of generation  dll  path in AppUI.xslt file, preventing some bugs if solution name contains special chars
+Changed Post-Build events, now copy all file in output folder

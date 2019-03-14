@@ -92,6 +92,8 @@
     <Content Include="DockerUI.xaml.vb">
       <DependentUpon>DockerUI.xaml</DependentUpon>
     </Content>
+    <Content Include="Converters\ResourceToMediaImageConverter.vb" />
+    <Content Include="MessageBox.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Settings1.Designer.vb">
       <DependentUpon>Settings.settings</DependentUpon>
@@ -105,7 +107,7 @@
     <Content Include="DockerTemplateVB.ico" />
     <Content Include="MyApplication.Designer.vb" />
     <Content Include="MyApplication.myapp" />
-    <Content Include="ProjectTemplate.vbproj">
+    <Content Include="DockerProjectTemplateVB.vbproj">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -136,10 +138,24 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="DockerUI.xaml">
+    <Content Include="DockerUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Images.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

@@ -5,6 +5,7 @@
     <Icon>__TemplateIcon.png</Icon>
     <PreviewImage>__PreviewImage.png</PreviewImage>
     <ProjectType>VisualBasic</ProjectType>
+    <ProjectSubType>CorelDRAW Addons</ProjectSubType>
     <TemplateID>2005f455-f415-4dfb-a4de-d6d9562b3813</TemplateID>
     <SortOrder>1000</SortOrder>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
@@ -15,7 +16,7 @@
     
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.vbproj" ReplaceParameters="true">
+    <Project File="ToolProjectTemplateVB.vbproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="10" TargetFileName="$safeprojectname$.vb">DrawTool.vb</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Addon.vb">Addon.vb</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>

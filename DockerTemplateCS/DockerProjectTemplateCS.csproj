@@ -13,7 +13,6 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -23,7 +22,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   $if$ ($corel17$ == 1)
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +42,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   $endif$
-  
   $if$ ($corel18$ == 1)
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -107,7 +104,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   $endif$
-  
+  $if$ ($corel21$ == 1)
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2019 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;X11</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2019 Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\2019\</OutputPath>
+    <OutDir>bin\Release\2019\$(SolutionName)</OutDir>
+    <DefineConstants>TRACE;X11</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  $endif$
   <PropertyGroup>
     <OutputType>Library</OutputType>
   </PropertyGroup>
@@ -127,50 +143,60 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsBase" />
+    <Reference Include="System.Drawing"/>
+  </ItemGroup>
+
+  <ItemGroup Label="VGCoreReferences">
     $if$ ($corel17$ == 1)
-    <Reference Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X7 Debug'">
+    <Reference Label="X7Reference" Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X7 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Label="X7Reference" Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X7 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
     $endif$
+
     $if$ ($corel18$ == 1)
-    <Reference Include="$CorelProgramPath18$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X8 Debug'">
+    <Reference Label="X8Reference" Include="$CorelProgramPath18$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X8 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Label="X8Reference" Include="$CorelProgramPath18$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X8 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
     $endif$
+
     $if$ ($corel19$ == 1)
-    <Reference Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2017 Debug'">
+    <Reference Label="X9Reference" Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2017 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Label="X9Reference" Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2017 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
     $endif$
+
     $if$ ($corel20$ == 1)
-    <Reference Include="$CorelProgramPath20$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2018 Debug'">
+    <Reference Label="X10Reference" Include="$CorelProgramPath20$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2018 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Label="X10Reference" Include="$CorelProgramPath20$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2018 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
     $endif$
-    $if$ ($corel17$ == 1)
-    <Reference Include="$CorelProgramPath17$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X7 Release'">
+
+    $if$ ($corel21$ == 1)
+    <Reference Label="X11Reference" Include="$CorelProgramPath21$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2019 Debug'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
-    $endif$
-    $if$ ($corel18$ == 1)
-    <Reference Include="$CorelProgramPath18$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='X8 Release'">
-      <Name>Corel.Interop.VGCore</Name>
-      <Private>False</Private>
-    </Reference>
-    $endif$
-    $if$ ($corel19$ == 1)
-    <Reference Include="$CorelProgramPath19$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2017 Release'">
-      <Name>Corel.Interop.VGCore</Name>
-      <Private>False</Private>
-    </Reference>
-    $endif$
-    $if$ ($corel20$ == 1)
-    <Reference Include="$CorelProgramPath20$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2018 Release'">
+    <Reference Label="X11Reference" Include="$CorelProgramPath21$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2019 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
@@ -185,6 +211,26 @@
     <Compile Include="DockerUI.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\ResourceToMediaImageConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MessageBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Resources\Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
 
   </ItemGroup>
 
@@ -238,138 +284,134 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
-
   $if$ ($corel17$ == 1)
-  <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
+  <PropertyGroup Label="X7BuildCopyCommand"  Condition="'$(Configuration)'=='X7 Debug'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
-      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath17$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath17$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
-      copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath17$$(SolutionName)" /y
+      xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath17$$(SolutionName)" /y /d /e
     </PostBuildEvent>
   </PropertyGroup>
 
-  <PropertyGroup  Condition="'$(Configuration)'=='X7 Release'">
+  <PropertyGroup  Label="X7BuildCopyCommand" Condition="'$(Configuration)'=='X7 Release'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
-      copy "$(ProjectDir)bin\Release\X7\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath17$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath17$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath17$$(SolutionName)" /y
+      xcopy "$(ProjectDir)bin\Release\X7\$(SolutionName)\*.*" "$CorelAddonsPath17$$(SolutionName)" /y /d /e
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
 
   $if$ ($corel18$ == 1)
-  <PropertyGroup  Condition="'$(Configuration)'=='X8 Debug'">
+  <PropertyGroup  Label="X8BuildCopyCommand" Condition="'$(Configuration)'=='X8 Debug'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
-      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath18$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath18$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
-      copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath18$$(SolutionName)" /y
+      xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath18$$(SolutionName)" /y /d /e
     </PostBuildEvent>
   </PropertyGroup>
 
-  <PropertyGroup  Condition="'$(Configuration)'=='X8 Release'">
+  <PropertyGroup  Label="X8BuildCopyCommand" Condition="'$(Configuration)'=='X8 Release'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
-      copy "$(ProjectDir)bin\Release\X8\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath18$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath18$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath18$$(SolutionName)" /y
+      xcopy "$(ProjectDir)bin\Release\X8\$(SolutionName)\*.*" "$CorelAddonsPath18$$(SolutionName)" /y /d /e
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
 
   $if$ ($corel19$ == 1)
-  <PropertyGroup  Condition="'$(Configuration)'=='2017 Debug'">
+  <PropertyGroup  Label="X9BuildCopyCommand" Condition="'$(Configuration)'=='2017 Debug'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
-      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
-      copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath19$$(SolutionName)" /y
+      xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath19$$(SolutionName)" /y /d /e
     </PostBuildEvent>
   </PropertyGroup>
 
-  <PropertyGroup  Condition="'$(Configuration)'=='2017 Release'">
+  <PropertyGroup  Label="X9BuildCopyCommand" Condition="'$(Configuration)'=='2017 Release'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
-      copy "$(ProjectDir)bin\Release\2017\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath19$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath19$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath19$$(SolutionName)" /y
+      xcopy "$(ProjectDir)bin\Release\2017\$(SolutionName)\*.*" "$CorelAddonsPath19$$(SolutionName)" /y /d /e
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
 
   $if$ ($corel20$ == 1)
-  <PropertyGroup  Condition="'$(Configuration)'=='2018 Debug'">
+  <PropertyGroup  Label="X10BuildCopyCommand" Condition="'$(Configuration)'=='2018 Debug'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath20$$(SolutionName)" md "$CorelAddonsPath20$$(SolutionName)"
-      copy "$(ProjectDir)bin\Debug\$(TargetFileName)" "$CorelAddonsPath20$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath20$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath20$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath20$$(SolutionName)" /y
-      copy "$(ProjectDir)bin\Debug\$(SolutionName).pdb" "$CorelAddonsPath20$$(SolutionName)" /y
+      xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath20$$(SolutionName)" /y /d /e
     </PostBuildEvent>
   </PropertyGroup>
 
-  <PropertyGroup  Condition="'$(Configuration)'=='2018 Release'">
+  <PropertyGroup  Label="X10BuildCopyCommand" Condition="'$(Configuration)'=='2018 Release'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath20$$(SolutionName)" md "$CorelAddonsPath20$$(SolutionName)"
-      copy "$(ProjectDir)bin\Release\2018\$(SolutionName)\$(TargetFileName)" "$CorelAddonsPath20$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath20$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath20$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath20$$(SolutionName)" /y
+      xcopy "$(ProjectDir)bin\Release\2018\$(SolutionName)\*.*" "$CorelAddonsPath20$$(SolutionName)" /y /d /e
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
-  
+
+  $if$ ($corel21$ == 1)
+  <PropertyGroup  Label="X11BuildCopyCommand" Condition="'$(Configuration)'=='2019 Debug'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath21$$(SolutionName)" md "$CorelAddonsPath21$$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath21$$(SolutionName)" /y /d /e
+    </PostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup  Label="X11BuildCopyCommand" Condition="'$(Configuration)'=='2019 Release'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath21$$(SolutionName)" md "$CorelAddonsPath21$$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Release\2019\$(SolutionName)\*.*" "$CorelAddonsPath21$$(SolutionName)" /y /d /e
+    </PostBuildEvent>
+  </PropertyGroup>
+  $endif$
+
   $if$ ($corel17$ == 1)
-  <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
+  <PropertyGroup Label="X7Startup" Condition="'$(Configuration)'=='X7 Debug'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath17$CorelDRW.exe</StartProgram>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='X7 Release'">
+  <PropertyGroup Label="X7Startup" Condition="'$(Configuration)'=='X7 Release'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath17$CorelDRW.exe</StartProgram>
   </PropertyGroup>
   $endif$
   $if$ ($corel18$ == 1)
-  <PropertyGroup  Condition="'$(Configuration)'=='X8 Debug'">
+  <PropertyGroup  Label="X8Startup" Condition="'$(Configuration)'=='X8 Debug'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath18$CorelDRW.exe</StartProgram>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='X8 Release'">
+  <PropertyGroup  Label="X8Startup" Condition="'$(Configuration)'=='X8 Release'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath18$CorelDRW.exe</StartProgram>
   </PropertyGroup>
   $endif$
   $if$ ($corel19$ == 1)
-  <PropertyGroup  Condition="'$(Configuration)'=='2017 Debug'">
+  <PropertyGroup  Label="X9Startup" Condition="'$(Configuration)'=='2017 Debug'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath19$CorelDRW.exe</StartProgram>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='2017 Release'">
+  <PropertyGroup  Label="X9Startup" Condition="'$(Configuration)'=='2017 Release'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath19$CorelDRW.exe</StartProgram>
   </PropertyGroup>
   $endif$
   $if$ ($corel20$ == 1)
-  <PropertyGroup  Condition="'$(Configuration)'=='2018 Debug'">
+  <PropertyGroup  Label="X10Startup" Condition="'$(Configuration)'=='2018 Debug'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath20$CorelDRW.exe</StartProgram>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='2018 Release'">
+  <PropertyGroup  Label="X10Startup" Condition="'$(Configuration)'=='2018 Release'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath20$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  $endif$
+  $if$ ($corel21$ == 1)
+  <PropertyGroup  Label="X11Startup" Condition="'$(Configuration)'=='2019 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath21$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup  Label="X11Startup" Condition="'$(Configuration)'=='2019 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath21$CorelDRW.exe</StartProgram>
   </PropertyGroup>
   $endif$
 </Project>
