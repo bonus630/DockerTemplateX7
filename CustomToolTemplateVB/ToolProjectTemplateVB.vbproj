@@ -150,7 +150,7 @@
   </PropertyGroup>
   $endif$
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <Win32Resource>.\resources.rct</Win32Resource>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -331,12 +331,12 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
   $if$ ($corel17$ == 1)
   <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
     <PostBuildEvent>
       if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath17$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath17$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
 
@@ -344,6 +344,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath17$$(SolutionName)" md "$CorelAddonsPath17$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Release\X7\$(SolutionName)\*.*" "$CorelAddonsPath17$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath17$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
@@ -353,6 +354,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath18$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath18$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
 
@@ -360,6 +362,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath18$$(SolutionName)" md "$CorelAddonsPath18$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Release\X8\$(SolutionName)\*.*" "$CorelAddonsPath18$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath18$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
@@ -369,6 +372,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath19$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath19$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
 
@@ -376,6 +380,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath19$$(SolutionName)" md "$CorelAddonsPath19$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Release\X9\$(SolutionName)\*.*" "$CorelAddonsPath19$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath19$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
@@ -385,6 +390,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath20$$(SolutionName)" md "$CorelAddonsPath20$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath20$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath20$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
 
@@ -392,6 +398,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath20$$(SolutionName)" md "$CorelAddonsPath20$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Release\X10\$(SolutionName)\*.*" "$CorelAddonsPath20$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath20$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
@@ -401,6 +408,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath21$$(SolutionName)" md "$CorelAddonsPath21$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath21$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath21$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
 
@@ -408,6 +416,7 @@
     <PostBuildEvent>
       if not exist "$CorelAddonsPath21$$(SolutionName)" md "$CorelAddonsPath21$$(SolutionName)"
       xcopy "$(ProjectDir)bin\Release\X11\$(SolutionName)\*.*" "$CorelAddonsPath21$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath21$$(SolutionName)\$(SolutionName).CorelAddon"
     </PostBuildEvent>
   </PropertyGroup>
   $endif$
