@@ -65,7 +65,7 @@ Public Class DockerUI
 
     Private Sub LoadThemeFromPreference()
         Try
-            Dim result As String
+            Dim result As String = String.Empty
 
 #If X8 Then
                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
@@ -80,8 +80,10 @@ Public Class DockerUI
                   result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
 #End If
             If Not result.Equals(currentTheme) Then
-                currentTheme = result
-                LoadStyle(currentTheme)
+                If Not result.Equals(String.Empty) Then
+                    currentTheme = result
+                    LoadStyle(currentTheme)
+                End If
             End If
 
         Catch

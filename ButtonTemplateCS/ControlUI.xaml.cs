@@ -82,7 +82,7 @@ namespace $safeprojectname$
     {
         try
         {
-            string result;
+            string result = string.Empty;
                 #if X8
                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString();
                 #endif
@@ -97,8 +97,11 @@ namespace $safeprojectname$
                 #endif
             if (!result.Equals(currentTheme))
             {
-                currentTheme = result;
-                LoadStyle(currentTheme);
+                if (!result.Equals(string.Empty))
+                {
+                    currentTheme = result;
+                    LoadStyle(currentTheme);
+                }
             }
         }
         catch { }

@@ -213,6 +213,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="ControlUI.xaml.cs">
+      <DependentUpon>ControlUI.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\ResourceToMediaImageConverter.cs">

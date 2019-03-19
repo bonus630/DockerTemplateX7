@@ -209,6 +209,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="DockerUI.xaml.cs">
+      <DependentUpon>ControlUI.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\ResourceToMediaImageConverter.cs">
