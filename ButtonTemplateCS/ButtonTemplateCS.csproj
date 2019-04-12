@@ -120,6 +120,7 @@
     <None Include="CorelDrw.addon" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Styles\StylesController.cs" />
     <Content Include="Converters\ResourceToMediaImageConverter.cs" />
     <Content Include="MessageBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,13 +132,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Resources\Colors.xaml">
+    <Content Include="Styles\Colors.xaml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\Images.xaml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\Styles.xaml">
+    <Content Include="Styles\Styles.xaml">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>

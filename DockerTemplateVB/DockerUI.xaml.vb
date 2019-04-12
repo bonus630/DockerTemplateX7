@@ -39,6 +39,7 @@ Public Class DockerUI
          "Button.Disabled.Foreground",
          "Button.Disabled.Background",
          "Default.Static.Foreground",
+         "Default.Static.Background",
          "Container.Text.Static.Background",
          "Container.Text.Static.Foreground",
          "Container.Static.Background",

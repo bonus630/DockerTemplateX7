@@ -34,7 +34,7 @@ Namespace Converters
             Throw New NotImplementedException()
         End Function
         Private Function GetBitmap(ResourceName As String) As System.Drawing.Bitmap
-            Dim rm As New ResourceManager("$safeprojectname$.Properties.Resources",
+            Dim rm As New ResourceManager("$safeprojectname$.Resources",
                 Assembly.GetExecutingAssembly())
             Try
                 Return rm.GetObject(ResourceName)

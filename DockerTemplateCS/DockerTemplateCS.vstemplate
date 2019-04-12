@@ -27,8 +27,11 @@
       </Folder>
       <Folder Name="Resources" TargetFolderName="Resources">
         <ProjectItem ReplaceParameters="true" TargetFileName="Images.xaml">Images.xaml</ProjectItem>
+      </Folder>
+      <Folder Name="Styles" TargetFolderName="Styles">
         <ProjectItem ReplaceParameters="false" TargetFileName="Colors.xaml">Colors.xaml</ProjectItem>
         <ProjectItem ReplaceParameters="false" TargetFileName="Styles.xaml">Styles.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="StylesController.cs">StylesController.cs</ProjectItem>
       </Folder>
 
       <ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>

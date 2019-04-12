@@ -37,3 +37,6 @@ Add Theme System for X8 and heigher
 Add System.Drawing to Media.Image Converter, to use WindowsForm Resources images in WPF controls
 Changed method of generation  dll  path in AppUI.xslt file, preventing some bugs if solution name contains special chars
 Changed Post-Build events, now copy all file in output folder
+
+Version 2.109
+Fix custom tool projects

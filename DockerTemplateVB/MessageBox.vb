@@ -64,7 +64,7 @@ Module MessageBox
             Dim result As Integer
 #If X7 Then
                  result = CInt(System.Windows.MessageBox.Show(message, caption, CType((CInt(buttons)), System.Windows.MessageBoxButton)))
-#elif X8
+#ElseIf X8 Then
                  result = CInt(System.Windows.MessageBox.Show(message, caption, CType((CInt(buttons)), System.Windows.MessageBoxButton)))
 #Else
             result = CInt(corelApp.FrameWork.ShowMessageBox(message, caption, buttons))

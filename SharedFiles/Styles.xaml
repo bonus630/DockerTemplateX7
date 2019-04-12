@@ -23,11 +23,18 @@
         <Setter Property="Foreground" Value="{DynamicResource Container.Text.Static.Foreground}" />
     </Style>
     <Style TargetType="StackPanel">
-        <Setter Property="Background" Value="{DynamicResource Container.Static.Background}"/>
+        <Setter Property="Background" Value="{DynamicResource Default.Static.Background}"/>
+    </Style>
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value="{DynamicResource Default.Static.Background}"/>
     </Style>
     <Style TargetType="ToolTip">
-        <Setter Property="Background" Value="{DynamicResource Container.Static.Background}"/>
+        <Setter Property="Background" Value="{DynamicResource Container.Text.Static.Background}"/>
         <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}"/>
+    </Style>
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="{DynamicResource Container.Text.Static.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}" />
     </Style>
     <!--<Style TargetType="TabControl">
             <Setter Property="Background" Value="{Binding Path=StyleScheme.ContainerStaticBackground}"/>
@@ -50,10 +57,7 @@
         <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}"/>
 
     </Style>
-    <Style TargetType="TextBox">
-        <Setter Property="Background" Value="{DynamicResource Container.Text.Static.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}" />
-    </Style>
+  
     <!--<Style TargetType="ComboBox">
             <Setter Property="Background" Value="{Binding Path=StyleScheme.ContainerTextStaticBackground}" />
             <Setter Property="Foreground" Value="{Binding Path=StyleScheme.DefaultForeground}" />
