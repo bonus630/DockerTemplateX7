@@ -27,7 +27,7 @@ namespace $safeprojectname$
             try
             {
                 this.corelApp = app as corel.Application;
-                stylesController = new Styles.StylesController(this.Resources, app);
+                stylesController = new Styles.StylesController(this.Resources, this.corelApp);
             }
             catch 
             {

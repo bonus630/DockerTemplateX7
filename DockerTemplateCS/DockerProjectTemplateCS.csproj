@@ -215,6 +215,9 @@
     <Compile Include="Styles\StylesController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\ResourceToMediaImageConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MessageBox.cs">
       <SubType>Code</SubType>
     </Compile>
