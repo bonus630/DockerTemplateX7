@@ -96,7 +96,9 @@
     <Content Include="DockerTemplateX7.ico" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ButtonTemplateCS.vstemplate" />
+    <VSTemplate Include="ButtonTemplateCS.vstemplate">
+      <OutputSubPath>CorelDraw Addon</OutputSubPath>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

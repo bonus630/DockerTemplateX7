@@ -12,6 +12,7 @@
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <Icon>__TemplateIcon.png</Icon>
     <PreviewImage>__PreviewImage.png</PreviewImage>
+    <TemplateID>0AC96025-9E94-4F81-B6FD-C25731EED4A7</TemplateID>
   </TemplateData>
   <TemplateContent>
     <Project File="ToolProjectTemplateCS.csproj" ReplaceParameters="true">
@@ -27,14 +28,10 @@
       <Folder Name="Properties" TargetFolderName="Properties">
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       </Folder>
-      
-   
     </Project>
     <CustomParameters>
       <CustomParameter Name="$type$" Value="Tool"/>
     </CustomParameters>
- 
-    
   </TemplateContent>
   <WizardExtension>
     <Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>

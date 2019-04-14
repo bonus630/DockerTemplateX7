@@ -89,6 +89,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Styles\StylesController.vb" />
     <Content Include="DockerUI.xaml.vb">
       <DependentUpon>DockerUI.xaml</DependentUpon>
     </Content>
@@ -112,7 +113,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="DockerTemplateVB.vstemplate" />
+    <VSTemplate Include="DockerTemplateVB.vstemplate">
+      <OutputSubPath>CorelDraw Addon</OutputSubPath>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppUI.xslt" />
@@ -144,7 +147,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Colors.xaml">
+    <Content Include="Styles\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Content>
@@ -152,7 +155,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\Styles.xaml">
+    <Content Include="Styles\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Content>

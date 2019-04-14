@@ -79,7 +79,9 @@
     <None Include="DockerTemplateJS.ico" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="DockerTemplateJS.vstemplate" />
+    <VSTemplate Include="DockerTemplateJS.vstemplate">
+      <OutputSubPath>CorelDraw Addon</OutputSubPath>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />

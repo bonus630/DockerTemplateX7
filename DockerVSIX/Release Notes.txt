@@ -40,3 +40,6 @@ Changed Post-Build events, now copy all file in output folder
 
 Version 2.109
 Fix custom tool projects
+
+Version 2.113
+Move Templates to "CorelDraw Addons" Category, some more fixs

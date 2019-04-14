@@ -89,6 +89,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Styles\StylesController.vb" />
     <Content Include="ControlUI.xaml.vb">
       <DependentUpon>ControlUI.xaml</DependentUpon>
     </Content>
@@ -112,7 +113,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ButtonTemplateVB.vstemplate" />
+    <VSTemplate Include="ButtonTemplateVB.vstemplate">
+      <OutputSubPath>CorelDraw Addon</OutputSubPath>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppUI.xslt" />
@@ -142,7 +145,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Content>
-    <Content Include="Resources\Colors.xaml">
+    <Content Include="Styles\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Content>
@@ -150,7 +153,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\Styles.xaml">
+    <Content Include="Styles\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Content>

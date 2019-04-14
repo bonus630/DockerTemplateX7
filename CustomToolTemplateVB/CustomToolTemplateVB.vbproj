@@ -86,7 +86,9 @@
     <Content Include="CorelDrw.addon" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ToolTemplateVB.vstemplate" />
+    <VSTemplate Include="ToolTemplateVB.vstemplate" >
+      <OutputSubPath>CorelDraw Addon</OutputSubPath>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <None Include="Addon.vb" />
