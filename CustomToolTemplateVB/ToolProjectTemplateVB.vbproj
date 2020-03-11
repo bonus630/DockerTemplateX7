@@ -149,6 +149,30 @@
     <DefineConstants>X11</DefineConstants>
   </PropertyGroup>
   $endif$
+  $if$ ($corel22$ == 1)
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2020 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <OutDir>bin\Debug\</OutDir>
+    <DocumentationFile></DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>DEBUG,X12</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2020 Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\2020\</OutputPath>
+    <OutDir>bin\Release\2020\$(SolutionName)</OutDir>
+    <DocumentationFile></DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X12</DefineConstants>
+  </PropertyGroup>
+  $endif$
   <PropertyGroup>
     <OutputType>Library</OutputType>
   </PropertyGroup>
@@ -192,6 +216,9 @@
     $endif$
     $if$ ($corel21$ == 1)
     <Import Include="$CorelProgramPath21$Assemblies\Corel.Interop.VGCore.dll"  />
+    $endif$
+    $if$ ($corel22$ == 1)
+    <Import Include="$CorelProgramPath22$Assemblies\Corel.Interop.VGCore.dll"  />
     $endif$
   </ItemGroup>
 
@@ -256,6 +283,16 @@
       <Private>False</Private>
     </Reference>
     <Reference Label="X11Reference" Include="$CorelProgramPath21$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2019 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    $endif$
+    $if$ ($corel22$ == 1)
+    <Reference Label="X12Reference" Include="$CorelProgramPath22$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2020 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Label="X12Reference" Include="$CorelProgramPath22$Assemblies\Corel.Interop.VGCore.dll"  Condition="'$(Configuration)'=='2020 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
@@ -422,6 +459,24 @@
   </PropertyGroup>
   $endif$
 
+  $if$ ($corel21$ == 1)
+  <PropertyGroup  Condition="'$(Configuration)'=='2019 Debug'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath21$$(SolutionName)" md "$CorelAddonsPath21$$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Debug\*.*" "$CorelAddonsPath21$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath21$$(SolutionName)\$(SolutionName).CorelAddon"
+    </PostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup  Condition="'$(Configuration)'=='2020 Release'">
+    <PostBuildEvent>
+      if not exist "$CorelAddonsPath22$$(SolutionName)" md "$CorelAddonsPath22$$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Release\2020\$(SolutionName)\*.*" "$CorelAddonsPath22$$(SolutionName)" /y /d /e
+      copy "$(TargetPath)" "$CorelAddonsPath22$$(SolutionName)\$(SolutionName).CorelAddon"
+    </PostBuildEvent>
+  </PropertyGroup>
+  $endif$
+
   $if$ ($corel17$ == 1)
   <PropertyGroup  Condition="'$(Configuration)'=='X7 Debug'">
     <StartAction>Program</StartAction>
@@ -470,6 +525,16 @@
   <PropertyGroup Condition="'$(Configuration)'=='2019 Release'">
     <StartAction>Program</StartAction>
     <StartProgram>$CorelProgramPath21$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  $endif$
+  $if$ ($corel22$ == 1)
+  <PropertyGroup  Label="X12Startup" Condition="'$(Configuration)'=='2020 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath22$CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup  Label="X12Startup" Condition="'$(Configuration)'=='2020 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$CorelProgramPath22$CorelDRW.exe</StartProgram>
   </PropertyGroup>
   $endif$
 </Project>

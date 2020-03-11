@@ -18,10 +18,6 @@
       <!--<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Class1.cs</ProjectItem>-->
       <ProjectItem ReplaceParameters="true" TargetFileName="DockerUI.html" OpenInEditor="10">DockerUI.html</ProjectItem>
-      
-     
-      
-
       <ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>

@@ -26,7 +26,7 @@ namespace Wizard001
 
         private string corelGMSPath;
             public static readonly int MinVersion = 17;
-            public static readonly int MaxVersion = 22;
+            public static readonly int MaxVersion = 23;
             //private string corelAddonsPath;
             //private string corelGMSPath64;
             //private string corelAddonsPath64;
@@ -42,12 +42,12 @@ namespace Wizard001
             private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12",
                 "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5",
                 "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8",
-                "CorelDRAW Graphics Suite 2017","CorelDRAW Graphics Suite 2018","CorelDRAW Graphics Suite 2019" };
+                "CorelDRAW Graphics Suite 2017","CorelDRAW Graphics Suite 2018","CorelDRAW Graphics Suite 2019","CorelDRAW Graphics Suite 2020" };
 
             private const string corelName = "CorelDraw Graphics Suite";
-            private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference" };
-            private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand" };
-            private string[] corelStartup = new string[] { "", "", "", "", "", "", "", "X7Startup", "X8Startup", "X9Startup", "X10Startup", "X11Startup" };
+            private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference","X12Reference" };
+            private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand", "X12BuildCopyCommand" };
+            private string[] corelStartup = new string[] { "", "", "", "", "", "", "", "X7Startup", "X8Startup", "X9Startup", "X10Startup", "X11Startup", "X12Startup" };
 
         //Corel 13 folder - CorelDRAW Graphics Suite 13
         //Corel 10 folder -  Graphics10 

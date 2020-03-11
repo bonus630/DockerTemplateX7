@@ -1,7 +1,7 @@
 ﻿<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>CorelDRAW Docker Addon</Name>
-    <Description>A project template for creating a control for CorelDRAW X7 or higher, CorelDraw is trademaker from Corel Corporation</Description>
+    <Description>A project template for creating a docker for CorelDRAW X7 or higher. CorelDraw is trademaker from Corel Corporation</Description>
     <Icon>DockerTemplateVB.ico</Icon>
     <ProjectType>VisualBasic</ProjectType>
     <ProjectSubType>CorelDRAW Addons</ProjectSubType>

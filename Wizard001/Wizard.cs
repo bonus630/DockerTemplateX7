@@ -52,6 +52,7 @@ namespace Wizard001
                 throw new WizardBackoutException();
             }
             List<EnvDTE.SolutionConfiguration> configurations = new List<EnvDTE.SolutionConfiguration>();
+
             for (int i = 0; i < CorelVersionInfo.MaxVersion - CorelVersionInfo.MinVersion; i++)
             {
                 configurations.Add(null);
@@ -62,26 +63,33 @@ namespace Wizard001
                 if (item.Name == "2019 Debug")
                 {
                     configurations[4] = item;
+                    continue;
                 }
                 if (item.Name == "2018 Debug")
                 {
                     configurations[3] = item;
+                    continue;
                 }
                 if (item.Name == "2017 Debug")
                 {
                     configurations[2] = item;
+                    continue;
                 }
                 if(item.Name == "X7 Debug")
                 {
                     configurations[0] = item;
+                    continue;
                 }
                 if(item.Name == "X8 Debug")
                 {
                     configurations[1] = item;
+                    continue;
                 }
 
             }
             configurations.RemoveAll(r => r == null);
+
+
             for (int i = 0; i < configurations.Count; i++)
             {
                 if (configurations[i] != null)
@@ -89,17 +97,11 @@ namespace Wizard001
                     configurations[i].Activate();
                     configurations[i].DTE.Solution.SolutionBuild.Build(true);
                     break;
-                    
+
                 }
-                
-                   
             }
-            
+
             this.project.Save();
-            
-            
-
-
         }
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
