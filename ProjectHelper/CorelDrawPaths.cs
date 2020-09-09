@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-namespace Wizard001
+namespace ProjectHelper
 {
     public class CorelVersionInfo
     {
@@ -20,9 +20,10 @@ namespace Wizard001
             public string CorelFullName { get { return string.Format("{0} {1}", corelName, this.corelAbb[this.CorelVersion - 10]); } }
             public string CorelFolderName { get { return this.corelFolderList[this.CorelVersion - 10]; } }
             public string Corel64FullName { get { return string.Format("{0} {1} 64bit", corelName, this.corelAbb[this.CorelVersion - 10]); } }
-            public string CorelReferenceLabel { get { return this.corelReferenceLabel[this.CorelVersion - 10]; } }
-            public string CorelBuildCopyCommandLabel { get { return this.corelBuildCopyCommandLabel[this.CorelVersion - 10]; } }
-            public string CorelStartup { get { return this.corelStartup[this.CorelVersion - 10]; } }
+            public string CorelDebugConst { get { return this.corelDebugConst[this.CorelVersion - 10]; } }
+        //public string CorelReferenceLabel { get { return this.corelReferenceLabel[this.CorelVersion - 10]; } }
+        //public string CorelBuildCopyCommandLabel { get { return this.corelBuildCopyCommandLabel[this.CorelVersion - 10]; } }
+        //public string CorelStartup { get { return this.corelStartup[this.CorelVersion - 10]; } }
 
         private string corelGMSPath;
             public static readonly int MinVersion = 17;
@@ -38,17 +39,17 @@ namespace Wizard001
             public string CorelInstallationPath64 { get; private set; }
             public CorelIs64Bit Corel64Bit { get; set; }
             public int CorelVersion { get; private set; }
-            private string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017","2018", "2019" };
+            private string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017","2018", "2019","2020" };
             private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12",
                 "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5",
                 "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8",
                 "CorelDRAW Graphics Suite 2017","CorelDRAW Graphics Suite 2018","CorelDRAW Graphics Suite 2019","CorelDRAW Graphics Suite 2020" };
 
             private const string corelName = "CorelDraw Graphics Suite";
-            private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference","X12Reference" };
-            private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand", "X12BuildCopyCommand" };
-            private string[] corelStartup = new string[] { "", "", "", "", "", "", "", "X7Startup", "X8Startup", "X9Startup", "X10Startup", "X11Startup", "X12Startup" };
-
+            //private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference","X12Reference" };
+            //private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand", "X12BuildCopyCommand" };
+            //private string[] corelStartup = new string[] { "", "", "", "", "", "", "", "X7Startup", "X8Startup", "X9Startup", "X10Startup", "X11Startup", "X12Startup" };
+            private string[] corelDebugConst = new string[] { "", "", "", "", "", "", "", "X7", "X8", "X9", "X10", "X11", "X12" };
         //Corel 13 folder - CorelDRAW Graphics Suite 13
         //Corel 10 folder -  Graphics10 
 
@@ -323,6 +324,8 @@ namespace Wizard001
                 try
                 {
                     Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(String.Format("CorelDRAW.Graphic.{0}\\shell\\Open\\command", version));
+                    if (key == null)
+                        return false;
                     string path = (string)key.GetValue("");
                     path = path.Substring(1).ToLower();
                     //Corel 10 use %1
@@ -340,6 +343,10 @@ namespace Wizard001
                         this.Corel64Bit = CorelIs64Bit.Corel32;
                     }
                     return true;
+                }
+                catch (NullReferenceException ex)
+                {
+                    return false;
                 }
                 catch
                 {
@@ -373,11 +380,15 @@ namespace Wizard001
 
                     return false;
                 }
+                catch (NullReferenceException ex)
+                {
+                    return false;
+                }
                 catch
                 {
                     return false;
                 }
-            }
+        }
             private bool recoverPathFromRegistryProgramID(int version)
             {
                 //Return programs path
@@ -385,6 +396,8 @@ namespace Wizard001
                 try
                 {
                     key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(String.Format("SOFTWARE\\Corel\\CorelDRAW\\{0}.0", version));
+                    if (key == null)
+                        return false;
                     string path = (string)key.GetValue("ProgramsDir");
 
                     key.Close();
@@ -402,12 +415,16 @@ namespace Wizard001
                     return true;
 
                 }
+                catch(NullReferenceException ex)
+                {
+                    return false;
+                }
                 catch
                 {
                     return false;
                 }
 
-            }
+        }
 
         }
     }

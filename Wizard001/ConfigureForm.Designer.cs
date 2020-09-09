@@ -72,24 +72,22 @@
             // panel_middler
             // 
             this.panel_middler.Controls.Add(this.flowLayoutPanel_Versions);
-            this.panel_middler.Controls.Add(this.btn_cancel);
-            this.panel_middler.Controls.Add(this.btn_done);
             this.panel_middler.Controls.Add(this.label2);
             this.panel_middler.Location = new System.Drawing.Point(12, 68);
             this.panel_middler.Name = "panel_middler";
-            this.panel_middler.Size = new System.Drawing.Size(392, 146);
+            this.panel_middler.Size = new System.Drawing.Size(392, 220);
             this.panel_middler.TabIndex = 6;
             // 
             // flowLayoutPanel_Versions
             // 
             this.flowLayoutPanel_Versions.Location = new System.Drawing.Point(5, 31);
             this.flowLayoutPanel_Versions.Name = "flowLayoutPanel_Versions";
-            this.flowLayoutPanel_Versions.Size = new System.Drawing.Size(231, 110);
+            this.flowLayoutPanel_Versions.Size = new System.Drawing.Size(231, 218);
             this.flowLayoutPanel_Versions.TabIndex = 8;
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(339, 118);
+            this.btn_cancel.Location = new System.Drawing.Point(357, 294);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(52, 23);
             this.btn_cancel.TabIndex = 6;
@@ -99,7 +97,7 @@
             // btn_done
             // 
             this.btn_done.Enabled = false;
-            this.btn_done.Location = new System.Drawing.Point(242, 118);
+            this.btn_done.Location = new System.Drawing.Point(260, 294);
             this.btn_done.Name = "btn_done";
             this.btn_done.Size = new System.Drawing.Size(91, 23);
             this.btn_done.TabIndex = 7;
@@ -121,9 +119,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(421, 215);
+            this.ClientSize = new System.Drawing.Size(421, 319);
             this.Controls.Add(this.panel_middler);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.panel_dockerCaption);
+            this.Controls.Add(this.btn_done);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -10,9 +10,9 @@
     <SortOrder>1000</SortOrder>
     <TemplateID>8AAFD9D4-608E-49AA-8035-EEB1F6F86213</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>DockerTemplateCS</DefaultName>
+    <DefaultName>SampleDockerCS</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
-
+    <BuildOnLoad>true</BuildOnLoad>
   </TemplateData>
   <TemplateContent>
     <Project File="DockerProjectTemplateCS.csproj" ReplaceParameters="true">
@@ -49,6 +49,7 @@
     </Project>
     <CustomParameters>
       <CustomParameter Name="$type$" Value="Docker"/>
+      <CustomParameter Name="$lang$" Value="CS"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

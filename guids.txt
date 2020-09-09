@@ -1,0 +1,9 @@
+main       {4d91e129-9f30-44f5-a38c-edf3746cf105}
+
+Csharp     {32ca20a0-fa3c-4d0e-8a85-97d5f556851b}
+VB	   {16de1152-3c44-4a6e-9284-5c825da82f87}
+JavaScript
+
+button     {8f0a4e43-b0f9-4199-98c5-546e2af80a44}
+docker     {1518882e-19cc-4a64-8bc0-2dd8dbde6463}
+tool       {efb62df5-1f5b-4b7a-99ee-2351d5aed383}

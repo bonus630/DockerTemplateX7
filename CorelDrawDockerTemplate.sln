@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wizard001", "Wizard001\Wizard001.csproj", "{FE07A5D6-33B1-4C90-B17D-45DC6AEA0DDA}"
 EndProject
@@ -20,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonTemplateCS", "ButtonTemplateCS\ButtonTemplateCS.csproj", "{CC4C2FA1-31BF-4B20-8C8F-6183342A0FD5}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ButtonTemplateVB", "ButtonTemplateVB\ButtonTemplateVB.vbproj", "{48ED7448-A11B-4014-97BD-1251976042CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectHelper", "ProjectHelper\ProjectHelper.csproj", "{AEB4FED3-3B98-4BDC-9698-D247C57B22B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TargetsCreator", "TargetsCreator\TargetsCreator.csproj", "{E398109F-338E-449D-84F5-85FEE12EB310}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,14 @@ Global
 		{48ED7448-A11B-4014-97BD-1251976042CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48ED7448-A11B-4014-97BD-1251976042CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48ED7448-A11B-4014-97BD-1251976042CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB4FED3-3B98-4BDC-9698-D247C57B22B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB4FED3-3B98-4BDC-9698-D247C57B22B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB4FED3-3B98-4BDC-9698-D247C57B22B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB4FED3-3B98-4BDC-9698-D247C57B22B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E398109F-338E-449D-84F5-85FEE12EB310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E398109F-338E-449D-84F5-85FEE12EB310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E398109F-338E-449D-84F5-85FEE12EB310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E398109F-338E-449D-84F5-85FEE12EB310}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

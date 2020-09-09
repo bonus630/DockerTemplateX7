@@ -84,7 +84,6 @@
     <Content Include="DockerUI.xaml.cs">
       <DependentUpon>DockerUI.xaml</DependentUpon>
     </Content>
-    <Content Include="ProjectTemplate.csproj.user" />
     <Content Include="UserUI.xslt" />
   </ItemGroup>
   <ItemGroup>

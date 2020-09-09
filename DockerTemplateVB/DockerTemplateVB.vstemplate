@@ -9,9 +9,10 @@
     <SortOrder>1000</SortOrder>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>DockerTemplateVB</DefaultName>
+    <DefaultName>SampleDockerVB</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <BuildOnLoad>true</BuildOnLoad>
   </TemplateData>
   <TemplateContent>
     <Project File="DockerProjectTemplateVB.vbproj" ReplaceParameters="true">
@@ -44,6 +45,7 @@
     </Project>
     <CustomParameters>
       <CustomParameter Name="$type$" Value="Docker"/>
+      <CustomParameter Name="$lang$" Value="VB"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

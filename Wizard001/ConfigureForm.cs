@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio;
+using ProjectHelper;
 
 namespace Wizard001
 {

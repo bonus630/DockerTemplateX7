@@ -3,34 +3,59 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.VisualStudio.TemplateWizard;
 using Microsoft.VisualStudio.Shell.Interop;
-
+using ProjectHelper;
+using System.Text;
+using System.Linq;
 
 namespace Wizard001
 {
-   
+
     class Wizard : IWizard
     {
-       
+
         private bool finish = false;
         private string projectDir;
         private EnvDTE.Project project;
         private List<CorelVersionInfo> selectedVersions;
 
-        public void BeforeOpeningFile(global::EnvDTE.ProjectItem projectItem) {
-            
+        private readonly string CSGuid = "FAE04EC0-301F-11D3-BF4B-00C04F79EFBC";
+        private readonly string VBGuid = "F184B08F-C81C-45F6-A57F-5ABD9991F28F";
+        private readonly string WPFGuid = "60dc8134-eba5-43b8-bcc9-bb4bc16c2548";
+
+
+        private Dictionary<string, string> ProjectTypeGuid = new Dictionary<string, string>();
+
+
+
+        public Wizard()
+        {
+
+            //Guid List
+            //https://www.codeproject.com/Reference/720512/List-of-Visual-Studio-Project-Type-GUIDs
+
+            ProjectTypeGuid.Add("$CSGuid$", CSGuid);
+            ProjectTypeGuid.Add("$VBGuid$", VBGuid);
+            ProjectTypeGuid.Add("$WPFUserControlGuid$", WPFGuid);
         }
 
-        public void ProjectFinishedGenerating(global::EnvDTE.Project project){
+        public void BeforeOpeningFile(global::EnvDTE.ProjectItem projectItem)
+        {
+
+        }
+
+        public void ProjectFinishedGenerating(global::EnvDTE.Project project)
+        {
             this.project = project;
         }
-       
-        public void ProjectItemFinishedGenerating(global::EnvDTE.ProjectItem projectItem){
-            
+
+        public void ProjectItemFinishedGenerating(global::EnvDTE.ProjectItem projectItem)
+        {
+
         }
 
         public void RunFinished()
         {
-            if(!finish)
+            if (!finish)
             {
                 this.project.DTE.Solution.Close();
                 try
@@ -51,63 +76,107 @@ namespace Wizard001
                 }
                 throw new WizardBackoutException();
             }
-            List<EnvDTE.SolutionConfiguration> configurations = new List<EnvDTE.SolutionConfiguration>();
+            this.selectedVersions.OrderBy(r => r.CorelVersion);
 
-            for (int i = 0; i < CorelVersionInfo.MaxVersion - CorelVersionInfo.MinVersion; i++)
+            var solutionConfigurations = this.project.DTE.Solution.SolutionBuild.SolutionConfigurations;
+
+            for (int i = 0; i < this.selectedVersions.Count; i++)
             {
-                configurations.Add(null);
-            }
 
-            foreach (EnvDTE.SolutionConfiguration item in this.project.DTE.Solution.SolutionBuild.SolutionConfigurations)
-            {
-                if (item.Name == "2019 Debug")
+                foreach (EnvDTE.SolutionConfiguration item in solutionConfigurations)
                 {
-                    configurations[4] = item;
-                    continue;
-                }
-                if (item.Name == "2018 Debug")
-                {
-                    configurations[3] = item;
-                    continue;
-                }
-                if (item.Name == "2017 Debug")
-                {
-                    configurations[2] = item;
-                    continue;
-                }
-                if(item.Name == "X7 Debug")
-                {
-                    configurations[0] = item;
-                    continue;
-                }
-                if(item.Name == "X8 Debug")
-                {
-                    configurations[1] = item;
-                    continue;
-                }
-
-            }
-            configurations.RemoveAll(r => r == null);
-
-
-            for (int i = 0; i < configurations.Count; i++)
-            {
-                if (configurations[i] != null)
-                {
-                    configurations[i].Activate();
-                    configurations[i].DTE.Solution.SolutionBuild.Build(true);
-                    break;
-
+                    if (!item.Name.Contains(this.selectedVersions[i].CorelAbreviation))
+                        item.Delete();
+                    else
+                    {
+                        switch (item.Name)
+                        {
+                            case "2020 Debug":
+                                item.Activate();
+                                break;
+                            case "2019 Debug":
+                                item.Activate();
+                                break;
+                            case "2018 Debug":
+                                item.Activate();
+                                break;
+                            case "2017 Debug":
+                                item.Activate();
+                                break;
+                            case "X8 Debug":
+                                item.Activate();
+                                break;
+                            case "X7 Debug":
+                                item.Activate();
+                                break;
+                        }
+                    }
                 }
             }
+            this.project.DTE.Solution.SolutionBuild.Build(true);
 
-            this.project.Save();
+            //foreach (EnvDTE.SolutionConfiguration item in this.project.DTE.Solution.SolutionBuild.SolutionConfigurations)
+            //{
+            //    if (item.Name == "2020 Debug")
+            //    {
+            //        configurations[5] = item;
+            //        continue;
+            //    }
+            //    if (item.Name == "2019 Debug")
+            //    {
+            //        configurations[4] = item;
+            //        continue;
+            //    }
+            //    if (item.Name == "2018 Debug")
+            //    {
+            //        configurations[3] = item;
+            //        continue;
+            //    }
+            //    if (item.Name == "2017 Debug")
+            //    {
+            //        configurations[2] = item;
+            //        continue;
+            //    } 
+            //    if(item.Name == "X8 Debug")
+            //    {
+            //        configurations[1] = item;
+            //        continue;
+            //    }
+            //    if(item.Name == "X7 Debug")
+            //    {
+            //        configurations[0] = item;
+            //        continue;
+            //    }
+
+
+            //}
+            //configurations.RemoveAll(r => r == null);
+
+
+            //for (int i = 0; i < configurations.Count; i++)
+            //{
+            //    if (configurations[i] != null)
+            //    {
+            //        configurations[i].Activate();
+            //        configurations[i].DTE.Solution.SolutionBuild.Build(true);
+            //        break;
+
+            //    }
+            //}
+
+            //this.project.Save();
         }
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
-           
+
             this.projectDir = replacementsDictionary["$destinationdirectory$"];
+            DirectoryInfo dir = new DirectoryInfo(this.projectDir);
+            if (dir.Exists)
+            {
+                TargetsCreator targetsCreator = new TargetsCreator();
+                targetsCreator.WriteTargetsFile(dir.Parent.FullName);
+            }
             try
             {
                 EnvDTE80.DTE2 dte = null;
@@ -122,26 +191,30 @@ namespace Wizard001
                     ThemeManager tManager = new ThemeManager(dte);
                     vsTheme = tManager.GetCurrentTheme();
                 }
-                ConfigureForm form = new ConfigureForm(vsTheme,replacementsDictionary["$type$"]);
+                ConfigureForm form = new ConfigureForm(vsTheme, replacementsDictionary["$type$"]);
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     bool cancel = true;
-                    
+
                     this.selectedVersions = form.SelectedVersions;
                     for (int i = CorelVersionInfo.MinVersion; i < CorelVersionInfo.MaxVersion; i++)
                     {
 
-                        replacementsDictionary.Add("$corel" + i.ToString() + "$", "0");
+                        replacementsDictionary.Add("$corel" + i.ToString() + "$", "");
 
                     }
-                    for (int i = 0; i <selectedVersions.Count; i++)
+                    foreach (var item in ProjectTypeGuid)
+                    {
+                        replacementsDictionary.Add(item.Key, item.Value);
+                    }
+                    for (int i = 0; i < selectedVersions.Count; i++)
                     {
                         CorelVersionInfo corel = selectedVersions[i];
                         if (corel.CorelInstallationNotFound)
                         {
                             System.Windows.Forms.MessageBox.Show(string.Format("{0} not found", corel.CorelFullName));
-                            
-                           
+
+
                         }
                         else
                         {
@@ -151,15 +224,19 @@ namespace Wizard001
                                 corel.CorelAddonsPath(out corelAddonsPath);
                             else
                                 corel.CorelAddonsPath64(out corelAddonsPath);
-                            replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = "1";
-                            
-                            replacementsDictionary.Add("$CorelAddonsPath" + corel.CorelVersion + "$", corelAddonsPath);
-                         
-                            replacementsDictionary.Add("$CorelProgramPath" + corel.CorelVersion + "$", corel.CorelExePath);
-                         
+
+                            string projectKind = replacementsDictionary["$lang$"];
+                            if (projectKind.Equals("CS"))
+                                replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = buildConfigurationCS(corel);
+                            else if (projectKind.Equals("VB"))
+                                replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = buildConfigurationVB(corel);
+                            else
+                                throw new WizardCancelledException();
+
+
                         }
                     }
-                 
+
                     if (cancel)
                     {
                         System.Windows.Forms.MessageBox.Show("Operation is canceled!");
@@ -167,37 +244,90 @@ namespace Wizard001
                         throw new WizardCancelledException();
 
                     }
-                   
-                   
-                   
+
+
+
                     replacementsDictionary.Add("$GuidA$", Guid.NewGuid().ToString());
                     replacementsDictionary.Add("$GuidB$", Guid.NewGuid().ToString());
                     replacementsDictionary.Add("$GuidC$", Guid.NewGuid().ToString());
                     replacementsDictionary.Add("$Caption$", form.DockerCaption);
 
                     finish = true;
-                    
+
                 }
                 else
                 {
                     throw new WizardCancelledException();
                 }
             }
-            catch(WizardCancelledException)
+            catch (WizardCancelledException)
             {
                 finish = false;
-               
+
             }
             catch (Exception)
             {
                 finish = false;
-               
+
             }
         }
         public bool ShouldAddProjectItem(string filePath)
         {
             return true;
         }
-        
+        private string buildConfigurationCS(CorelVersionInfo corelVersion)
+        {
+            StringBuilder sr = new StringBuilder();
+
+            sr.AppendFormat("<PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == '{0} Debug|AnyCPU'\">", corelVersion.CorelAbreviation);
+            sr.Append("<DebugSymbols>true</DebugSymbols>");
+            sr.Append("<DebugType>full</DebugType>");
+            sr.Append("<Optimize>false</Optimize>");
+            sr.Append("<OutputPath>bin\\Debug\\</OutputPath>");
+            sr.AppendFormat("<DefineConstants>DEBUG;TRACE;{0}</DefineConstants>", corelVersion.CorelDebugConst);
+            sr.Append("<ErrorReport>prompt</ErrorReport>");
+            sr.Append("<WarningLevel>4</WarningLevel>");
+            sr.Append("</PropertyGroup>");
+            sr.AppendFormat("<PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == '{0} Release|AnyCPU'\">", corelVersion.CorelAbreviation);
+            sr.Append("<DebugType>none</DebugType>");
+            sr.Append("<Optimize>true</Optimize>");
+            sr.Append("<OutputPath>bin\\Release\\$(CurrentCorelAbs)\\</OutputPath>");
+            sr.Append("<OutDir>bin\\Release\\$(CurrentCorelAbs)\\$(SolutionName)</OutDir>");
+            sr.AppendFormat("<DefineConstants>TRACE;{0}</DefineConstants>", corelVersion.CorelDebugConst);
+            sr.Append("<ErrorReport>prompt</ErrorReport>");
+            sr.Append("<WarningLevel>4</WarningLevel>");
+            sr.Append("</PropertyGroup>");
+
+            return sr.ToString();
+        }
+        private string buildConfigurationVB(CorelVersionInfo corelVersion)
+        {
+            StringBuilder sr = new StringBuilder();
+
+            sr.AppendFormat("<PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == '{0} Debug|AnyCPU'\">", corelVersion.CorelAbreviation);
+            sr.Append("<DebugSymbols>true</DebugSymbols>");
+            sr.Append("<DebugType>full</DebugType>");
+            sr.Append("<DefineDebug>true</DefineDebug>");
+            sr.Append("<DefineTrace>true</DefineTrace>");
+            sr.Append("<OutputPath>bin\\Debug\\</OutputPath>");
+            sr.Append("<OutDir>bin\\Debug\\</OutDir>");
+            sr.Append("<DocumentationFile></DocumentationFile>");
+            sr.Append("<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>");
+            sr.AppendFormat("<DefineConstants>DEBUG,{0}</DefineConstants>", corelVersion.CorelDebugConst);
+            sr.Append("</PropertyGroup>");
+            sr.AppendFormat("<PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == '{0} Release|AnyCPU'\">", corelVersion.CorelAbreviation);
+            sr.Append("<DebugType>none</DebugType>");
+            sr.Append("<DefineDebug>false</DefineDebug>");
+            sr.Append("<DefineTrace>true</DefineTrace>");
+            sr.Append("<Optimize>true</Optimize>");
+            sr.Append("<OutputPath>bin\\Release\\$(CurrentCorelAbs)\\</OutputPath>");
+            sr.Append("<OutDir>bin\\Release\\$(CurrentCorelAbs)\\$(SolutionName)</OutDir>");
+            sr.Append("<DocumentationFile></DocumentationFile>");
+            sr.Append("<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>");
+            sr.AppendFormat("<DefineConstants>{0}</DefineConstants>", corelVersion.CorelDebugConst);
+            sr.Append("</PropertyGroup>");
+
+            return sr.ToString();
+        }
     }
 }

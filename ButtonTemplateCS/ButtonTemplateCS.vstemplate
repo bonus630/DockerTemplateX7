@@ -2,8 +2,7 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>CorelDRAW Control Addon</Name>
-    <Description>A project template for creating a control for CorelDRAW X7 or higher.Creates a single button in standard bar, for use in fast single command project.
-    For more information on creating custom tools, please see http://community.coreldraw.com/sdk CorelDraw is trademaker from Corel Corporation</Description>
+    <Description>A project template for creating a control for CorelDRAW X7 or higher.Creates a single button in standard bar, for use in fast single command project.For more information on creating custom tools, please see http://community.coreldraw.com/sdk CorelDraw is trademaker from Corel Corporation</Description>
     <Icon>DockerTemplateX7.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>CorelDRAW Addons</ProjectSubType>
@@ -11,10 +10,11 @@
     <SortOrder>1000</SortOrder>
     <TemplateID>d544180d-595b-4d71-b1ab-520a528892cc</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>ButtonTemplateCS</DefaultName>
+    <DefaultName>SampleButtonCS</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
-
+    <BuildOnLoad>true</BuildOnLoad>
   </TemplateData>
+
   <TemplateContent>
     <Project File="ButtonProjectTemplateCS.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="20">ControlUI.xaml.cs</ProjectItem>
@@ -39,12 +39,13 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="Properties\Settings.settings">Settings.settings</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.csproj.user">ProjectTemplate.csproj.user</ProjectItem>
-
+    
       <!--  Erro - <ProjectItem SubType="ProjectTemplate.csproj.user" ReplaceParameters="true"></ProjectItem>-->
     </Project>
+
     <CustomParameters>
       <CustomParameter Name="$type$" Value="Docker"/>
+      <CustomParameter Name="$lang$" Value="CS"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

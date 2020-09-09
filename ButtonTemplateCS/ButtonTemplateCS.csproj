@@ -81,7 +81,6 @@
     <Content Include="ControlUI.xaml.cs">
       <DependentUpon>ControlUI.xaml</DependentUpon>
     </Content>
-    <Content Include="ProjectTemplate.csproj.user" />
     <Content Include="UserUI.xslt" />
   </ItemGroup>
   <ItemGroup>

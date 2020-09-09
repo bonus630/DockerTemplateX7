@@ -37,6 +37,7 @@
     </Project>
     <CustomParameters>
       <CustomParameter Name="$type$" Value="Docker"/>
+      <CustomParameter Name="$lang$" Value="JS"/>
     </CustomParameters>
   </TemplateContent>
  

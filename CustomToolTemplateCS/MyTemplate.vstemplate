@@ -7,17 +7,17 @@
     <ProjectSubType>CorelDRAW Addons</ProjectSubType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SampleTool</DefaultName>
+    <DefaultName>SampleToolCS</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <Icon>__TemplateIcon.png</Icon>
     <PreviewImage>__PreviewImage.png</PreviewImage>
     <TemplateID>0AC96025-9E94-4F81-B6FD-C25731EED4A7</TemplateID>
+    <BuildOnLoad>true</BuildOnLoad>
   </TemplateData>
   <TemplateContent>
     <Project File="ToolProjectTemplateCS.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.csproj.user">MyTemplate.csproj.user</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Addon.cs">Addon.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$.cs">DrawTool.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="AppUI.xslt">AppUI.xslt</ProjectItem>
@@ -32,6 +32,7 @@
     </Project>
     <CustomParameters>
       <CustomParameter Name="$type$" Value="Tool"/>
+      <CustomParameter Name="$lang$" Value="CS"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

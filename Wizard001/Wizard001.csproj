@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CorelDrawPaths.cs" />
     <Compile Include="ConfigureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +91,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectHelper\ProjectHelper.csproj">
+      <Project>{aeb4fed3-3b98-4bdc-9698-d247c57b22b1}</Project>
+      <Name>ProjectHelper</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

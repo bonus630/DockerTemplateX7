@@ -1,0 +1,19 @@
+<Project DefaultTargets="Compile" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Choose>
+	<When Condition="'$(Configuration)' == 'X7 Release' Or '$(Configuration)' == 'X7 Debug'">
+		<PropertyGroup>
+			<CurrentCorelPath>$17Path$</CurrentCorelPath>
+			<CurrentCorelAbr>$17Abr</CurrentCorelAbr>
+		</PropertyGroup>
+	</When>
+</Choose>
+  <PropertyGroup>
+    <VGCoreDLL>Assemblies\Corel.Interop.VGCore.dll</VGCoreDLL>
+  </PropertyGroup> 
+ <Target Name="CopyFiles" AfterTargets="Build">
+    <Message Text="CopyFiles" />
+     <Message Text="$(CurrentCorelPath)" />
+    <MakeDir Directories="$(CurrentCorelPath)Addons\$(SolutionName)" />
+    <Exec Condition="Exists('$(CurrentCorelPath)Addons\$(SolutionName)')" Command='xcopy "$(ProjectDir)$(OutDir)*.*" "$(CurrentCorelPath)Addons\$(SolutionName)" /y /d /e /c' />
+   </Target>
+</Project>

@@ -88,7 +88,6 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="MyTemplate.csproj.user" />
     <Content Include="Readme.txt" />
     <Content Include="resources.rct" />
     <Content Include="UserUI.xslt" />
