@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CorelDrawPaths.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="TargetsCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

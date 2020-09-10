@@ -1,19 +1,11 @@
 ﻿using System;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.Win32;
 using Task = System.Threading.Tasks.Task;
 
-namespace TargetsCreator
+namespace VSIXProject1
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -32,30 +24,16 @@ namespace TargetsCreator
     /// To get loaded into VS, the package must be referred by &lt;Asset Type="Microsoft.VisualStudio.VsPackage" ...&gt; in .vsixmanifest file.
     /// </para>
     /// </remarks>
-    /// 
-    [ProvideAutoLoad("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}", PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionExistsAndFullyLoaded_string, PackageAutoLoadFlags.BackgroundLoad)]
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(TargetCreatorAsync.PackageGuidString)]
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-    public sealed class TargetCreatorAsync : AsyncPackage
+    [Guid(VSIXProject1Package.PackageGuidString)]
+    [ProvideMenuResource("Menus.ctmenu", 1)]
+    public sealed class VSIXProject1Package : AsyncPackage
     {
         /// <summary>
-        /// VSPackage1 GUID string.
+        /// VSIXProject1Package GUID string.
         /// </summary>
-        public const string PackageGuidString = "66683a1e-ed2b-4664-8161-708d4d6d7eb9";
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TargetCreatorAsync"/> class.
-        /// </summary>
-        public TargetCreatorAsync()
-        {
-            // Inside this method you can place any initialization code that does not require
-            // any Visual Studio service because at this point the package object is created but
-            // not sited yet inside Visual Studio environment. The place to do all the other
-            // initialization is the Initialize method.
-           
-
-        }
+        public const string PackageGuidString = "55fe82ca-eefb-4776-9442-049251623a2a";
 
         #region Package Members
 
@@ -71,7 +49,7 @@ namespace TargetsCreator
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            System.Windows.Forms.MessageBox.Show("Coreldraw addon load");
+            await CreateTargetsCommand.InitializeAsync(this);
         }
 
         #endregion

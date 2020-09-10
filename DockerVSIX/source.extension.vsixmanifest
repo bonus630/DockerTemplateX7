@@ -31,6 +31,7 @@
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ButtonTemplateVB" d:TargetPath="|ButtonTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="ProjectHelper" Path="|ProjectHelper|" AssemblyName="|ProjectHelper;AssemblyName|" />
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="TargetsCreator" Path="|TargetsCreator;PkgdefProjectOutputGroup|" />
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="VSIXProject1" Path="|VSIXProject1;PkgdefProjectOutputGroup|" />
 
     </Assets>
     <Prerequisites>
