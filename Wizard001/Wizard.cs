@@ -275,7 +275,7 @@ namespace Wizard001
                 }
                 else
                 {
-                    throw new WizardCancelledException();
+                    finish = false;
                 }
             }
             catch (WizardCancelledException)

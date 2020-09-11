@@ -14,17 +14,17 @@ namespace VSIXProject1
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class CreateTargetsCommand
+    internal sealed class OpenAddonFolder
     {
         /// <summary>
         /// Command ID.
         /// </summary>
-        public const int CommandId = 0x0100;
+        public const int CommandId = 256;
 
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("1d48d59a-b75b-4d3e-a9e6-d64cd76391c4");
+        public static readonly Guid CommandSet = new Guid("966034e1-2b7b-4876-b0ae-b7ded2abed89");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -32,12 +32,12 @@ namespace VSIXProject1
         private readonly AsyncPackage package;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateTargetsCommand"/> class.
+        /// Initializes a new instance of the <see cref="OpenAddonFolder"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
         /// <param name="commandService">Command service to add command to, not null.</param>
-        private CreateTargetsCommand(AsyncPackage package, OleMenuCommandService commandService)
+        private OpenAddonFolder(AsyncPackage package, OleMenuCommandService commandService)
         {
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
@@ -47,7 +47,6 @@ namespace VSIXProject1
             menuItem.BeforeQueryStatus += MenuItem_BeforeQueryStatus;
             commandService.AddCommand(menuItem);
         }
-
         private void MenuItem_BeforeQueryStatus(object sender, EventArgs e)
         {
             OleMenuCommand c = sender as OleMenuCommand;
@@ -68,13 +67,12 @@ namespace VSIXProject1
                 projectFolderPath = file.Directory.FullName;
                 c.Visible = Helper.CheckSolutionIsCDRAddon(projectFolderPath);
             });
-            
-        }
 
+        }
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static CreateTargetsCommand Instance
+        public static OpenAddonFolder Instance
         {
             get;
             private set;
@@ -97,12 +95,12 @@ namespace VSIXProject1
         /// <param name="package">Owner package, not null.</param>
         public static async Task InitializeAsync(AsyncPackage package)
         {
-            // Switch to the main thread - the call to AddCommand in CreateTargetsCommand's constructor requires
+            // Switch to the main thread - the call to AddCommand in OpenAddonFolder's constructor requires
             // the UI thread.
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
-            Instance = new CreateTargetsCommand(package, commandService);
+            Instance = new OpenAddonFolder(package, commandService);
         }
 
         /// <summary>
@@ -115,50 +113,39 @@ namespace VSIXProject1
         private void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            //string title = "CreateTargetsCommand";
-
-            // Show a message box to prove we were here
-            //VsShellUtilities.ShowMessageBox(
-            //    this.package,
-            //    message,
-            //    title,
-            //    OLEMSGICON.OLEMSGICON_INFO,
-            //    OLEMSGBUTTON.OLEMSGBUTTON_OK,
-            //    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
             EnvDTE.DTE dte;
             dte = (EnvDTE.DTE)Package.GetGlobalService(typeof(EnvDTE.DTE));
 
             string solutionFolder = "";
             EnvDTE.Project project;
             project = dte.Solution.Projects.Item(1);
+            string configuration = project.ConfigurationManager.ActiveConfiguration.ConfigurationName;
 
-            string uni = project.FullName;
+            CorelVersionInfo corelVersionInfo =  null;
 
-            FileInfo file = new FileInfo(uni);
-            solutionFolder = file.Directory.Parent.FullName;
-
-            if (!Helper.CheckSolutionIsCDRAddon(file.Directory.FullName))
+            if(configuration.Contains("Release"))
+            {
+                corelVersionInfo = new CorelVersionInfo(configuration.Replace(" Release", ""));
+            }
+            if (configuration.Contains("Debug"))
+            {
+                corelVersionInfo = new CorelVersionInfo(configuration.Replace(" Debug", ""));
+            }
+            if (corelVersionInfo == null)
                 return;
 
-
-            try
+            if(!corelVersionInfo.CorelInstallationNotFound)
             {
+                string path = "";
+                if (corelVersionInfo.Corel64Bit == CorelVersionInfo.CorelIs64Bit.Corel32)
+                    corelVersionInfo.CorelAddonsPath(out path);
+                else
+                    corelVersionInfo.CorelAddonsPath64(out path);
+                if (!string.IsNullOrEmpty(path))
+                    System.Diagnostics.Process.Start(path);
+            }
 
 
-                if (Directory.Exists(solutionFolder))
-                {
-                    string targetsFile = Path.Combine(solutionFolder, "bonus630.CDRCommon.targets");
-                    File.Delete(targetsFile);
-                    ProjectHelper.TargetsCreator targetsCreator = new ProjectHelper.TargetsCreator();
-                    if (targetsCreator.WriteTargetsFile(solutionFolder))
-                        dte.StatusBar.Text = "CorelDraw Paths is updated!";
-                }
-            }
-            catch (Exception erro)
-            {
-                dte.StatusBar.Text = erro.Message;
-            }
         }
     }
 }

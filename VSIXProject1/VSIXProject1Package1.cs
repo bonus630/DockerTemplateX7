@@ -21,6 +21,9 @@ namespace VSIXProject1
         public const string guidVSIXProject1PackageCmdSetString = "1d48d59a-b75b-4d3e-a9e6-d64cd76391c4";
         public static Guid guidVSIXProject1PackageCmdSet = new Guid(guidVSIXProject1PackageCmdSetString);
 
+        public const string guidVSIXProject1PackageCmdSet1String = "966034e1-2b7b-4876-b0ae-b7ded2abed89";
+        public static Guid guidVSIXProject1PackageCmdSet1 = new Guid(guidVSIXProject1PackageCmdSet1String);
+
         public const string guidImagesString = "fdaa6037-b528-4ec4-9fbe-a23a8d394e9d";
         public static Guid guidImages = new Guid(guidImagesString);
     }
@@ -32,6 +35,7 @@ namespace VSIXProject1
         public const int cdrAddonMenu = 0x1030;
         public const int MyMenuGroup = 0x1020;
         public const int CreateTargetsCommandId = 0x0100;
+        public const int cmdidOpenAddonFolder = 0x0100;
         public const int bmpPic1 = 0x0001;
         public const int bmpPic2 = 0x0002;
         public const int bmpPicSearch = 0x0003;

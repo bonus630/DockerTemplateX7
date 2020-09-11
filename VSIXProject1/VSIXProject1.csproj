@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CreateTargetsCommand.cs" />
+    <Compile Include="OpenAddonFolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VSIXProject1Package.cs" />
     <Compile Include="VSIXProject1Package1.cs">
@@ -81,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\CreateTargetsCommand.png" />
+    <Content Include="Resources\OpenAddonFolder.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectHelper\ProjectHelper.csproj">

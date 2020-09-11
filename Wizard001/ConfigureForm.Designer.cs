@@ -38,8 +38,8 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_done = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rb_global = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel_dockerCaption.SuspendLayout();
             this.panel_middler.SuspendLayout();
@@ -129,6 +129,21 @@
             this.panel1.Size = new System.Drawing.Size(223, 23);
             this.panel1.TabIndex = 8;
             // 
+            // rb_global
+            // 
+            this.rb_global.AutoSize = true;
+            this.rb_global.Checked = true;
+            this.rb_global.Location = new System.Drawing.Point(3, 3);
+            this.rb_global.Name = "rb_global";
+            this.rb_global.Size = new System.Drawing.Size(55, 17);
+            this.rb_global.TabIndex = 0;
+            this.rb_global.TabStop = true;
+            this.rb_global.Text = "Global";
+            this.toolTip1.SetToolTip(this.rb_global, "Store CorelDraw Paths in a Targets File in %localappdata%\\bonus630, common for al" +
+        "l projects");
+            this.rb_global.UseVisualStyleBackColor = true;
+            this.rb_global.Click += new System.EventHandler(this.rb_global_Click);
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -141,21 +156,6 @@
         "");
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.Click += new System.EventHandler(this.rb_global_Click);
-            // 
-            // rb_global
-            // 
-            this.rb_global.AutoSize = true;
-            this.rb_global.Checked = true;
-            this.rb_global.Location = new System.Drawing.Point(3, 3);
-            this.rb_global.Name = "rb_global";
-            this.rb_global.Size = new System.Drawing.Size(51, 17);
-            this.rb_global.TabIndex = 0;
-            this.rb_global.TabStop = true;
-            this.rb_global.Text = "Local";
-            this.toolTip1.SetToolTip(this.rb_global, "Store CorelDraw Paths in a Targets File in %localappdata%\\bonus630, common for al" +
-        "l projects");
-            this.rb_global.UseVisualStyleBackColor = true;
-            this.rb_global.Click += new System.EventHandler(this.rb_global_Click);
             // 
             // ConfigureForm
             // 
