@@ -28,16 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel_dockerCaption = new System.Windows.Forms.Panel();
             this.txt_dockerCaption = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_middler = new System.Windows.Forms.Panel();
             this.flowLayoutPanel_Versions = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_done = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rb_global = new System.Windows.Forms.RadioButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel_dockerCaption.SuspendLayout();
             this.panel_middler.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_dockerCaption
@@ -85,25 +91,6 @@
             this.flowLayoutPanel_Versions.Size = new System.Drawing.Size(231, 218);
             this.flowLayoutPanel_Versions.TabIndex = 8;
             // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Location = new System.Drawing.Point(357, 294);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(52, 23);
-            this.btn_cancel.TabIndex = 6;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            // 
-            // btn_done
-            // 
-            this.btn_done.Enabled = false;
-            this.btn_done.Location = new System.Drawing.Point(260, 294);
-            this.btn_done.Name = "btn_done";
-            this.btn_done.Size = new System.Drawing.Size(91, 23);
-            this.btn_done.TabIndex = 7;
-            this.btn_done.Text = "Done";
-            this.btn_done.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -114,12 +101,69 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Add one or more CorelDraw Version(s) to your Project:";
             // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(352, 335);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(52, 23);
+            this.btn_cancel.TabIndex = 6;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            // 
+            // btn_done
+            // 
+            this.btn_done.Enabled = false;
+            this.btn_done.Location = new System.Drawing.Point(246, 335);
+            this.btn_done.Name = "btn_done";
+            this.btn_done.Size = new System.Drawing.Size(91, 23);
+            this.btn_done.TabIndex = 7;
+            this.btn_done.Text = "Done";
+            this.btn_done.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rb_global);
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Location = new System.Drawing.Point(17, 335);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(223, 23);
+            this.panel1.TabIndex = 8;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(96, 3);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(51, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.Text = "Local";
+            this.toolTip1.SetToolTip(this.radioButton1, "Store CorelDraw Paths in a Targets File in $(SolutionDir) unique for each project" +
+        "");
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Click += new System.EventHandler(this.rb_global_Click);
+            // 
+            // rb_global
+            // 
+            this.rb_global.AutoSize = true;
+            this.rb_global.Checked = true;
+            this.rb_global.Location = new System.Drawing.Point(3, 3);
+            this.rb_global.Name = "rb_global";
+            this.rb_global.Size = new System.Drawing.Size(51, 17);
+            this.rb_global.TabIndex = 0;
+            this.rb_global.TabStop = true;
+            this.rb_global.Text = "Local";
+            this.toolTip1.SetToolTip(this.rb_global, "Store CorelDraw Paths in a Targets File in %localappdata%\\bonus630, common for al" +
+        "l projects");
+            this.rb_global.UseVisualStyleBackColor = true;
+            this.rb_global.Click += new System.EventHandler(this.rb_global_Click);
+            // 
             // ConfigureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(421, 319);
+            this.ClientSize = new System.Drawing.Size(418, 376);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_middler);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.panel_dockerCaption);
@@ -136,6 +180,8 @@
             this.panel_dockerCaption.PerformLayout();
             this.panel_middler.ResumeLayout(false);
             this.panel_middler.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -149,6 +195,10 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_done;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rb_global;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
 

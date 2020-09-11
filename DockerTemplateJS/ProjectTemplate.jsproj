@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-   
-  </PropertyGroup>
-  <!--<PropertyGroup>
+	<Import Project="$targetvar$bonus630.CDRCommon.targets"/>
+
+	<PropertyGroup>
+
+	</PropertyGroup>
+	<!--<PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
@@ -38,45 +40,45 @@
 
 
 
-  <ItemGroup>
-    <Content Include="DockerUI.html" />
-    <Content Include="AppUI.xslt" />
-    <Content Include="UserUI.xslt" />
-    <Content Include="CorelDrw.addon" />
-    <Folder Include="3rdParties"/>
-    <Folder Include="js"/>
-    <Folder Include="pages"/>
+	<ItemGroup>
+		<Content Include="DockerUI.html" />
+		<Content Include="AppUI.xslt" />
+		<Content Include="UserUI.xslt" />
+		<Content Include="CorelDrw.addon" />
+		<Folder Include="3rdParties"/>
+		<Folder Include="js"/>
+		<Folder Include="pages"/>
 
-    <Folder Include="images"/>
-    <Folder Include="styles"/>
-    <Content Include="3rdParties\jquery-1.12.3.min.js" />
-    <Content Include="3rdParties\jquery-2.2.3.min.js" />
-    <Content Include="js\basic.js" />
-    <Content Include="styles\basicStyle.css" />
+		<Folder Include="images"/>
+		<Folder Include="styles"/>
+		<Content Include="3rdParties\jquery-1.12.3.min.js" />
+		<Content Include="3rdParties\jquery-2.2.3.min.js" />
+		<Content Include="js\basic.js" />
+		<Content Include="styles\basicStyle.css" />
 
 
-  </ItemGroup>
- 
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	</ItemGroup>
+
+	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
-    <PostBuildEvent>
-      if not exist "$CorelAddonsPath$$(SolutionName)" md "$CorelAddonsPath$$(SolutionName)"
-      xcopy "$(ProjectDir)3rdParties" "$CorelAddonsPath$3rdParties" /e /y /i /r
-      copy "$(TargetPath)" "$CorelAddonsPath$$(SolutionName)" /y
-      copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath$$(SolutionName)" /y
-      copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
-      copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
-      copy "$(ProjectDir)DockerUI.html" "$CorelAddonsPath$$(SolutionName)" /y
-    </PostBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartAction>Program</StartAction>
-    <StartProgram>$CorelProgramPath$CorelDRW.exe</StartProgram>
-  </PropertyGroup>
+	<PropertyGroup>
+		<PostBuildEvent>
+			if not exist "$CorelAddonsPath$$(SolutionName)" md "$CorelAddonsPath$$(SolutionName)"
+			xcopy "$(ProjectDir)3rdParties" "$CorelAddonsPath$3rdParties" /e /y /i /r
+			copy "$(TargetPath)" "$CorelAddonsPath$$(SolutionName)" /y
+			copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath$$(SolutionName)" /y
+			copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
+			copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
+			copy "$(ProjectDir)DockerUI.html" "$CorelAddonsPath$$(SolutionName)" /y
+		</PostBuildEvent>
+	</PropertyGroup>
+	<PropertyGroup>
+		<StartAction>Program</StartAction>
+		<StartProgram>$CorelProgramPath$CorelDRW.exe</StartProgram>
+	</PropertyGroup>
 </Project>

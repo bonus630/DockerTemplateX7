@@ -12,6 +12,10 @@ namespace Wizard001
     {
         public int CorelVersion { get; private set; }
         public string DockerCaption { get; private set; }
+
+        private bool globalTargets = true;
+        public bool GlobalTargets { get { return globalTargets; } protected set { globalTargets = value; } }
+
         private List<CorelVersionInfo> installedVersions = new List<CorelVersionInfo>();
         private List<CorelVersionInfo> selectedVersions = new List<CorelVersionInfo>();
         public List<CorelVersionInfo> SelectedVersions { get { return this.selectedVersions; } }
@@ -21,6 +25,7 @@ namespace Wizard001
         public ConfigureForm()
         {
             InitializeForm();
+            
         }
       
         public ConfigureForm(VsTheme vsTheme,string type)
@@ -125,6 +130,10 @@ namespace Wizard001
                 btn_done.Enabled = false;
             
         }
-      
+
+        private void rb_global_Click(object sender, EventArgs e)
+        {
+            this.GlobalTargets = rb_global.Checked;
+        }
     }
 }

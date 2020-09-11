@@ -171,12 +171,7 @@ namespace Wizard001
         {
 
             this.projectDir = replacementsDictionary["$destinationdirectory$"];
-            DirectoryInfo dir = new DirectoryInfo(this.projectDir);
-            if (dir.Exists)
-            {
-                TargetsCreator targetsCreator = new TargetsCreator();
-                targetsCreator.WriteTargetsFile(dir.Parent.FullName);
-            }
+         
             try
             {
                 EnvDTE80.DTE2 dte = null;
@@ -197,6 +192,29 @@ namespace Wizard001
                     bool cancel = true;
 
                     this.selectedVersions = form.SelectedVersions;
+                    DirectoryInfo dir;
+                    string targetFolder = "";
+                    if (form.GlobalTargets)
+                    {
+                        replacementsDictionary.Add("$targetvar$", "$([System.Environment]::GetEnvironmentVariable('localappdata'))\\bonus630\\");
+                        dir = new DirectoryInfo(System.Environment.GetEnvironmentVariable("localappdata") + "\\bonus630");
+                        if (!dir.Exists)
+                            dir.Create();
+                        targetFolder = dir.FullName;
+                    }
+                    else
+                    {
+                        replacementsDictionary.Add("$targetvar$", "$(SolutionDir)");
+                        dir = new DirectoryInfo(this.projectDir);
+                        if (dir.Exists)
+                            targetFolder = dir.Parent.FullName;
+                    }
+                     
+                    if(!string.IsNullOrEmpty(targetFolder))
+                    {
+                        TargetsCreator targetsCreator = new TargetsCreator();
+                        targetsCreator.WriteTargetsFile(targetFolder);
+                    }
                     for (int i = CorelVersionInfo.MinVersion; i < CorelVersionInfo.MaxVersion; i++)
                     {
 
