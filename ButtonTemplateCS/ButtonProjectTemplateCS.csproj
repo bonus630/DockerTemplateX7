@@ -1,158 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$targetvar$bonus630.CDRCommon.targets"/>
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>$guid1$</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>$safeprojectname$</RootNamespace>
-    <AssemblyName>$safeprojectname$</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{$WPFUserControlGuid$};{$CSGuid$}</ProjectTypeGuids>
-    <!--<msbuildToolsets>
+	<Import Project="$targetvar$bonus630.CDRCommon.targets" Condition="Exists('$targetvar$bonus630.CDRCommon.targets')"/>
+	<Error Condition="!Exists('$targetvar$bonus630.CDRCommon.targets')" Text="Targets file with contains CorelDraw Paths is not found!" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProductVersion>8.0.30703</ProductVersion>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>$guid1$</ProjectGuid>
+		<ProjectTypeGuids>{$WPFUserControlGuid$};{$CSGuid$}</ProjectTypeGuids>
+		<TemplateGuid>{d544180d-595b-4d71-b1ab-520a528892cc}</TemplateGuid>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>$safeprojectname$</RootNamespace>
+		<AssemblyName>$safeprojectname$</AssemblyName>
+		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+		<FileAlignment>512</FileAlignment>
+
+		<!--<msbuildToolsets>
       <toolset toolsVersion="MyCustomToolset">
         <property name="Teste"
           value="C:\SpecialPath" />
       </toolset>
     </msbuildToolsets>-->
-  </PropertyGroup>
+	</PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
 
-$corel17$
+	$corel17$
 
-$corel18$
+	$corel18$
 
-$corel19$
+	$corel19$
 
-$corel20$ 
+	$corel20$
 
-$corel21$ 
+	$corel21$
 
-$corel22$ 
+	$corel22$
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System"/>
-    $if$ ($targetframeworkversion$ >= 3.5)
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    $endif$
-    $if$ ($targetframeworkversion$ >= 4.0)
-    <Reference Include="Microsoft.CSharp"/>
-    $endif$
-    <Reference Include="System.Data"/>
-    <Reference Include="System.Xml"/>
-    <Reference Include="System.Xaml"/>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="System.Drawing"/>
-  </ItemGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System"/>
+		$if$ ($targetframeworkversion$ >= 3.5)
+		<Reference Include="System.Core"/>
+		<Reference Include="System.Xml.Linq"/>
+		<Reference Include="System.Data.DataSetExtensions"/>
+		$endif$
+		$if$ ($targetframeworkversion$ >= 4.0)
+		<Reference Include="Microsoft.CSharp"/>
+		$endif$
+		<Reference Include="System.Data"/>
+		<Reference Include="System.Xml"/>
+		<Reference Include="System.Xaml"/>
+		<Reference Include="PresentationCore" />
+		<Reference Include="PresentationFramework" />
+		<Reference Include="WindowsBase" />
+		<Reference Include="System.Drawing"/>
+	</ItemGroup>
 
-  <ItemGroup Label="VGCoreReferences">
-    <Reference Include="$(CurrentCorelPath)$(VGCoreDLL)">
-      <Name>Corel.Interop.VGCore</Name>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup Label="VGCoreReferences">
+		<Reference Include="$(CurrentCorelPath)$(VGCoreDLL)">
+			<Name>Corel.Interop.VGCore</Name>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Page Include="ControlUI.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="ControlUI.xaml.cs">
-      <DependentUpon>ControlUI.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Converters\ResourceToMediaImageConverter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Styles\StylesController.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MessageBox.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Resources\Images.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Colors.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\Styles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
+	<ItemGroup>
+		<Page Include="ControlUI.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+		<Compile Include="ControlUI.xaml.cs">
+			<DependentUpon>ControlUI.xaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Include="Converters\ResourceToMediaImageConverter.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Include="Styles\StylesController.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Include="MessageBox.cs">
+			<SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<Page Include="Resources\Images.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Styles\Colors.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Styles\Styles.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Properties\AssemblyInfo.cs">
+			<SubType>Code</SubType>
+		</Compile>
 
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+		<Compile Include="Properties\Resources.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
 
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+		<Compile Include="Properties\Settings.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+		</Compile>
 
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+		<EmbeddedResource Include="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <AppDesigner Include="Properties\" />
+		<None Include="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+		<AppDesigner Include="Properties\" />
 
-  </ItemGroup>
-  <ItemGroup>
+	</ItemGroup>
+	<ItemGroup>
 
-    <Content Include="AppUI.xslt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="UserUI.xslt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CorelDrw.addon">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  
-  <PropertyGroup>
-    <StartAction>Program</StartAction>
-    <StartProgram>$(CurrentCorelPath)CorelDRW.exe</StartProgram>
-  </PropertyGroup>
+		<Content Include="AppUI.xslt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="UserUI.xslt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="CorelDrw.addon">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+	<PropertyGroup>
+		<StartAction>Program</StartAction>
+		<StartProgram>$(CurrentCorelPath)CorelDRW.exe</StartProgram>
+	</PropertyGroup>
 
 </Project>
 

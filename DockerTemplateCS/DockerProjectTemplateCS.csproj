@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="$targetvar$bonus630.CDRCommon.targets"/>
+	<Import Project="$targetvar$bonus630.CDRCommon.targets" Condition="Exists('$targetvar$bonus630.CDRCommon.targets')"/>
+	<Error Condition="!Exists('$targetvar$bonus630.CDRCommon.targets')" Text="Targets file with contains CorelDraw Paths is not found!" />
 	<PropertyGroup>
 		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -14,6 +15,7 @@
 		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
 		<FileAlignment>512</FileAlignment>
 		<ProjectTypeGuids>{$WPFUserControlGuid$};{$CSGuid$}</ProjectTypeGuids>
+		<TemplateGuid>{8AAFD9D4-608E-49AA-8035-EEB1F6F86213}</TemplateGuid>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
