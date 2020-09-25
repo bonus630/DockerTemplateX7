@@ -69,6 +69,7 @@ namespace ProjectHelper
 
                 sr.AppendFormat("<CurrentCorelPath>{0}</CurrentCorelPath>", corelPath);
                 sr.AppendFormat("<CurrentCorelAbr>{0}</CurrentCorelAbr>", versions[i].CorelAbreviation);
+                sr.AppendFormat("<CurrentCorelDebugConst>{0}</CurrentCorelDebugConst>", versions[i].CorelDebugConst);
                 sr.Append("</PropertyGroup>");
                 sr.Append("</When>");
             }

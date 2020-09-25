@@ -80,39 +80,64 @@ namespace Wizard001
 
             var solutionConfigurations = this.project.DTE.Solution.SolutionBuild.SolutionConfigurations;
 
-            for (int i = 0; i < this.selectedVersions.Count; i++)
-            {
 
-                foreach (EnvDTE.SolutionConfiguration item in solutionConfigurations)
+
+            foreach (EnvDTE.SolutionConfiguration item in solutionConfigurations)
+            {
+                EnvDTE.SolutionConfiguration toDelete = null;
+                for (int i = 0; i < this.selectedVersions.Count; i++)
                 {
                     if (!item.Name.Contains(this.selectedVersions[i].CorelAbreviation))
-                        item.Delete();
+                    {
+
+
+                        toDelete = item;
+
+                    }
                     else
                     {
-                        switch (item.Name)
-                        {
-                            case "2020 Debug":
-                                item.Activate();
-                                break;
-                            case "2019 Debug":
-                                item.Activate();
-                                break;
-                            case "2018 Debug":
-                                item.Activate();
-                                break;
-                            case "2017 Debug":
-                                item.Activate();
-                                break;
-                            case "X8 Debug":
-                                item.Activate();
-                                break;
-                            case "X7 Debug":
-                                item.Activate();
-                                break;
-                        }
+                        toDelete = null;
+                        break;
                     }
                 }
+
+                if (toDelete != null)
+                {
+                    try
+                    {
+                        Console.WriteLine(toDelete.Name);
+                        toDelete.Delete();
+                        
+                    }
+                    catch { }
+                }
             }
+            foreach (EnvDTE.SolutionConfiguration item in solutionConfigurations)
+            {
+                switch (item.Name)
+                {
+                    case "2020 Debug":
+                        item.Activate();
+                        break;
+                    case "2019 Debug":
+                        item.Activate();
+                        break;
+                    case "2018 Debug":
+                        item.Activate();
+                        break;
+                    case "2017 Debug":
+                        item.Activate();
+                        break;
+                    case "X8 Debug":
+                        item.Activate();
+                        break;
+                    case "X7 Debug":
+                        item.Activate();
+                        break;
+                }
+
+            }
+            // }
             this.project.DTE.Solution.SolutionBuild.Build(true);
 
             //foreach (EnvDTE.SolutionConfiguration item in this.project.DTE.Solution.SolutionBuild.SolutionConfigurations)
@@ -171,7 +196,7 @@ namespace Wizard001
         {
 
             this.projectDir = replacementsDictionary["$destinationdirectory$"];
-         
+
             try
             {
                 EnvDTE80.DTE2 dte = null;
@@ -209,8 +234,8 @@ namespace Wizard001
                         if (dir.Exists)
                             targetFolder = dir.Parent.FullName;
                     }
-                     
-                    if(!string.IsNullOrEmpty(targetFolder))
+
+                    if (!string.IsNullOrEmpty(targetFolder))
                     {
                         TargetsCreator targetsCreator = new TargetsCreator();
                         targetsCreator.WriteTargetsFile(targetFolder);
