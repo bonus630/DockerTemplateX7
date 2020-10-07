@@ -250,34 +250,33 @@ namespace Wizard001
                     {
                         replacementsDictionary.Add(item.Key, item.Value);
                     }
-                    for (int i = 0; i < selectedVersions.Count; i++)
+                    for (int i = CorelVersionInfo.MinVersion; i < CorelVersionInfo.MaxVersion; i++)
                     {
-                        CorelVersionInfo corel = selectedVersions[i];
-                        if (corel.CorelInstallationNotFound)
-                        {
-                            System.Windows.Forms.MessageBox.Show(string.Format("{0} not found", corel.CorelFullName));
+                        CorelVersionInfo corel = new CorelVersionInfo(i);
+                        //CorelVersionInfo corel = selectedVersions[i];
+                        //string corelAddonsPath = "";
+                        //if (corel.Corel64Bit == CorelVersionInfo.CorelIs64Bit.Corel32)
+                        //    corel.CorelAddonsPath(out corelAddonsPath);
+                        //else
+                        //    corel.CorelAddonsPath64(out corelAddonsPath);
 
-
-                        }
+                        string projectKind = replacementsDictionary["$lang$"];
+                        if (projectKind.Equals("CS"))
+                            replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = Helper.buildConfigurationCS(corel);
+                        else if (projectKind.Equals("VB"))
+                            replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = Helper.buildConfigurationVB(corel);
                         else
-                        {
+                            throw new WizardCancelledException();
+                        if (!corel.CorelInstallationNotFound)
                             cancel = false;
-                            string corelAddonsPath = "";
-                            if (corel.Corel64Bit == CorelVersionInfo.CorelIs64Bit.Corel32)
-                                corel.CorelAddonsPath(out corelAddonsPath);
-                            else
-                                corel.CorelAddonsPath64(out corelAddonsPath);
-
-                            string projectKind = replacementsDictionary["$lang$"];
-                            if (projectKind.Equals("CS"))
-                                replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = buildConfigurationCS(corel);
-                            else if (projectKind.Equals("VB"))
-                                replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = buildConfigurationVB(corel);
-                            else
-                                throw new WizardCancelledException();
-
-
-                        }
+                        //if (corel.CorelInstallationNotFound)
+                        //{
+                        //    System.Windows.Forms.MessageBox.Show(string.Format("{0} not found", corel.CorelFullName));
+                        //}
+                        //else
+                        //{
+                        //    cancel = false;
+                        //}
                     }
 
                     if (cancel)
@@ -318,59 +317,6 @@ namespace Wizard001
         {
             return true;
         }
-        private string buildConfigurationCS(CorelVersionInfo corelVersion)
-        {
-            StringBuilder sr = new StringBuilder();
-
-            sr.AppendFormat("<PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == '{0} Debug|AnyCPU'\">", corelVersion.CorelAbreviation);
-            sr.Append("<DebugSymbols>true</DebugSymbols>");
-            sr.Append("<DebugType>full</DebugType>");
-            sr.Append("<Optimize>false</Optimize>");
-            sr.Append("<OutputPath>bin\\Debug\\</OutputPath>");
-            sr.AppendFormat("<DefineConstants>DEBUG;TRACE;{0}</DefineConstants>", corelVersion.CorelDebugConst);
-            sr.Append("<ErrorReport>prompt</ErrorReport>");
-            sr.Append("<WarningLevel>4</WarningLevel>");
-            sr.Append("</PropertyGroup>");
-            sr.AppendFormat("<PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == '{0} Release|AnyCPU'\">", corelVersion.CorelAbreviation);
-            sr.Append("<DebugType>none</DebugType>");
-            sr.Append("<Optimize>true</Optimize>");
-            sr.Append("<OutputPath>bin\\Release\\$(CurrentCorelAbs)\\</OutputPath>");
-            sr.Append("<OutDir>bin\\Release\\$(CurrentCorelAbs)\\$(SolutionName)</OutDir>");
-            sr.AppendFormat("<DefineConstants>TRACE;{0}</DefineConstants>", corelVersion.CorelDebugConst);
-            sr.Append("<ErrorReport>prompt</ErrorReport>");
-            sr.Append("<WarningLevel>4</WarningLevel>");
-            sr.Append("</PropertyGroup>");
-
-            return sr.ToString();
-        }
-        private string buildConfigurationVB(CorelVersionInfo corelVersion)
-        {
-            StringBuilder sr = new StringBuilder();
-
-            sr.AppendFormat("<PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == '{0} Debug|AnyCPU'\">", corelVersion.CorelAbreviation);
-            sr.Append("<DebugSymbols>true</DebugSymbols>");
-            sr.Append("<DebugType>full</DebugType>");
-            sr.Append("<DefineDebug>true</DefineDebug>");
-            sr.Append("<DefineTrace>true</DefineTrace>");
-            sr.Append("<OutputPath>bin\\Debug\\</OutputPath>");
-            sr.Append("<OutDir>bin\\Debug\\</OutDir>");
-            sr.Append("<DocumentationFile></DocumentationFile>");
-            sr.Append("<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>");
-            sr.AppendFormat("<DefineConstants>DEBUG,{0}</DefineConstants>", corelVersion.CorelDebugConst);
-            sr.Append("</PropertyGroup>");
-            sr.AppendFormat("<PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == '{0} Release|AnyCPU'\">", corelVersion.CorelAbreviation);
-            sr.Append("<DebugType>none</DebugType>");
-            sr.Append("<DefineDebug>false</DefineDebug>");
-            sr.Append("<DefineTrace>true</DefineTrace>");
-            sr.Append("<Optimize>true</Optimize>");
-            sr.Append("<OutputPath>bin\\Release\\$(CurrentCorelAbs)\\</OutputPath>");
-            sr.Append("<OutDir>bin\\Release\\$(CurrentCorelAbs)\\$(SolutionName)</OutDir>");
-            sr.Append("<DocumentationFile></DocumentationFile>");
-            sr.Append("<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>");
-            sr.AppendFormat("<DefineConstants>{0}</DefineConstants>", corelVersion.CorelDebugConst);
-            sr.Append("</PropertyGroup>");
-
-            return sr.ToString();
-        }
+       
     }
 }

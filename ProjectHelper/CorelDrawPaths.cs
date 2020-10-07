@@ -16,10 +16,10 @@ namespace ProjectHelper
         }
         private bool corelInstallationNotFound = true;
 
-        public string CorelAbreviation { get { return this.corelAbb[this.CorelVersion - 10]; } }
-        public string CorelFullName { get { return string.Format("{0} {1}", corelName, this.corelAbb[this.CorelVersion - 10]); } }
+        public string CorelAbreviation { get { return corelAbb[this.CorelVersion - 10]; } }
+        public string CorelFullName { get { return string.Format("{0} {1}", corelName, corelAbb[this.CorelVersion - 10]); } }
         public string CorelFolderName { get { return this.corelFolderList[this.CorelVersion - 10]; } }
-        public string Corel64FullName { get { return string.Format("{0} {1} 64bit", corelName, this.corelAbb[this.CorelVersion - 10]); } }
+        public string Corel64FullName { get { return string.Format("{0} {1} 64bit", corelName, corelAbb[this.CorelVersion - 10]); } }
         public string CorelDebugConst { get { return this.corelDebugConst[this.CorelVersion - 10]; } }
         //public string CorelReferenceLabel { get { return this.corelReferenceLabel[this.CorelVersion - 10]; } }
         //public string CorelBuildCopyCommandLabel { get { return this.corelBuildCopyCommandLabel[this.CorelVersion - 10]; } }
@@ -39,12 +39,12 @@ namespace ProjectHelper
         public string CorelInstallationPath64 { get; private set; }
         public CorelIs64Bit Corel64Bit { get; set; }
         public int CorelVersion { get; private set; }
-        private string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017", "2018", "2019", "2020" };
+        private static string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017", "2018", "2019", "2020" };
         private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12",
                 "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5",
                 "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8",
                 "CorelDRAW Graphics Suite 2017","CorelDRAW Graphics Suite 2018","CorelDRAW Graphics Suite 2019","CorelDRAW Graphics Suite 2020" };
-
+        public static string  GetCorelAbreviation(int version) { return corelAbb[version - 10];  }
         private const string corelName = "CorelDraw Graphics Suite";
         //private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference","X12Reference" };
         //private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand", "X12BuildCopyCommand" };
@@ -66,12 +66,12 @@ namespace ProjectHelper
             searchCorelVersion(corelVersion);
 
         }
-        public CorelVersionInfo(string corelAbb)
+        public CorelVersionInfo(string corelAbr)
         {
             this.InList = false;
-            for (int i = 0; i < this.corelAbb.Length; i++)
+            for (int i = 0; i < corelAbb.Length; i++)
             {
-                if (this.corelAbb[i] == corelAbb.ToUpper())
+                if (corelAbb[i] == corelAbr.ToUpper())
                 {
                     this.InList = true;
                     this.CorelVersion = i + 10;
