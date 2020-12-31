@@ -46,3 +46,6 @@ Move Templates to "CorelDraw Addons" Category, some more fixs
 
 Version 2.201
 Add Templates for CorelDraw 2020 Addons
+
+Version 2.500
+Now coreldraw assemblies paths is stored in a target file, this version is required to build a setup in "CorelDraw Addons Packer" extension for Visual Studio 2019

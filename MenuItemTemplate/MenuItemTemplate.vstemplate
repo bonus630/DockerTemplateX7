@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>CorelDraw Menu Item Addon</Name>
+    <Description>Creates a new menu item</Description>
+    <Icon>DockerTemplateX7.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+	<ProjectSubType>CorelDRAW Addons</ProjectSubType>
+    <LanguageTag>csharp</LanguageTag>
+    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>e701ec5d-ea28-4cb1-b3a6-e5af02156480</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MenuItemTemplate</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+		<ProjectItem ReplaceParameters="true">ControlUI.xaml.cs</ProjectItem>
+		<ProjectItem ReplaceParameters="true">ControlUI.xaml</ProjectItem>
+		<ProjectItem ReplaceParameters="true" TargetFileName="MessageBox.cs">MessageBox.cs</ProjectItem>
+		<Folder Name="DataSource" TargetFolderName="DataSource">
+			<ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="20" TargetFileName="$safeprojectname$DataSource.cs">ADataSource.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" >BaseDataSource.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" >DataSourceFactory.cs</ProjectItem>
+		</Folder>
+		<ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
+		<ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
+		<ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
+		
+
+	</Project>
+	  <CustomParameters>
+		  <CustomParameter Name="$type$" Value="Item"/>
+		  <CustomParameter Name="$lang$" Value="CS"/>
+	  </CustomParameters>
+  </TemplateContent>
+  <WizardExtension>
+	  <Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+	  <FullClassName>Wizard001.Wizard</FullClassName>
+  </WizardExtension>
+ 
+</VSTemplate>

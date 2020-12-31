@@ -11,7 +11,7 @@
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
-    <Icon>__TemplateIcon.png</Icon>
+    <Icon>DockerTemplateX7.ico</Icon>
     <PreviewImage>__PreviewImage.png</PreviewImage>
     <TemplateID>0AC96025-9E94-4F81-B6FD-C25731EED4A7</TemplateID>
     <BuildOnLoad>true</BuildOnLoad>

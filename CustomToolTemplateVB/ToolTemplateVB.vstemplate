@@ -2,7 +2,7 @@
   <TemplateData>
     <Name>CorelDRAW Tool Addon</Name>
     <Description>A project template for creating custom tools for CorelDRAW X7.1 or higher. For more information on creating custom tools, please see http://community.coreldraw.com/sdk </Description>
-    <Icon>__TemplateIcon.png</Icon>
+    <Icon>DockerTemplateVB.ico</Icon>
     <PreviewImage>__PreviewImage.png</PreviewImage>
     <ProjectType>VisualBasic</ProjectType>
     <ProjectSubType>CorelDRAW Addons</ProjectSubType>

@@ -73,6 +73,9 @@ Public Class StylesController
 #If X11 Then
                   result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
 #End If
+#If X12 Then
+                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
+#End If
             If Not result.Equals(currentTheme) Then
                 If Not result.Equals(String.Empty) Then
                     currentTheme = result

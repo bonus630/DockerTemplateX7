@@ -118,6 +118,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\MenuItemTemplate\MenuItemTemplate.csproj">
+      <Project>{C228041C-B1BF-4DE3-91EC-51475457C60E}</Project>
+      <Name>MenuItemTemplate</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectHelper\ProjectHelper.csproj">
       <Project>{AEB4FED3-3B98-4BDC-9698-D247C57B22B1}</Project>
       <Name>ProjectHelper</Name>
