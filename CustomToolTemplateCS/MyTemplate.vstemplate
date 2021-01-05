@@ -29,6 +29,7 @@
       <Folder Name="Properties" TargetFolderName="Properties">
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       </Folder>
+		<ProjectItem ReplaceParameters="false" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
     </Project>
     <CustomParameters>
       <CustomParameter Name="$type$" Value="Tool"/>

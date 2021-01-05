@@ -88,6 +88,9 @@
 		<Compile Include="MessageBox.cs">
 			<SubType>Code</SubType>
 		</Compile>
+		<Compile Include="Extensions.cs">
+			<SubType>Code</SubType>
+		</Compile>
 	</ItemGroup>
 	<ItemGroup>
 		<Page Include="Resources\Images.xaml">

@@ -19,7 +19,7 @@
     <SolidColorBrush x:Key="Button.Disabled.Background" Color="#00425048"/>
     <SolidColorBrush x:Key="Default.Static.Foreground" Color="#ff000000" />
     <SolidColorBrush x:Key="Default.Static.Background" Color="#fff4f4f4" />
-    <SolidColorBrush x:Key="Container.Text.Static.Background" Color="#ffffffff" />
+    <SolidColorBrush x:Key="Container.Text.Static.Background" Color="#fff4f4f4" />
     <SolidColorBrush x:Key="Container.Text.Static.Foreground" Color="#ff000000" />
     <SolidColorBrush x:Key="Container.Static.Background" Color="#fff4f4f4" />
     <SolidColorBrush x:Key="Default.Static.Inverted.Foreground" Color="#ffffffff" />
@@ -42,7 +42,7 @@
     <SolidColorBrush x:Key="LightestGrey.Button.Disabled.Background" Color="#00425048"/>
     <SolidColorBrush x:Key="LightestGrey.Default.Static.Foreground" Color="#ff000000" />
     <SolidColorBrush x:Key="LightestGrey.Default.Static.Background" Color="#fff4f4f4" />
-    <SolidColorBrush x:Key="LightestGrey.Container.Text.Static.Background" Color="#ffffffff" />
+    <SolidColorBrush x:Key="LightestGrey.Container.Text.Static.Background" Color="#fff4f4f4" />
     <SolidColorBrush x:Key="LightestGrey.Container.Text.Static.Foreground" Color="#ff000000" />
     <SolidColorBrush x:Key="LightestGrey.Container.Static.Background" Color="#fff4f4f4" />
     <SolidColorBrush x:Key="LightestGrey.Default.Static.Inverted.Foreground" Color="#ffffffff" />

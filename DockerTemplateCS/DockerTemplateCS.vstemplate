@@ -25,14 +25,14 @@
       <Folder Name="Converters" TargetFolderName="Converters">
         <ProjectItem ReplaceParameters="true" TargetFileName="ResourceToMediaImageConverter.cs">ResourceToMediaImageConverter.cs</ProjectItem>
       </Folder>
-      <Folder Name="Resources" TargetFolderName="Resources">
-        <ProjectItem ReplaceParameters="true" TargetFileName="Images.xaml">Images.xaml</ProjectItem>
-      </Folder>
-      <Folder Name="Styles" TargetFolderName="Styles">
-        <ProjectItem ReplaceParameters="false" TargetFileName="Colors.xaml">Colors.xaml</ProjectItem>
-        <ProjectItem ReplaceParameters="false" TargetFileName="Styles.xaml">Styles.xaml</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="StylesController.cs">StylesController.cs</ProjectItem>
-      </Folder>
+      <!--<Folder Name="Resources" TargetFolderName="Resources">-->
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources\Images.xaml">Images.xaml</ProjectItem>
+      <!--</Folder>-->
+      <!--<Folder Name="Styles" TargetFolderName="Styles">-->
+        <ProjectItem ReplaceParameters="false" TargetFileName="Styles\Colors.xaml">Colors.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Styles\Styles.xaml">Styles.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Styles\StylesController.cs">StylesController.cs</ProjectItem>
+      <!--</Folder>-->
 
       <ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
@@ -43,7 +43,7 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="Properties\Settings.settings">Settings.settings</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
-
+		<ProjectItem ReplaceParameters="false" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
 
       <!--  Erro - <ProjectItem SubType="ProjectTemplate.csproj.user" ReplaceParameters="true"></ProjectItem>-->
     </Project>

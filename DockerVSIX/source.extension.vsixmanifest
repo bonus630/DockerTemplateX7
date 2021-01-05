@@ -23,14 +23,14 @@
     <Assets>
         <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Wizard001" Path="|Wizard001|" AssemblyName="|Wizard001;AssemblyName|" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateVB" d:TargetPath="|DockerTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateJS" d:TargetPath="|DockerTemplateJS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateCS" d:TargetPath="|DockerTemplateCS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:TargetPath="|CustomToolTemplateCS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" d:ProjectName="CustomToolTemplateCS" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:TargetPath="|CustomToolTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ButtonTemplateVB" d:TargetPath="|ButtonTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="ProjectHelper" Path="|ProjectHelper|" AssemblyName="|ProjectHelper;AssemblyName|" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ButtonTemplateCS" d:TargetPath="|ButtonTemplateCS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="MenuItemTemplate" d:TargetPath="|MenuItemTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="VGCore\BeginDraw.pkgdef" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="MenuItemTemplateCS" d:TargetPath="|MenuItemTemplateCS;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
 
     </Assets>
     <Prerequisites>

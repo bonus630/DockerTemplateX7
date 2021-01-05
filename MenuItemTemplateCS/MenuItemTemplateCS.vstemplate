@@ -2,7 +2,7 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>CorelDraw Menu Item Addon</Name>
-    <Description>Creates a new menu item</Description>
+    <Description>Creates a project to adds a new menu item</Description>
     <Icon>DockerTemplateX7.ico</Icon>
     <ProjectType>CSharp</ProjectType>
 	<ProjectSubType>CorelDRAW Addons</ProjectSubType>
@@ -15,7 +15,7 @@
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+    <Project File="ProjectTemplateCS.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
 		<ProjectItem ReplaceParameters="true">ControlUI.xaml.cs</ProjectItem>
 		<ProjectItem ReplaceParameters="true">ControlUI.xaml</ProjectItem>
@@ -28,8 +28,9 @@
 		<ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
 		<ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
 		<ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
-		
-
+		<ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
+		<ProjectItem ReplaceParameters="true" TargetFileName="config.xml">config.xml</ProjectItem>
+		<ProjectItem ReplaceParameters="false" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
 	</Project>
 	  <CustomParameters>
 		  <CustomParameter Name="$type$" Value="Item"/>

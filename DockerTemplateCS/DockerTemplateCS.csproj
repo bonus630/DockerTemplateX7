@@ -28,6 +28,11 @@
     <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+	<PropertyGroup>
+		<CdrTemplateCSTargetPath>$(SolutionDir)bonus630.CdrTemplateCommon.targets</CdrTemplateCSTargetPath>
+		<CdrAddonType>Docker</CdrAddonType>
+		<CdrAddonLang>CS</CdrAddonLang>
+	</PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>

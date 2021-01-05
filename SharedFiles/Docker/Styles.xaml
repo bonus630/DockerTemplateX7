@@ -35,11 +35,8 @@
     <Style TargetType="TextBox">
         <Setter Property="Background" Value="{DynamicResource Container.Text.Static.Background}" />
         <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Button.Static.Border}"/>
     </Style>
-    <!--<Style TargetType="TabControl">
-            <Setter Property="Background" Value="{Binding Path=StyleScheme.ContainerStaticBackground}"/>
-        </Style>-->
-
     <Style TargetType="Label">
         <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}"/>
 
@@ -57,27 +54,7 @@
         <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}"/>
 
     </Style>
-  
-    <!--<Style TargetType="ComboBox">
-            <Setter Property="Background" Value="{Binding Path=StyleScheme.ContainerTextStaticBackground}" />
-            <Setter Property="Foreground" Value="{Binding Path=StyleScheme.DefaultForeground}" />
-        </Style>
 
-
-        <Style TargetType="ComboBoxItem">
-            <Setter Property="Background" Value="#ff323232" />
-            <Setter Property="Foreground" Value="#ffcccccc" />
-            <Setter Property="BorderBrush" Value="#005a5a5a" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="true">
-                    <Setter Property="Background"  Value="#ff0078d7" />
-                    -->
-    <!--<Setter Property="Foreground" Value="#ffcccccc" />
-                    <Setter Property="BorderBrush" Value="#ff5a5a5a" />-->
-    <!--
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
 
 
     <Style TargetType="{x:Type TabControl}">
@@ -144,7 +121,6 @@
         </Setter>
     </Style>
 
-    <!-- Tab Item Style Black Start-->
     <Style  TargetType="TabItem">
         <!--<Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>-->
         <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}"/>
@@ -222,7 +198,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- Tab Item Style Black End-->
+
     <Style  TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
         <Setter Property="Background" Value="{DynamicResource Button.Static.Background}"/>
@@ -395,12 +371,10 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!--ComboBox Start -->
- 
-   
 
+    <!--ComboBox Start -->
     <Style x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
-        
+
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Focusable" Value="false"/>
@@ -422,6 +396,18 @@
                                 <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="true"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource Button.Static.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource ComboBox.Static.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource ComboBox.Static.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource ComboBox.Static.Editable.Button.Border}"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource Default.Static.Background}"/>
                             <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource ComboBox.Static.Editable.Border}"/>
                             <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource ComboBox.Static.Editable.Button.Background}"/>
                             <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource ComboBox.Static.Editable.Button.Border}"/>
@@ -466,16 +452,14 @@
                             <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource ComboBox.Pressed.Editable.Button.Background}"/>
                             <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource ComboBox.Pressed.Editable.Button.Border}"/>
                         </MultiDataTrigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource ComboBox.Disabled.Glyph}"/>
-                        </Trigger>
+
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource ComboBox.Disabled.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource ComboBox.Disabled.Border}"/>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource Default.Static.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource Button.Disabled.Foreground}"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -498,7 +482,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
             </Grid.ColumnDefinitions>
-            <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
+            <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
                 <!--<Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">-->
                 <Border x:Name="dropDownBorder" BorderBrush="{DynamicResource Button.MouseOver.Border}" BorderThickness="1" Background="{DynamicResource Container.Text.Static.Background}">
                     <ScrollViewer x:Name="DropDownScrollViewer">
@@ -516,6 +500,12 @@
             <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
         <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="dropDownBorder" Property="Background" Value="{DynamicResource Default.Static.Background}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="true">
+                <Setter TargetName="dropDownBorder" Property="Background" Value="{DynamicResource Button.Static.Background}"/>
+            </Trigger>
             <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
                 <!--<Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
                     <Setter Property="Color" TargetName="shadow" Value="#71000000"/>-->
@@ -624,6 +614,9 @@
                 <Setter Property="Padding" Value="2"/>
                 <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="{DynamicResource Default.Static.Background}" />
+            </Trigger>
         </Style.Triggers>
     </Style>
     <Style  TargetType="{x:Type ComboBoxItem}">
@@ -632,9 +625,9 @@
         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="Foreground" Value="{DynamicResource Default.Static.Foreground}" />
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="{DynamicResource Container.Text.Static.Background}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -644,7 +637,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource Default.Static.Background}"/>
                         </Trigger>
                         <!--<MultiTrigger>
                                 <MultiTrigger.Conditions>
@@ -666,22 +659,24 @@
                         <!--<Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelected.Border}"/>-->
                         <!--
                             </MultiTrigger>-->
-                        <!--<MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="IsSelected" Value="True"/>
-                                    <Condition Property="IsMouseOver" Value="True"/>
-                                </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedHover.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedHover.Border}"/>
-                            </MultiTrigger>-->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource Button.MouseOver.Background}"/>
+                            <!--<Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedHover.Border}"/>-->
+                        </MultiTrigger>
                         <!--<MultiTrigger>
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsSelected" Value="True"/>
                                     <Condition Property="IsMouseOver" Value="False"/>
                                     <Condition Property="IsKeyboardFocused" Value="False"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedNoFocus.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedNoFocus.Border}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource Button.MouseOver.Background}"/>
+                                -->
+                        <!--<Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedNoFocus.Border}"/>-->
+                        <!--
                             </MultiTrigger>-->
                         <!--<MultiTrigger>
                                 <MultiTrigger.Conditions>

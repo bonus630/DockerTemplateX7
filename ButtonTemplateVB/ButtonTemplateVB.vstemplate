@@ -25,14 +25,14 @@
       <Folder Name="Converters" TargetFolderName="Converters">
         <ProjectItem ReplaceParameters="true" TargetFileName="ResourceToMediaImageConverter.vb">ResourceToMediaImageConverter.vb</ProjectItem>
       </Folder>
-      <Folder Name="Resources" TargetFolderName="Resources">
-        <ProjectItem ReplaceParameters="true" TargetFileName="Images.xaml">Images.xaml</ProjectItem>
-      </Folder>
-      <Folder Name="Styles" TargetFolderName="Styles">
-        <ProjectItem ReplaceParameters="false" TargetFileName="Colors.xaml">Colors.xaml</ProjectItem>
-        <ProjectItem ReplaceParameters="false" TargetFileName="Styles.xaml">Styles.xaml</ProjectItem>
-        <ProjectItem ReplaceParameters="true" TargetFileName="StylesController.vb">StylesController.vb</ProjectItem>
-      </Folder>
+      <!--<Folder Name="Resources" TargetFolderName="Resources">-->
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources\Images.xaml">Images.xaml</ProjectItem>
+      <!--</Folder>
+      <Folder Name="Styles" TargetFolderName="Styles">-->
+        <ProjectItem ReplaceParameters="false" TargetFileName="Styles\Colors.xaml">Colors.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Styles\Styles.xaml">Styles.xaml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Styles\StylesController.vb">StylesController.vb</ProjectItem>
+      <!--</Folder>-->
      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
       <ProjectItem ReplaceParameters="false" TargetFileName="My Project\Resources.resx">Resources.resx</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="My Project\Resources.Designer.vb">Resources.Designer.vb</ProjectItem>

@@ -51,6 +51,10 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 	</PropertyGroup>
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<PropertyGroup>
+		<Win32Resource>$(ProjectDir)\resources.rct</Win32Resource>
+	</PropertyGroup>
 	<ItemGroup>
 		<Reference Include="System"/>
 		$if$ ($targetframeworkversion$ >= 3.5)
@@ -106,7 +110,9 @@
 		<Compile Include="Properties\AssemblyInfo.cs">
 			<SubType>Code</SubType>
 		</Compile>
-
+		<Compile Include="Extensions.cs">
+			<SubType>Code</SubType>
+		</Compile>
 		<AppDesigner Include="Properties\" />
 
 	</ItemGroup>
@@ -121,8 +127,13 @@
 		<Content Include="CorelDrw.addon">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
+		<Content Include="config.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="resources.rct"/>
+		
 	</ItemGroup>
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	
 
 	<PropertyGroup>
 		<StartAction>Program</StartAction>

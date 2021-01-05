@@ -57,24 +57,7 @@ namespace Wizard001
         {
             if (!finish)
             {
-                this.project.DTE.Solution.Close();
-                try
-                {
-                    DirectoryInfo dirInfo = new DirectoryInfo(this.projectDir);
-                    if (dirInfo.Parent.Exists)
-                    {
-                        dirInfo.Parent.Delete(true);
-                    }
-                }
-                catch (IOException e)
-                {
-                    System.Windows.Forms.MessageBox.Show(e.Message);
-                }
-                catch (Exception e)
-                {
-                    System.Windows.Forms.MessageBox.Show(e.Message);
-                }
-                throw new WizardBackoutException();
+                ClearUp();
             }
             this.selectedVersions.OrderBy(r => r.CorelVersion);
 
@@ -281,9 +264,9 @@ namespace Wizard001
 
                     if (cancel)
                     {
-                        System.Windows.Forms.MessageBox.Show("Operation is canceled!");
+                        //System.Windows.Forms.MessageBox.Show("Operation is canceled!");
 
-                        throw new WizardCancelledException();
+                        throw new WizardCancelledException("Operation is canceled!");
 
                     }
 
@@ -300,6 +283,7 @@ namespace Wizard001
                 else
                 {
                     finish = false;
+                    throw new WizardCancelledException();
                 }
             }
             catch (WizardCancelledException)
@@ -316,6 +300,27 @@ namespace Wizard001
         public bool ShouldAddProjectItem(string filePath)
         {
             return true;
+        }
+        public void ClearUp()
+        {
+            this.project.DTE.Solution.Close();
+            try
+            {
+                DirectoryInfo dirInfo = new DirectoryInfo(this.projectDir);
+                if (dirInfo.Parent.Exists)
+                {
+                    dirInfo.Parent.Delete(true);
+                }
+            }
+            catch (IOException e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message);
+            }
+            throw new WizardBackoutException();
         }
        
     }

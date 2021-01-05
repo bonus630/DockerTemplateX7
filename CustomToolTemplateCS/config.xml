@@ -4,7 +4,7 @@
 		<resource name="$projectname$" path="$projectname$.CorelAddon">
 			<resourceMap>
 				<!-- Toolbox icon and string resource -->
-				<resEntry id="$GuidA$" string="10223" icon="104"/>
+				<resEntry id="$GuidA$" string="10007" icon="106"/>
       </resourceMap>
 		</resource>
 	</resources>

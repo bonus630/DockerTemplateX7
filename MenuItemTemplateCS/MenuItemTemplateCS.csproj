@@ -6,14 +6,19 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <CdrTemplateCSTargetPath>$(SolutionDir)bonus630.CdrTemplateCommon.targets</CdrTemplateCSTargetPath>
+    <CdrAddonType>MenuItem</CdrAddonType>
+    <CdrAddonLang>CS</CdrAddonLang>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{C228041C-B1BF-4DE3-91EC-51475457C60E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MenuItemTemplate</RootNamespace>
-    <AssemblyName>MenuItemTemplate</AssemblyName>
+    <RootNamespace>MenuItemTemplateCS</RootNamespace>
+    <AssemblyName>MenuItemTemplateCS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
@@ -60,6 +65,7 @@
     <Content Include="AppUI.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="config.xml" />
     <Content Include="ControlUI.xaml.cs">
       <DependentUpon>ControlUI.xaml</DependentUpon>
     </Content>
@@ -68,6 +74,7 @@
     <Content Include="DataSource\BaseDataSource.cs" />
     <Content Include="DataSource\DataSourceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="resources.rct" />
     <Content Include="UserUI.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -77,11 +84,11 @@
     <Content Include="CorelDrw.addon">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="ProjectTemplate.csproj" />
+    <None Include="ProjectTemplateCS.csproj" />
     <None Include="MenuItemTemplate.ico" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="MenuItemTemplate.vstemplate" />
+    <VSTemplate Include="MenuItemTemplateCS.vstemplate" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ControlUI.xaml">

@@ -42,8 +42,9 @@
 
 	$corel22$
 
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 	<PropertyGroup>
-		<Win32Resource>.\resources.rct</Win32Resource>
+		<Win32Resource>$(ProjectDir)\resources.rct</Win32Resource>
 	</PropertyGroup>
 	<ItemGroup>
 		<Reference Include="System"/>
@@ -71,6 +72,9 @@
 		<Compile Include="$safeprojectname$.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
 	</ItemGroup>
+	<Compile Include="Extensions.cs">
+		<SubType>Code</SubType>
+	</Compile>
 	<ItemGroup>
 		<Content Include="AppUI.xslt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -84,13 +88,8 @@
 		<Content Include="config.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="resources.rct">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-
+		<Content Include="resources.rct"/>
 	</ItemGroup>
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
 	<PropertyGroup>
 		<StartAction>Program</StartAction>
 		<StartProgram>$(CurrentCorelPath)CorelDRW.exe</StartProgram>

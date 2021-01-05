@@ -1,51 +1,57 @@
 Version 1.721
-Add VS2017 Template
+Added VS2017 Template
 
 Version 1.723
-Add support to new CorelDraw 2017
+Added support to new CorelDraw 2017
 
 Version 1.803
-Add support to multi compile configuration
+Added support to multi compile configuration
 
 Version 1.804
-Fix debugs configurations in vb template
+Fixed debugs configurations in vb template
 
 Version 1.968
-Add the Custom Tool official template for uses in newers version of VS
+Added the Custom Tool official template for uses in newers version of VS
 
 Version 1.970
-Fix debug configurations
+Fixed debug configurations
 
 Version 1.972
-Add new project template, create a button in standard bar
+Added new project template, create a button in standard bar
 
 Version 1.973
-Fix "the console application" issue, now all projects will be create in correct type
+Fixed "the console application" issue, now all projects will be create in correct type
 
 Version 1.981
-Add support to new CorelDraw 2018
+Added support to new CorelDraw 2018
 
 Version 1.982
-Fix size of solution configurations array
+Fixed size of solution configurations array
 
 Version 2.007
-Add one more Configuration for new CorelDraw 2019
-Add Theme System for X8 and heigher
----Include Color Resource to add themes color
----Include Style Resouce to add controls styles to themes
----Include Extension methods to VGCore.Application interface to call CorelDraw MessageBox (2017 to heigher MessageBox has stylized)
-Add System.Drawing to Media.Image Converter, to use WindowsForm Resources images in WPF controls
+Added one more Configuration for new CorelDraw 2019
+Added Theme System for X8 and heigher
+---Included Color Resource to add themes color
+---Included Style Resouce to add controls styles to themes
+---Included Extension methods to VGCore.Application interface to call CorelDraw MessageBox (2017 to heigher MessageBox has stylized)
+Added System.Drawing to Media.Image Converter, to use WindowsForm Resources images in WPF controls
 Changed method of generation  dll  path in AppUI.xslt file, preventing some bugs if solution name contains special chars
 Changed Post-Build events, now copy all file in output folder
 
 Version 2.109
-Fix custom tool projects
+Fixed custom tool projects
 
 Version 2.113
-Move Templates to "CorelDraw Addons" Category, some more fixs
+Moved Templates to "CorelDraw Addons" Category, some more fixs
 
 Version 2.201
-Add Templates for CorelDraw 2020 Addons
+Added Templates for CorelDraw 2020 Addons
 
 Version 2.500
 Now coreldraw assemblies paths is stored in a target file, this version is required to build a setup in "CorelDraw Addons Packer" extension for Visual Studio 2019
+
+Version 2.502
+* Added new Template type, a menu item to "shape" menu context
+* Added extension method to CS templates, extends corelApp adding the "BeginDraw" to enable optimization and anothers stuffs to up draw speed,
+adding too "EndDraw" method to corelApp to disable optimization and refresh CorelDraw UI.
+* Added code snippet to add "BeginDraw" and "EndDraw", and surround a draw code, the shortcut is "drw" no quotes.

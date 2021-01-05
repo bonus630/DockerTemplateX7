@@ -5,11 +5,15 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio;
 using ProjectHelper;
+using System.Text.RegularExpressions;
 
 namespace Wizard001
 {
     public partial class ConfigureForm : Form
     {
+        private string virtualFolder = "";
+        Regex regex ;
+
         public int CorelVersion { get; private set; }
         public string DockerCaption { get; private set; }
 
@@ -43,13 +47,19 @@ namespace Wizard001
             btn_cancel.DialogResult = DialogResult.Cancel;
             btn_done.DialogResult = DialogResult.OK;
             CorelVersionInfo temp;
+            string version = "";
             for (int i = CorelVersionInfo.MinVersion; i < CorelVersionInfo.MaxVersion; i++)
             {
                 temp = new CorelVersionInfo(i);
                 installedVersions.Add(temp);
                 AddCheckBox(temp.Corel64FullName, i, !temp.CorelInstallationNotFound);
-
+                if(i!= CorelVersionInfo.MinVersion && i != CorelVersionInfo.MaxVersion)
+                {
+                    version += "|";
+                }
+                version += CorelVersionInfo.GetCorelAbreviation(i);
             }
+            regex = new Regex(string.Format(@".+\\Corel\\CorelDRAW Graphics Suite (?<corelAbb>(?:{0}))\\Programs(?:64|)$", version));
             ChangeTheme();
             ChangeType();
         }
@@ -117,10 +127,31 @@ namespace Wizard001
             if (ck.Checked)
             {
                 if (temp.CorelInstallationNotFound)
-                    if (!temp.recoverPathManually(temp.CorelVersion))
+                {
+                    if (!string.IsNullOrEmpty(virtualFolder))
+                    {
+                        if (regex.IsMatch(virtualFolder))
+                        {
+                            string toReplace = regex.Match(virtualFolder).Result("${corelAbb}");
+                            virtualFolder = virtualFolder.Replace(toReplace, temp.CorelAbreviation);
+                        }
+                        else
+                            virtualFolder = "";
+                    }
+                    if (!temp.recoverPathManually(temp.CorelVersion,virtualFolder))
                         ck.Checked = false;
-                if(!temp.CorelInstallationNotFound)
+                   
+                }
+                if (!temp.CorelInstallationNotFound)
+                {
                     this.selectedVersions.Add(temp);
+                    if (temp.Corel64Bit == CorelVersionInfo.CorelIs64Bit.Corel32)
+                        virtualFolder = temp.CorelExePath;
+                    else
+                        virtualFolder = temp.CorelExePath;
+
+
+                }
             }
             if (!ck.Checked && this.selectedVersions.Count > 0)
                 this.selectedVersions.Remove(installedVersions.Find(r => r.CorelVersion == (int)ck.Tag));

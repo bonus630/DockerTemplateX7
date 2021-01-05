@@ -140,11 +140,13 @@ namespace ProjectHelper
             // Parallel.ForEach() 
             return result;
         }
-        public bool recoverPathManually(int corelVersion)
+        public bool recoverPathManually(int corelVersion,string startDir = "")
         {
             OpenFileDialog fd = new OpenFileDialog();
             fd.Filter = "|CorelDRW.exe";
             fd.Title = "Please find EXE file of " + Corel64FullName;
+            if (!string.IsNullOrEmpty(startDir))
+                fd.InitialDirectory = startDir;
             if (fd.ShowDialog() == DialogResult.OK)
             {
                 FileInfo fi = new FileInfo(fd.FileName);

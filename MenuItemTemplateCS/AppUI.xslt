@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <!--
-Copyright (c) 2008 Corel Corporation.
-
 Permission is hereby granted, free of charge, to any person or organization obtaining a copy of the software and accompanying 
 documentation covered by this license (the "Software") to use, reproduce, display, distribute, execute, and transmit the Software, 
 and to prepare derivative works of the Software, and to permit third-parties to whom the Software is furnished to do so, all subject 
@@ -19,25 +17,18 @@ HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER L
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ************************************************************************************************************************************
-This file adds controls to the current workspace.  It is only executed once per workspace (e.g. if you make changes, you must launch 
-with F8 to reapply the changes.
+This file defines new UI elements that all workspaces will contain
 ************************************************************************************************************************************
 -->
-<xsl:stylesheet version="1.0"
-								xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-								xmlns:frmwrk="Corel Framework Data"
-								exclude-result-prefixes="frmwrk">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:frmwrk="Corel Framework Data">
   <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
   <!-- Use these elements for the framework to move the container from the app config file to the user config file -->
   <!-- Since these elements use the frmwrk name space, they will not be executed when the XSLT is applied to the user config file -->
-	<frmwrk:uiconfig>
-		<!-- The Application Info should always be the topmost frmwrk element -->
-		<frmwrk:compositeNode xPath="/uiConfig/commandBars/commandBarData[@guid='1056b8d8-9185-46ee-af8e-77c7ba383a4e']"/>
-		<frmwrk:compositeNode xPath="/uiConfig/commandBars/commandBarData[@guid='c2b44f69-6dec-444e-a37e-5dbf7ff43dae']"/>
-		<frmwrk:compositeNode xPath="/uiConfig/views/viewTemplate[@guid='ab303a90-464d-5191-423f-613c4d1dcb2c']"/>
-		<frmwrk:compositeNode xPath="/uiConfig/frame"/>
-	</frmwrk:uiconfig>
+  <frmwrk:uiconfig>
+    <!-- The Application Info should always be the topmost frmwrk element -->
+    <frmwrk:applicationInfo userConfiguration="true" />
+  </frmwrk:uiconfig>
 
   <!-- Copy everything -->
   <xsl:template match="node()|@*">
@@ -45,24 +36,38 @@ with F8 to reapply the changes.
       <xsl:apply-templates select="node()|@*"/>
     </xsl:copy>
   </xsl:template>
-	<xsl:template match="commandBarData[@guid='1056b8d8-9185-46ee-af8e-77c7ba383a4e']/menu/item[@guidRef='6154a087-059d-4d9c-bac4-836b9377af23']">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()"/>
-		</xsl:copy>
-		<!-- Make sure we don't read the menu item it it already exists -->
-		<xsl:if test="not(./item[@guidRef='$GuidA$'])">
-			<item guidRef="$GuidA$"/>
-		</xsl:if>
-	</xsl:template>
-  <!-- Put the new button at the end of the 'standard command bar' -->
-  <xsl:template match="commandBarData[@guid='c2b44f69-6dec-444e-a37e-5dbf7ff43dae']/toolbar">
+
+  <xsl:template match="uiConfig/items">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
-      <!-- Make sure we don't read the menu item it it already exists -->
-      <xsl:if test="not(./item[@guidRef='$GuidB$'])">
-				<item guidRef="$GuidB$"/>
-			</xsl:if>
+		<!-- Creates a button to add at a menu, menu item needs works with DataSource-->
+		<itemData guid="$GuidA$"
+				   type="button"
+				   onInvoke="*Bind(DataSource=$safeprojectname$DS;Path=MenuItemCommand)"
+				   caption="*Bind(DataSource=$safeprojectname$DS;Path=Caption)"
+				   icon="*Bind(DataSource=$safeprojectname$DS;Path=Icon)"
+				   enable="true"/>
+		
+		<!--Creates a item to add a Warpper, responsible to initialize the DataSource to be consumimed in menu item above -->
+      <itemData guid="$GuidB$"
+                type="wpfhost"
+                hostedType="Addons\$specifiedsolutionname$\$specifiedsolutionname$.CorelAddon,$safeprojectname$.ControlUI"
+                enable="true"/>
+
     </xsl:copy>
   </xsl:template>
-  
+
+  <xsl:template match="uiConfig/commandBars">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*"/>
+
+   
+        <container>
+          <!-- add the Warpper control to the container -->
+          <item dock="fill" margin="0,0,0,0" guidRef="$GuidB$"/>
+        </container>
+     
+    </xsl:copy>
+  </xsl:template>
+
 </xsl:stylesheet>

@@ -46,6 +46,10 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 	</PropertyGroup>
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<PropertyGroup>
+		<Win32Resource>$(ProjectDir)\resources.rct</Win32Resource>
+	</PropertyGroup>
 	<ItemGroup>
 		<Reference Include="System" />
 		<Reference Include="System.Data" />
@@ -115,9 +119,9 @@
 		<Content Include="Readme.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="resources.rct">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
+		<Content Include="resources.rct"/>
+			
+		
 		<Content Include="AppUI.xslt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
@@ -151,9 +155,6 @@
 			<LastGenOutput>Settings.Designer.vb</LastGenOutput>
 		</None>
 	</ItemGroup>
-
-	<Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-
 	<PropertyGroup>
 		<StartAction>Program</StartAction>
 		<StartProgram>$(CurrentCorelPath)CorelDRW.exe</StartProgram>
