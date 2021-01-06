@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config>
 	<resources>
-		<resource name="$projectname$" path="$projectname$.CorelAddon">
+		<resource name="$specifiedsolutionname$" path="$specifiedsolutionname$.CorelAddon">
 			<resourceMap>
 				<!-- Toolbox icon and string resource -->
 				<resEntry id="$GuidA$" string="10223" icon="104"/>

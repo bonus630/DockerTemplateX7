@@ -41,6 +41,7 @@ This file defines new UI elements that all workspaces will contain
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
 		<!-- Creates a button to add at a menu, menu item needs works with DataSource-->
+		<!-- Creates a button to add at a menu, menu item needs works with DataSource-->
 		<itemData guid="$GuidA$"
 				   type="button"
 				   onInvoke="*Bind(DataSource=$safeprojectname$DS;Path=MenuItemCommand)"

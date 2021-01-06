@@ -1,0 +1,48 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>CorelDRAW Tool Addon</Name>
+		<Description>
+			A project template for creating custom tools for CorelDRAW X7.1 or higher. For more information on creating custom tools,
+			please see http://community.coreldraw.com/sdk
+		</Description>
+		<ProjectType>csharp</ProjectType>
+		<ProjectSubType>CorelDRAW Addons</ProjectSubType>
+		<LanguageTag>csharp</LanguageTag>
+		<PlatformTag>windows</PlatformTag>
+		<ProjectTypeTag>CorelDRAW Addons</ProjectTypeTag>
+		<SortOrder>6000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>SampleToolCS</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<Icon>DockerTemplateX7.ico</Icon>
+		<PreviewImage>__PreviewImage.png</PreviewImage>
+		<TemplateID>0AC96025-9E94-4F81-B6FD-C25731EED4A7</TemplateID>
+		<BuildOnLoad>true</BuildOnLoad>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="ToolProjectTemplateCS.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="Addon.cs">Addon.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$.cs">DrawTool.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="AppUI.xslt">AppUI.xslt</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="UserUI.xslt">UserUI.xslt</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="config.xml">config.xml</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="CorelDrw.addon">CorelDrw.addon</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="Readme.txt">Readme.txt</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+			<ProjectItem ReplaceParameters="false" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
+		</Project>
+		<CustomParameters>
+			<CustomParameter Name="$type$" Value="Tool"/>
+			<CustomParameter Name="$lang$" Value="cs"/>
+		</CustomParameters>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+		<FullClassName>Wizard001.Wizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

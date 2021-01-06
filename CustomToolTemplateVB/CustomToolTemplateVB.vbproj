@@ -8,8 +8,9 @@
 	<PropertyGroup>
 		<CdrTemplateCSTargetPath>$(SolutionDir)bonus630.CdrTemplateCommon.targets</CdrTemplateCSTargetPath>
 		<CdrAddonType>Tool</CdrAddonType>
-		<CdrAddonLang>VB</CdrAddonLang>
+		<CdrAddonLang>vb</CdrAddonLang>
 	</PropertyGroup>
+	<Import Project="$(CdrTemplateCSTargetPath)" Condition="Exists('$(CdrTemplateCSTargetPath)')"/>
 	<PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>

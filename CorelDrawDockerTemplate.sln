@@ -25,6 +25,54 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectHelper", "ProjectHel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuItemTemplateCS", "MenuItemTemplateCS\MenuItemTemplateCS.csproj", "{C228041C-B1BF-4DE3-91EC-51475457C60E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedFiles", "SharedFiles", "{BED1B82F-1341-43B6-BFFC-C1A1DD64E06F}"
+	ProjectSection(SolutionItems) = preProject
+		SharedFiles\Note!Important.txt = SharedFiles\Note!Important.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Control", "Control", "{DC37AB85-1371-41D0-9977-FAA0BE477174}"
+	ProjectSection(SolutionItems) = preProject
+		SharedFiles\Control\AppUI.xslt = SharedFiles\Control\AppUI.xslt
+		SharedFiles\Control\Colors.xaml = SharedFiles\Control\Colors.xaml
+		SharedFiles\Control\Images.xaml = SharedFiles\Control\Images.xaml
+		SharedFiles\Control\Styles.xaml = SharedFiles\Control\Styles.xaml
+		SharedFiles\Control\StylesController.cs = SharedFiles\Control\StylesController.cs
+		SharedFiles\Control\StylesController.vb = SharedFiles\Control\StylesController.vb
+		SharedFiles\Control\UserUI.xslt = SharedFiles\Control\UserUI.xslt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cs", "cs", "{67EE935F-B914-48D4-A2B9-A719FA32AF6F}"
+	ProjectSection(SolutionItems) = preProject
+		SharedFiles\cs\AssemblyInfo.cs = SharedFiles\cs\AssemblyInfo.cs
+		SharedFiles\cs\Extensions.cs = SharedFiles\cs\Extensions.cs
+		SharedFiles\cs\MessageBox.cs = SharedFiles\cs\MessageBox.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{2D693F66-DADD-49F4-8DF9-F765A7925455}"
+	ProjectSection(SolutionItems) = preProject
+		SharedFiles\Docker\AppUI.xslt = SharedFiles\Docker\AppUI.xslt
+		SharedFiles\Docker\Colors.xaml = SharedFiles\Docker\Colors.xaml
+		SharedFiles\Docker\Images.xaml = SharedFiles\Docker\Images.xaml
+		SharedFiles\Docker\Styles.xaml = SharedFiles\Docker\Styles.xaml
+		SharedFiles\Docker\StylesController.cs = SharedFiles\Docker\StylesController.cs
+		SharedFiles\Docker\StylesController.vb = SharedFiles\Docker\StylesController.vb
+		SharedFiles\Docker\UserUI.xslt = SharedFiles\Docker\UserUI.xslt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MenuItem", "MenuItem", "{D67559B6-B1B6-4000-8D17-C6BDB25A408D}"
+	ProjectSection(SolutionItems) = preProject
+		SharedFiles\MenuItem\AppUI.xslt = SharedFiles\MenuItem\AppUI.xslt
+		SharedFiles\MenuItem\UserUI.xslt = SharedFiles\MenuItem\UserUI.xslt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tool", "Tool", "{604D05B6-F239-4E50-94D4-FCD9E0682E03}"
+	ProjectSection(SolutionItems) = preProject
+		SharedFiles\Tool\AppUI.xslt = SharedFiles\Tool\AppUI.xslt
+		SharedFiles\Tool\UserUI.xslt = SharedFiles\Tool\UserUI.xslt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vb", "vb", "{BEC1628B-4934-4C2C-B484-1F3B8505BEBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +126,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DC37AB85-1371-41D0-9977-FAA0BE477174} = {BED1B82F-1341-43B6-BFFC-C1A1DD64E06F}
+		{67EE935F-B914-48D4-A2B9-A719FA32AF6F} = {BED1B82F-1341-43B6-BFFC-C1A1DD64E06F}
+		{2D693F66-DADD-49F4-8DF9-F765A7925455} = {BED1B82F-1341-43B6-BFFC-C1A1DD64E06F}
+		{D67559B6-B1B6-4000-8D17-C6BDB25A408D} = {BED1B82F-1341-43B6-BFFC-C1A1DD64E06F}
+		{604D05B6-F239-4E50-94D4-FCD9E0682E03} = {BED1B82F-1341-43B6-BFFC-C1A1DD64E06F}
+		{BEC1628B-4934-4C2C-B484-1F3B8505BEBD} = {BED1B82F-1341-43B6-BFFC-C1A1DD64E06F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C67B0612-AC1C-4996-B91F-70FCD0B2F528}

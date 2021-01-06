@@ -52,6 +52,15 @@ namespace ProjectHelper
         private string[] corelDebugConst = new string[] { "", "", "", "", "", "", "", "X7", "X8", "X9", "X10", "X11", "X12" };
         //Corel 13 folder - CorelDRAW Graphics Suite 13
         //Corel 10 folder -  Graphics10 
+      
+        public string CorelReferenceLabel { get { return this.corelReferenceLabel[this.CorelVersion - 10]; } }
+        public string CorelBuildCopyCommandLabel { get { return this.corelBuildCopyCommandLabel[this.CorelVersion - 10]; } }
+        public string CorelStartup { get { return this.corelStartup[this.CorelVersion - 10]; } }
+
+
+        private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference", "X12Reference" };
+        private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand", "X12BuildCopyCommand" };
+        private string[] corelStartup = new string[] { "", "", "", "", "", "", "", "X7Startup", "X8Startup", "X9Startup", "X10Startup", "X11Startup", "X12Startup" };
 
         public CorelVersionInfo(int corelVersion, CorelIs64Bit corel64Bit)
         {

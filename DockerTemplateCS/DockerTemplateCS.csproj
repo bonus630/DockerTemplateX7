@@ -31,8 +31,9 @@
 	<PropertyGroup>
 		<CdrTemplateCSTargetPath>$(SolutionDir)bonus630.CdrTemplateCommon.targets</CdrTemplateCSTargetPath>
 		<CdrAddonType>Docker</CdrAddonType>
-		<CdrAddonLang>CS</CdrAddonLang>
+		<CdrAddonLang>cs</CdrAddonLang>
 	</PropertyGroup>
+	<Import Project="$(CdrTemplateCSTargetPath)" Condition="Exists('$(CdrTemplateCSTargetPath)')"/>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>

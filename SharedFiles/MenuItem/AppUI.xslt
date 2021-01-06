@@ -41,19 +41,18 @@ This file defines new UI elements that all workspaces will contain
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
 		<!-- Creates a button to add at a menu, menu item needs works with DataSource-->
-		<itemData guid="$GuidA$" noBmpOnMenu="true"
+		<!-- Creates a button to add at a menu, menu item needs works with DataSource-->
+		<itemData guid="$GuidA$"
 				   type="button"
-				   onInvoke='*Bind(DataSource=$safeprojectname$DS;Path=MenuItemCommand)'
-				   caption='*Bind(DataSource=$safeprojectname$DS;Path=Caption)'
+				   onInvoke="*Bind(DataSource=$safeprojectname$DS;Path=MenuItemCommand)"
+				   caption="*Bind(DataSource=$safeprojectname$DS;Path=Caption)"
+				   icon="*Bind(DataSource=$safeprojectname$DS;Path=Icon)"
 				   enable="true"/>
-			<!--<userSmallBitmap xmlns:dt="urn:schemas-microsoft-com:datatypes" dt:dt="bin.base64">
-				*Bind(DataSource=$safeprojectname$DS;Path=Icon)
-			</userSmallBitmap>
-		</itemData>-->
+		
 		<!--Creates a item to add a Warpper, responsible to initialize the DataSource to be consumimed in menu item above -->
       <itemData guid="$GuidB$"
                 type="wpfhost"
-                hostedType="Addons\$specifiedsolutionname$\$specifiedsolutionname$.dll,$safeprojectname$.ControlUI"
+                hostedType="Addons\$specifiedsolutionname$\$specifiedsolutionname$.CorelAddon,$safeprojectname$.ControlUI"
                 enable="true"/>
 
     </xsl:copy>

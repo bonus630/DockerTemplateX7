@@ -244,9 +244,9 @@ namespace Wizard001
                         //    corel.CorelAddonsPath64(out corelAddonsPath);
 
                         string projectKind = replacementsDictionary["$lang$"];
-                        if (projectKind.Equals("CS"))
+                        if (projectKind.Equals("cs"))
                             replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = Helper.buildConfigurationCS(corel);
-                        else if (projectKind.Equals("VB"))
+                        else if (projectKind.Equals("vb"))
                             replacementsDictionary["$corel" + corel.CorelVersion.ToString() + "$"] = Helper.buildConfigurationVB(corel);
                         else
                             throw new WizardCancelledException();

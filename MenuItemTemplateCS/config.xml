@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config>
 	<resources>
-		<resource name="$safeprojectname$" path="$safeprojectname$.CorelAddon">
+		<resource name="$specifiedsolutionname$" path="$specifiedsolutionname$.CorelAddon">
 			<resourceMap>
 				<!-- Menu item icon and string resource -->
 				<resEntry id="$GuidA$" string="10223" icon="109"/>

@@ -112,13 +112,6 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
     </ProjectReference>
-    <ProjectReference Include="..\DockerTemplateJS\DockerTemplateJS.csproj">
-      <Project>{9A2292E6-CDBA-42AA-AFFE-76B5860C3222}</Project>
-      <Name>DockerTemplateJS</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
     <ProjectReference Include="..\DockerTemplateVB\DockerTemplateVB.vbproj">
       <Project>{09963A79-C60E-420E-A5B9-4F97F2B6CD8A}</Project>
       <Name>DockerTemplateVB</Name>
