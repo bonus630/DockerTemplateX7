@@ -49,17 +49,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VGCore\BeginDraw.pkgdef">
+    <Content Include="VGCore\BeginDrawVB.pkgdef">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="VGCore\BeginDraw.snippet">
+    <Content Include="VGCore\BeginDrawCS.pkgdef">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="VGCore\BeginDrawCS.snippet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="VGCore\BeginDrawVB.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DockerTemplateX7.ico">
@@ -122,6 +130,13 @@
     <ProjectReference Include="..\MenuItemTemplateCS\MenuItemTemplateCS.csproj">
       <Project>{C228041C-B1BF-4DE3-91EC-51475457C60E}</Project>
       <Name>MenuItemTemplateCS</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\MenuItemTemplateVB\MenuItemTemplateVB.vbproj">
+      <Project>{4F80F888-4C04-40E5-8B66-3F2C3AF4CC5A}</Project>
+      <Name>MenuItemTemplateVB</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>

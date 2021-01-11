@@ -23,6 +23,7 @@
 			<ProjectItem ReplaceParameters="false" TargetFileName="My Project\Application.myapp">MyApplication.myapp</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="My Project\Application.Designer.vb">MyApplication.Designer.vb</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="MessageBox.vb">MessageBox.vb</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Extensions.vb">Extensions.vb</ProjectItem>
 			<Folder Name="Converters" TargetFolderName="Converters">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ResourceToMediaImageConverter.vb">ResourceToMediaImageConverter.vb</ProjectItem>
 			</Folder>

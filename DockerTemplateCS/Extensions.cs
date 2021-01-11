@@ -1,17 +1,19 @@
 ﻿using System;
 using Corel.Interop.VGCore;
 
-public static class Extensions
+namespace $safeprojectname$
 {
-    /// <summary>
-    /// Active optimization features, and start a command group
-    /// </summary>
-    /// <param name="app"></param>
-    /// <param name="commandGroup"></param>
-    /// <param name="optimization"></param>
-    /// <param name="enableEvents"></param>
-    /// <param name="preservSeletion"></param>
-	 public static void BeginDraw(this Corel.Interop.VGCore.Application app, bool commandGroup = true, bool optimization = true, bool enableEvents = false, bool preservSeletion = true)
+    public static class Extensions
+    {
+        /// <summary>
+        /// Active optimization features, and start a command group
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="commandGroup"></param>
+        /// <param name="optimization"></param>
+        /// <param name="enableEvents"></param>
+        /// <param name="preservSeletion"></param>
+        public static void BeginDraw(this Corel.Interop.VGCore.Application app, bool commandGroup = true, bool optimization = true, bool enableEvents = false, bool preservSeletion = true)
         {
             if (app.ActiveDocument != null)
             {
@@ -24,10 +26,10 @@ public static class Extensions
             app.Optimization = optimization;
             app.EventsEnabled = enableEvents;
         }
-    /// <summary>
-    /// Desables optimization features, close the command group and reflesh UI
-    /// </summary>
-    /// <param name="app"></param>
+        /// <summary>
+        /// Desables optimization features, close the command group and reflesh UI
+        /// </summary>
+        /// <param name="app"></param>
         public static void EndDraw(this Corel.Interop.VGCore.Application app)
         {
             if (app.ActiveDocument != null)
@@ -39,4 +41,5 @@ public static class Extensions
             app.EventsEnabled = true;
             app.Refresh();
         }
+    }
 }

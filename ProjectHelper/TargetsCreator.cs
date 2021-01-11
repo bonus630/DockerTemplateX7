@@ -78,7 +78,7 @@ namespace ProjectHelper
             sr.AppendLine("\t<PropertyGroup>");
             sr.AppendLine("\t\t<VGCoreDLL>Assemblies\\Corel.Interop.VGCore.dll</VGCoreDLL>");
             sr.AppendLine("\t</PropertyGroup>");
-            sr.AppendLine("\t<Target Name=\"RenameFile\" AfterTargets=\"Build\" Condition=\"'$(TemplateGuid)' == '{d544180d-595b-4d71-b1ab-520a528892cc}' OR '{0AC96025-9E94-4F81-B6FD-C25731EED4A7}' OR '{2005f455-f415-4dfb-a4de-d6d9562b3813}'\">");
+            sr.AppendLine("\t<Target Name=\"RenameFile\" AfterTargets=\"Build\" Condition=\"'$(TemplateGuid)' == '{d544180d-595b-4d71-b1ab-520a528892cc}' OR '$(TemplateGuid)' == '{0AC96025-9E94-4F81-B6FD-C25731EED4A7}' OR '$(TemplateGuid)' == '{6ff803ae-8506-4b82-bf92-7c531de81189}' OR '$(TemplateGuid)' == '{609a1ae6-8f55-47ef-a416-fa8e3b2673c9}'\">");
             sr.AppendLine("\t\t<Message Text=\"Rename DLL file to CorelAddon\" />");
             sr.AppendLine("\t\t<Message Text=\"$(CurrentCorelPath)\" />");
             sr.AppendLine("\t\t<Exec Condition=\"Exists('$(TargetDir)$(TargetName).CorelAddon')\" Command='del \"$(TargetDir)$(TargetName).CorelAddon\"' />");

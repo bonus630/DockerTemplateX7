@@ -41,10 +41,7 @@
 	$corel21$
 
 	$corel22$
-
-	<PropertyGroup>
-		<OutputType>Library</OutputType>
-	</PropertyGroup>
+	
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 	<PropertyGroup>
 		<Win32Resource>$(ProjectDir)\resources.rct</Win32Resource>

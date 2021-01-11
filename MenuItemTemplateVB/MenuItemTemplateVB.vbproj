@@ -8,20 +8,23 @@
   <PropertyGroup>
     <CdrTemplateCSTargetPath>$(SolutionDir)bonus630.CdrTemplateCommon.targets</CdrTemplateCSTargetPath>
     <CdrAddonType>MenuItem</CdrAddonType>
-    <CdrAddonLang>cs</CdrAddonLang>
+    <CdrAddonLang>vb</CdrAddonLang>
   </PropertyGroup>
   <Import Project="$(CdrTemplateCSTargetPath)" Condition="Exists('$(CdrTemplateCSTargetPath)')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{C228041C-B1BF-4DE3-91EC-51475457C60E}</ProjectGuid>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{F184B08F-C81C-45f6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <ProjectGuid>{4F80F888-4C04-40E5-8B66-3F2C3AF4CC5A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MenuItemTemplateCS</RootNamespace>
-    <AssemblyName>MenuItemTemplateCS</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>MenuItemTemplateVB</RootNamespace>
+    <AssemblyName>MenuItemTemplateVB</AssemblyName>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
@@ -36,53 +39,67 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.CoreUtility">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppUI.xslt" />
     <Content Include="config.xml" />
-    <Content Include="ControlUI.xaml.cs">
+    <Content Include="DataSource\ADataSource.vb" />
+    <Content Include="DataSource\BaseDataSource.vb" />
+    <Content Include="DataSource\DataSourceFactory.vb" />
+    <Content Include="ControlUI.xaml.vb">
       <DependentUpon>ControlUI.xaml</DependentUpon>
     </Content>
-    <Content Include="MessageBox.cs" />
-    <Content Include="DataSource\ADataSource.cs" />
-    <Content Include="DataSource\BaseDataSource.cs" />
-    <Content Include="DataSource\DataSourceFactory.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="MessageBox.vb" />
+    <Content Include="Extensions.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Content Include="DockerTemplateVB.ico" />
     <Content Include="resources.rct" />
     <Content Include="UserUI.xslt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AssemblyInfo.cs" />
+    <None Include="AssemblyInfo.vb" />
     <Content Include="CorelDrw.addon" />
-    <None Include="ProjectTemplateCS.csproj" />
+    <None Include="MyApplication.Designer.vb" />
+    <None Include="MyApplication.myapp" />
+    <None Include="MenuItemTemplateVB.ico" />
+    <None Include="ProjectTemplate.vbproj" />
+    <None Include="Resources.Designer.vb" />
+    <None Include="Resources.resx" />
+    <None Include="Settings.Designer.vb" />
+    <None Include="Settings.settings" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="MenuItemTemplateCS.vstemplate">
+    <VSTemplate Include="MenuItemTemplateVB.vstemplate">
       <OutputSubPath>CorelDraw Addon</OutputSubPath>
     </VSTemplate>
   </ItemGroup>
@@ -92,7 +109,7 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
