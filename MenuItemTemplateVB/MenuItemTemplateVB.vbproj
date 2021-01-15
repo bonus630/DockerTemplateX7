@@ -92,7 +92,7 @@
     <None Include="MyApplication.Designer.vb" />
     <None Include="MyApplication.myapp" />
     <None Include="MenuItemTemplateVB.ico" />
-    <None Include="ProjectTemplate.vbproj" />
+    <None Include="MenuItemProjectTemplate.vbproj" />
     <None Include="Resources.Designer.vb" />
     <None Include="Resources.resx" />
     <None Include="Settings.Designer.vb" />

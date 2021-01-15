@@ -27,7 +27,7 @@ namespace ProjectHelper
 
         private string corelGMSPath;
         public static readonly int MinVersion = 17;
-        public static readonly int MaxVersion = 23;
+        public static readonly int MaxVersion = 24;
         //private string corelAddonsPath;
         //private string corelGMSPath64;
         //private string corelAddonsPath64;
@@ -39,17 +39,18 @@ namespace ProjectHelper
         public string CorelInstallationPath64 { get; private set; }
         public CorelIs64Bit Corel64Bit { get; set; }
         public int CorelVersion { get; private set; }
-        private static string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017", "2018", "2019", "2020" };
+        private static string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017", "2018", "2019", "2020","2021" };
         private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12",
                 "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5",
                 "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8",
-                "CorelDRAW Graphics Suite 2017","CorelDRAW Graphics Suite 2018","CorelDRAW Graphics Suite 2019","CorelDRAW Graphics Suite 2020" };
+                "CorelDRAW Graphics Suite 2017","CorelDRAW Graphics Suite 2018","CorelDRAW Graphics Suite 2019","CorelDRAW Graphics Suite 2020",
+            "CorelDRAW Graphics Suite 2021" };
         public static string  GetCorelAbreviation(int version) { return corelAbb[version - 10];  }
         private const string corelName = "CorelDraw Graphics Suite";
         //private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference","X12Reference" };
         //private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand", "X12BuildCopyCommand" };
         //private string[] corelStartup = new string[] { "", "", "", "", "", "", "", "X7Startup", "X8Startup", "X9Startup", "X10Startup", "X11Startup", "X12Startup" };
-        private string[] corelDebugConst = new string[] { "", "", "", "", "", "", "", "X7", "X8", "X9", "X10", "X11", "X12" };
+        private string[] corelDebugConst = new string[] { "", "", "", "", "", "", "", "X7", "X8", "X9", "X10", "X11", "X12","X13" };
         //Corel 13 folder - CorelDRAW Graphics Suite 13
         //Corel 10 folder -  Graphics10 
       
@@ -58,9 +59,9 @@ namespace ProjectHelper
         public string CorelStartup { get { return this.corelStartup[this.CorelVersion - 10]; } }
 
 
-        private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference", "X12Reference" };
-        private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand", "X12BuildCopyCommand" };
-        private string[] corelStartup = new string[] { "", "", "", "", "", "", "", "X7Startup", "X8Startup", "X9Startup", "X10Startup", "X11Startup", "X12Startup" };
+        private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference", "X12Reference", "X13Reference" };
+        private string[] corelBuildCopyCommandLabel = new string[] { "", "", "", "", "", "", "", "X7BuildCopyCommand", "X8BuildCopyCommand", "X9BuildCopyCommand", "X10BuildCopyCommand", "X11BuildCopyCommand", "X12BuildCopyCommand", "X13BuildCopyCommand" };
+        private string[] corelStartup = new string[] { "", "", "", "", "", "", "", "X7Startup", "X8Startup", "X9Startup", "X10Startup", "X11Startup", "X12Startup", "X13Startup" };
 
         public CorelVersionInfo(int corelVersion, CorelIs64Bit corel64Bit)
         {

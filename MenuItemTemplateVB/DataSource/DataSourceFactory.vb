@@ -5,8 +5,8 @@ Imports System.Linq
 Imports System.Text
 Imports System.Runtime.InteropServices
 
-Namespace _
-    Public Class DataSourceFactory
+
+Public Class DataSourceFactory
         Implements ICUIDataSourceFactory
 
     Private DataSourceList As Dictionary(Of String, Type) = New Dictionary(Of String, Type)()
@@ -21,17 +21,17 @@ Namespace _
             Next
         End Sub
 
-        Public Sub CreateDataSource(ByVal DataSourceName As String, ByVal Proxy As DataSourceProxy, <Out> ByRef ppVal As Object)
-            If DataSourceList.ContainsKey(DataSourceName) Then
-                Dim type As Type = DataSourceList(DataSourceName)
-                ppVal = type.Assembly.CreateInstance(type.FullName, True, System.Reflection.BindingFlags.CreateInstance, Nothing, New Object() {Proxy}, Nothing, Nothing)
-                Return
-            End If
+    Public Sub CreateDataSource(ByVal DataSourceName As String, ByVal Proxy As DataSourceProxy, <Out> ByRef ppVal As Object) Implements ICUIDataSourceFactory.CreateDataSource
+        If DataSourceList.ContainsKey(DataSourceName) Then
+            Dim type As Type = DataSourceList(DataSourceName)
+            ppVal = type.Assembly.CreateInstance(type.FullName, True, System.Reflection.BindingFlags.CreateInstance, Nothing, New Object() {Proxy}, Nothing, Nothing)
+            Return
+        End If
 
-            ppVal = Nothing
-        End Sub
+        ppVal = Nothing
+    End Sub
 
-        Public Function CreateDataSource(ByVal DataSourceName As String, ByVal Proxy As DataSourceProxy) As Object
+    Public Function CreateDataSource(ByVal DataSourceName As String, ByVal Proxy As DataSourceProxy) As Object
             Dim ppVal As Object = Nothing
 
             If DataSourceList.ContainsKey(DataSourceName) Then
@@ -42,4 +42,4 @@ Namespace _
             Return ppVal
         End Function
     End Class
-End Namespace
+

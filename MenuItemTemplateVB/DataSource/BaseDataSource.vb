@@ -32,10 +32,5 @@ Namespace DataSource
             Catch
             End Try
         End Sub
-        Private Sub ICUIDataSourceFactory_CreateDataSource(DataSourceName As String, Proxy As DataSourceProxy, ByRef ppVal As Object) Implements ICUIDataSourceFactory.CreateDataSource
-            If DataSourceList.ContainsKey(DataSourceName) Then
-                Dim type As Type = DataSourceList(DataSourceName)
-                ppVal = type.Assembly.CreateInstance(type.FullName, True, System.Reflection.BindingFlags.CreateInstance, Nothing, New Object() {Proxy}, Nothing, Nothing)
-            End If
-        End Sub
+
     End Class

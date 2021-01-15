@@ -81,14 +81,14 @@
             this.panel_middler.Controls.Add(this.label2);
             this.panel_middler.Location = new System.Drawing.Point(12, 68);
             this.panel_middler.Name = "panel_middler";
-            this.panel_middler.Size = new System.Drawing.Size(392, 220);
+            this.panel_middler.Size = new System.Drawing.Size(392, 338);
             this.panel_middler.TabIndex = 6;
             // 
             // flowLayoutPanel_Versions
             // 
             this.flowLayoutPanel_Versions.Location = new System.Drawing.Point(5, 31);
             this.flowLayoutPanel_Versions.Name = "flowLayoutPanel_Versions";
-            this.flowLayoutPanel_Versions.Size = new System.Drawing.Size(231, 218);
+            this.flowLayoutPanel_Versions.Size = new System.Drawing.Size(231, 304);
             this.flowLayoutPanel_Versions.TabIndex = 8;
             // 
             // label2
@@ -103,7 +103,7 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(352, 335);
+            this.btn_cancel.Location = new System.Drawing.Point(347, 412);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(52, 23);
             this.btn_cancel.TabIndex = 6;
@@ -113,7 +113,7 @@
             // btn_done
             // 
             this.btn_done.Enabled = false;
-            this.btn_done.Location = new System.Drawing.Point(246, 335);
+            this.btn_done.Location = new System.Drawing.Point(241, 412);
             this.btn_done.Name = "btn_done";
             this.btn_done.Size = new System.Drawing.Size(91, 23);
             this.btn_done.TabIndex = 7;
@@ -124,7 +124,7 @@
             // 
             this.panel1.Controls.Add(this.rb_global);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(17, 335);
+            this.panel1.Location = new System.Drawing.Point(12, 412);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(223, 23);
             this.panel1.TabIndex = 8;
@@ -162,7 +162,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(418, 376);
+            this.ClientSize = new System.Drawing.Size(418, 447);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_middler);
             this.Controls.Add(this.btn_cancel);

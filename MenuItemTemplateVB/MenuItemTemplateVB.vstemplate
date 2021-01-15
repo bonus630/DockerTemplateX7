@@ -16,7 +16,7 @@
 		<RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
 	</TemplateData>
 	<TemplateContent>
-		<Project File="ProjectTemplate.vbproj" ReplaceParameters="true">
+		<Project File="MenuItemProjectTemplate.vbproj" ReplaceParameters="true">
 
 			<ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
 			<ProjectItem ReplaceParameters="true">ControlUI.xaml.vb</ProjectItem>
@@ -34,7 +34,7 @@
 			<ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
 			<ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="config.xml">config.xml</ProjectItem>
-			<ProjectItem ReplaceParameters="false" TargetFileName="Extensions.vb">Extensions.vb</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Extensions.vb">Extensions.vb</ProjectItem>
 
 			<ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
 			<ProjectItem ReplaceParameters="false" TargetFileName="My Project\Resources.resx">Resources.resx</ProjectItem>

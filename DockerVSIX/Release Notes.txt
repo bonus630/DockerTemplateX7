@@ -55,3 +55,6 @@ Version 2.604
 * Added extension method to CS templates, extends corelApp adding the "BeginDraw" to enable optimization and anothers stuffs to up draw speed,
 adding too "EndDraw" method to corelApp to disable optimization and refresh CorelDraw UI.
 * Added code snippet to add "BeginDraw" and "EndDraw", and surround a draw code, the shortcut is "drw" no quotes.
+
+Version 2.620
+* Prepare to 2021 version, many bug fixes

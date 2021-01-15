@@ -23,7 +23,7 @@
 		<TemplateGuid>{678f71b7-abf7-4164-8850-df07f94c2fd9}</TemplateGuid>
 	</PropertyGroup>
 	<Import Project="$(CdrTargetPath)" Condition="Exists('$(CdrTargetPath)')"/>
-	
+
 	$corel17$
 
 	$corel18$
@@ -36,7 +36,7 @@
 
 	$corel22$
 
-
+	$corel23$
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 	</PropertyGroup>

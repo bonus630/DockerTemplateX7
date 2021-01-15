@@ -79,7 +79,7 @@
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
     <Content Include="CorelDrw.addon" />
-    <None Include="ProjectTemplateCS.csproj" />
+    <None Include="MenuItemProjectTemplateCS.csproj" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="MenuItemTemplateCS.vstemplate">

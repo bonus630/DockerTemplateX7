@@ -35,7 +35,7 @@
 			<ProjectItem ReplaceParameters="false" TargetFileName="CorelDrw.addon">CorelDrw.addon</ProjectItem>
 			<ProjectItem ReplaceParameters="false" TargetFileName="Readme.txt">Readme.txt</ProjectItem>
 			<ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
-
+			<ProjectItem ReplaceParameters="true" TargetFileName="Extensions.vb">Extensions.vb</ProjectItem>
 		</Project>
 		<CustomParameters>
 			<CustomParameter Name="$type$" Value="Tool"/>

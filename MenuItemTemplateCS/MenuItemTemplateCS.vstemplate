@@ -17,7 +17,7 @@
 		<ProvideDefaultName>true</ProvideDefaultName>
 	</TemplateData>
 	<TemplateContent>
-		<Project File="ProjectTemplateCS.csproj" ReplaceParameters="true">
+		<Project File="MenuItemProjectTemplateCS.csproj" ReplaceParameters="true">
 			<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true">ControlUI.xaml.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true">ControlUI.xaml</ProjectItem>
@@ -32,7 +32,7 @@
 			<ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
 			<ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="config.xml">config.xml</ProjectItem>
-			<ProjectItem ReplaceParameters="false" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
 		</Project>
 		<CustomParameters>
 			<CustomParameter Name="$type$" Value="MenuItem"/>

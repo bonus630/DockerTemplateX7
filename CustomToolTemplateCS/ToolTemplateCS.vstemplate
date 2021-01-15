@@ -31,10 +31,10 @@
 			<ProjectItem ReplaceParameters="false" TargetFileName="CorelDrw.addon">CorelDrw.addon</ProjectItem>
 			<ProjectItem ReplaceParameters="false" TargetFileName="Readme.txt">Readme.txt</ProjectItem>
 			<ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
-			<Folder Name="Properties" TargetFolderName="Properties">
-				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-			</Folder>
-			<ProjectItem ReplaceParameters="false" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
+			<!--<Folder Name="Properties" TargetFolderName="Properties">-->
+				<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			<!--</Folder>-->
+			<ProjectItem ReplaceParameters="true" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
 		</Project>
 		<CustomParameters>
 			<CustomParameter Name="$type$" Value="Tool"/>

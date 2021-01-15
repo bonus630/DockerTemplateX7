@@ -10,7 +10,7 @@
 		<SchemaVersion>2.0</SchemaVersion>
 		<ProjectGuid>$guid1$</ProjectGuid>
 		<ProjectTypeGuids>{$WPFUserControlGuid$};{$CSGuid$}</ProjectTypeGuids>
-		<TemplateGuid>{d544180d-595b-4d71-b1ab-520a528892cc}</TemplateGuid>
+		<TemplateGuid>{3c372ba8-3752-489f-87f2-df27aa4850c8}</TemplateGuid>
 		<OutputType>Library</OutputType>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<RootNamespace>$safeprojectname$</RootNamespace>
@@ -41,7 +41,8 @@
 	$corel21$
 
 	$corel22$
-	
+	$corel23$
+
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 	<PropertyGroup>
 		<Win32Resource>$(ProjectDir)\resources.rct</Win32Resource>

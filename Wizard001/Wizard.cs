@@ -99,6 +99,9 @@ namespace Wizard001
             {
                 switch (item.Name)
                 {
+                    case "2021 Debug":
+                        item.Activate();
+                        break;
                     case "2020 Debug":
                         item.Activate();
                         break;
