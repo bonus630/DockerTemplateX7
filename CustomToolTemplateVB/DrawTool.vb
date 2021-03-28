@@ -16,7 +16,8 @@ Public Class $safeprojectname$ : Implements ToolState
         currentAttribs = StateAttributes
         currentAttribs.SetCursor(cdrCursorShape.cdrCursorSmallcrosshair)
         currentAttribs.AllowTempPickState = False
-        currentAttribs.PropertyBarGuid = "$GuidB$"
+        'uncomment the next line to use a propertybar
+        'currentAttribs.PropertyBarGuid = "$GuidB$"
         ui = application.CreateOnScreenCurve() 'create the Xor'd UI object
     End Sub
 

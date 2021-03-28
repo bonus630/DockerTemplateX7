@@ -73,10 +73,9 @@
 		<Compile Include="Addon.cs" />
 		<Compile Include="$safeprojectname$.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Extensions.cs" />
 	</ItemGroup>
-	<Compile Include="Extensions.cs">
-		<SubType>Code</SubType>
-	</Compile>
+	
 	<ItemGroup>
 		<Content Include="AppUI.xslt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

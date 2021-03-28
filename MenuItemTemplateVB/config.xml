@@ -4,7 +4,7 @@
 		<resource name="$specifiedsolutionname$" path="$specifiedsolutionname$.CorelAddon">
 			<resourceMap>
 				<!-- Menu item icon and string resource -->
-				<resEntry id="$GuidA$" string="10223" icon="109"/>
+				<resEntry id="$GuidA$" string="10223" icon="104"/>
       </resourceMap>
 		</resource>
 	</resources>

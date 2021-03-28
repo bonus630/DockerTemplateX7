@@ -61,7 +61,7 @@
   <xsl:template match="uiConfig/commandBars/commandBarData[@guid='74e03d83-404c-49f5-824a-fe0fd02ab29a']/toolbar">
     <xsl:copy>
       <xsl:apply-templates select="node()|@*"/>
-      <modeData guid='93e04431-263b-4c83-8a2b-72ac5cf07a56' captionRef="01965a34-ae38-01a0-4271-cd903b48e518">
+      <modeData guid='$GuidB$' captionRef="01965a34-ae38-01a0-4271-cd903b48e518">
         <item guidRef="3148e122-4f73-6e8a-4dfb-b2f6a84090d5"/>
         <item guidRef="a41164ff-c9e9-4b2c-954a-095f4204538e"/>
         <item guidRef="266435b4-6e53-460f-9fa7-f45be187d400"/>

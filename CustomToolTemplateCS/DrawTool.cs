@@ -51,7 +51,8 @@ namespace CGS
 			currentAttribs = stateAttributes;
 			currentAttribs.SetCursor(cdrCursorShape.cdrCursorSmallcrosshair);
 			currentAttribs.AllowTempPickState = false;
-			currentAttribs.PropertyBarGuid = "$GuidB$";
+			//uncomment the next line to use a propertybar
+			//currentAttribs.PropertyBarGuid = "$GuidB$";
 			ui = Application.CreateOnScreenCurve(); // create the xor'd UI object
 		}
 
