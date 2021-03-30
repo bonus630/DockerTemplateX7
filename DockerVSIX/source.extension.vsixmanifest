@@ -34,6 +34,6 @@
 
     </Assets>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.Net.Component.4.5.TargetingPack" Version="[16.0.28517.75,17.0)" DisplayName=".NET Framework 4.5 targeting pack" />
+        <Prerequisite Id="Microsoft.Net.Component.4.TargetingPack" DisplayName=".NET Framework 4 targeting pack" Version="[15.6.27406.0,16.0)" />
     </Prerequisites>
 </PackageManifest>
