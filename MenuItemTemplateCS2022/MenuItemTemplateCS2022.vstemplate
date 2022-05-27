@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name>CorelDraw Menu Item Addon</Name>
+		<Description>Creates a project to adds a new menu item</Description>
+		<Icon>DockerTemplateX7.ico</Icon>
+		<ProjectType>csharp</ProjectType>
+		<ProjectSubType>CorelDRAW Addons</ProjectSubType>
+		<LanguageTag>csharp</LanguageTag>
+		<PlatformTag>windows</PlatformTag>
+		<ProjectTypeTag>CorelDRAW Addons</ProjectTypeTag>
+		<RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+		<SortOrder>9000</SortOrder>
+		<TemplateID>e701ec5d-ea28-4cb1-b3a6-e5af02156480</TemplateID>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>MenuItemTemplateCS</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="MenuItemProjectTemplateCS.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">ControlUI.xaml.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">ControlUI.xaml</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="MessageBox.cs">MessageBox.cs</ProjectItem>
+			<Folder Name="DataSource" TargetFolderName="DataSource">
+				<ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="20" TargetFileName="$safeprojectname$DataSource.cs">ADataSource.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" >BaseDataSource.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" >DataSourceFactory.cs</ProjectItem>
+			</Folder>
+			<ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
+			<ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
+			<ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="config.xml">config.xml</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Extensions.cs">Extensions.cs</ProjectItem>
+		</Project>
+		<CustomParameters>
+			<CustomParameter Name="$type$" Value="MenuItem"/>
+			<CustomParameter Name="$lang$" Value="cs"/>
+		</CustomParameters>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Wizard2022, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+		<FullClassName>Wizard2022.Wizard</FullClassName>
+	</WizardExtension>
+
+</VSTemplate>

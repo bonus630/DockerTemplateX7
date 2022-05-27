@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shell;
 
-namespace Wizard001
+namespace ProjectHelper
 {
     public enum VsTheme
     {

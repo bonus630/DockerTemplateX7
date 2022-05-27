@@ -43,6 +43,7 @@
 	
 	$corel23$
 
+	$corel24$
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 	</PropertyGroup>

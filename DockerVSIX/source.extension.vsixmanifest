@@ -1,21 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="2.621" Language="en-US" Publisher="Bonus630" />
+        <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="2.702" Language="en-US" Publisher="Bonus630" />
         <DisplayName>CorelDraw Addons Templates</DisplayName>
         <Description xml:space="preserve">CSharp, VisualBasic, JavaScript Addons Projects Templates for CorelDraw X7 or heigher, CorelDraw is trademaker from Corel Corporation</Description>
-        <MoreInfo>http://bonus630.com.br</MoreInfo>
+        <MoreInfo>https://bonus630.com.br</MoreInfo>
         <GettingStartedGuide>https://youtu.be/3jqkj06zAdo</GettingStartedGuide>
         <ReleaseNotes>Release Notes.txt</ReleaseNotes>
         <Icon>DockerTemplateX7.ico</Icon>
-        <Tags>coreldraw,x7,x8,2017,2018,2019,2020,docker,</Tags>
+        <PreviewImage>PreviewImage.png</PreviewImage>
+        <Tags>coreldraw,x7,x8,2017,2018,2019,2020,2021,2022,docker,addons</Tags>
     </Metadata>
     <Installation>
         <!--<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />-->
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0]" />
-        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Pro" />
-        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Community" />
-        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Enterprise" />
+        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Pro"/>
+
+        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Community"/>
+
+        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Enterprise"/>
+
     </Installation>
     <Dependencies>
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
@@ -34,6 +38,7 @@
 
     </Assets>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.Net.Component.4.TargetingPack" DisplayName=".NET Framework 4 targeting pack" Version="[15.6.27406.0,16.0)" />
+        <Prerequisite Id="Microsoft.Net.Component.4.5.TargetingPack" Version="[16.11.31605.320,17.0)" DisplayName=".NET Framework 4.5 targeting pack" />
     </Prerequisites>
+
 </PackageManifest>

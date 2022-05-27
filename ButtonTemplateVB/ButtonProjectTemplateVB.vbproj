@@ -38,6 +38,8 @@
 	$corel22$
 	
 	$corel23$
+	
+	$corel24$
 	<ItemGroup>
 		<Import Include="$(CurrentCorelPath)$(VGCoreDLL)" />
 	</ItemGroup>

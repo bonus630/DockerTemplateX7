@@ -1,0 +1,54 @@
+﻿<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name>CorelDRAW Menu Item Addon</Name>
+		<Description>Creates a project to adds a new menu item</Description>
+		<Icon>DockerTemplateVB.ico</Icon>
+		<ProjectType>visualbasic</ProjectType>
+		<ProjectSubType>CorelDRAW Addons</ProjectSubType>
+		<LanguageTag>visualbasic</LanguageTag>
+		<PlatformTag>windows</PlatformTag>
+		<ProjectTypeTag>CorelDRAW Addons</ProjectTypeTag>
+		<TemplateID>609a1ae6-8f55-47ef-a416-fa8e3b2673c9</TemplateID>
+		<SortOrder>9800</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>MenuItemTemplateVB</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="MenuItemProjectTemplate.vbproj" ReplaceParameters="true">
+
+			<ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
+			<ProjectItem ReplaceParameters="true">ControlUI.xaml.vb</ProjectItem>
+			<ProjectItem ReplaceParameters="true">ControlUI.xaml</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="My Project\Application.myapp">MyApplication.myapp</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="My Project\Application.Designer.vb">MyApplication.Designer.vb</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="MessageBox.vb">MessageBox.vb</ProjectItem>
+			<Folder Name="DataSource" TargetFolderName="DataSource">
+				<ProjectItem ReplaceParameters="true" OpenInEditor="true" OpenOrder="20" TargetFileName="$safeprojectname$DataSource.vb">ADataSource.vb</ProjectItem>
+				<ProjectItem ReplaceParameters="true" >BaseDataSource.vb</ProjectItem>
+				<ProjectItem ReplaceParameters="true" >DataSourceFactory.vb</ProjectItem>
+			</Folder>
+			<ProjectItem ReplaceParameters="true" >UserUI.xslt</ProjectItem>
+			<ProjectItem ReplaceParameters="true">AppUI.xslt</ProjectItem>
+			<ProjectItem ReplaceParameters="false">CorelDrw.addon</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="resources.rct">resources.rct</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="config.xml">config.xml</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Extensions.vb">Extensions.vb</ProjectItem>
+
+			<ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="My Project\Resources.resx">Resources.resx</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="My Project\Resources.Designer.vb">Resources.Designer.vb</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="My Project\Settings.settings">Settings.settings</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="My Project\Settings.Designer.vb">Settings.Designer.vb</ProjectItem>
+		</Project>
+		<CustomParameters>
+			<CustomParameter Name="$type$" Value="MenuItem"/>
+			<CustomParameter Name="$lang$" Value="vb"/>
+		</CustomParameters>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Wizard2022, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+		<FullClassName>Wizard2022.Wizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

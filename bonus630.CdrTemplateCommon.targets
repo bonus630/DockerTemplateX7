@@ -1,13 +1,29 @@
-<Project DefaultTargets = "BeforeBuild" 
+<Project DefaultTargets = "BeforeBuild"
 xmlns = "http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <SharedDir>$(SolutionDir)SharedFiles\</SharedDir>
-  </PropertyGroup>
-    <Target Name="CopyFiles"  BeforeTargets="BeforeBuild">
-        <Message Text="CopyFiles" />
-        <Exec Command='xcopy "$(SharedDir)$(CdrAddonLang)\*.$(CdrAddonLang)" "$(ProjectDir)" /y /d /e /c' />
-        <Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.xaml" "$(ProjectDir)" /y /d /e /c'/>
-        <Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.xslt" "$(ProjectDir)" /y /d /e /c'/>
-        <Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.$(CdrAddonLang)" "$(ProjectDir)" /y /d /e /c'/>
-    </Target>
+	<PropertyGroup Condition=" '$(Configuration)' != 'My' ">
+		<SharedDir>$(SolutionDir)SharedFiles\</SharedDir>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'My' ">
+		<SharedDir>$(SolutionDir)SharedFiles\My\</SharedDir>
+	</PropertyGroup>
+	
+	<Target Name="CopyFiles"  BeforeTargets="BeforeBuild">
+		<Message Text="CopyFiles" />
+		<Exec Command='xcopy "$(SharedDir)$(CdrAddonLang)\*.$(CdrAddonLang)" "$(ProjectDir)" /y /d /e /c' />
+		<Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.xaml" "$(ProjectDir)" /y /d /e /c'/>
+		<Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.xslt" "$(ProjectDir)" /y /d /e /c'/>
+		<Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.$(CdrAddonLang)" "$(ProjectDir)" /y /d /e /c'/>
+	</Target>
+	<Target Name="CopyFiles2022"  BeforeTargets="BeforeBuild" AfterTargets="CopyFiles">
+		<Message Text="CopyFiles2022" />
+		<Exec Command='xcopy "$(SolutionDir)ButtonTemplateCS\*.*" "$(SolutionDir)ButtonTemplateCS2022" /y /d /e /c' />
+		<Exec Command='xcopy "$(SolutionDir)ButtonTemplateVB\*.*" "$(SolutionDir)ButtonTemplateVB2022" /y /d /e /c' />
+		<Exec Command='xcopy "$(SolutionDir)CustomToolTemplateCS\*.*" "$(SolutionDir)CustomToolTemplateCS2022" /y /d /e /c' />
+		<Exec Command='xcopy "$(SolutionDir)CustomToolTemplateVB\*.*" "$(SolutionDir)CustomToolTemplateVB2022" /y /d /e /c' />
+		<Exec Command='xcopy "$(SolutionDir)DockerTemplateCS\*.*" "$(SolutionDir)DockerTemplateCS2022" /y /d /e /c' />
+		<Exec Command='xcopy "$(SolutionDir)DockerTemplateVB\*.*" "$(SolutionDir)DockerTemplateVB2022" /y /d /e /c' />
+		<Exec Command='xcopy "$(SolutionDir)MenuItemTemplateCS\*.*" "$(SolutionDir)MenuItemTemplateCS2022" /y /d /e /c' />
+		<Exec Command='xcopy "$(SolutionDir)MenuItemTemplateVB\*.*" "$(SolutionDir)MenuItemTemplateVB2022" /y /d /e /c' />
+		
+	</Target>
 </Project>

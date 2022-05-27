@@ -53,21 +53,10 @@ Public Class StylesController
         Try
             Dim result As String = String.Empty
 
-#If X8 Then
-                 result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
+#If Not X7 Then
+            result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
 #End If
-#If X9 Then
-                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
-#End If
-#If X10 Then
-                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
-#End If
-#If X11 Then
-                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
-#End If
-#If X12 Then
-                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString()
-#End If
+
             If Not result.Equals(currentTheme) Then
                 If Not result.Equals(String.Empty) Then
                     currentTheme = result

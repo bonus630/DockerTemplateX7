@@ -1,0 +1,16 @@
+<Project DefaultTargets = "BeforeBuild" 
+xmlns = "http://schemas.microsoft.com/developer/msbuild/2003">
+<PropertyGroup Condition=" '$(Configuration)' != 'My' ">
+        <SharedDir>$(SolutionDir)SharedFiles\</SharedDir>
+  </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'My' ">
+        <SharedDir>$(SolutionDir)SharedFiles\My\</SharedDir>
+  </PropertyGroup>
+    <Target Name="CopyFiles"  BeforeTargets="BeforeBuild">
+        <Message Text="CopyFiles" />
+        <Exec Command='xcopy "$(SharedDir)$(CdrAddonLang)\*.$(CdrAddonLang)" "$(ProjectDir)" /y /d /e /c' />
+        <Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.xaml" "$(ProjectDir)" /y /d /e /c'/>
+        <Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.xslt" "$(ProjectDir)" /y /d /e /c'/>
+        <Exec Command='xcopy "$(SharedDir)$(CdrAddonType)\*.$(CdrAddonLang)" "$(ProjectDir)" /y /d /e /c'/>
+    </Target>
+</Project>

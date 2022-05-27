@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="DockerVSIX.2022.Bonus630.9f4c8ad8-d80c-4ed5-8a43-e097af4a83be" Version="0.101" Language="en-US" Publisher="Bonus630" />
+        <DisplayName>CorelDraw Addons Templates</DisplayName>
+        <Description xml:space="preserve">CSharp, VisualBasic, JavaScript Addons Projects Templates for CorelDraw X7 or heigher, CorelDraw is trademaker from Corel Corporation</Description>
+        <MoreInfo>http://bonus630.com.br</MoreInfo>
+        <GettingStartedGuide>https://youtu.be/3jqkj06zAdo</GettingStartedGuide>
+        <ReleaseNotes>Release Notes.txt</ReleaseNotes>
+        <Icon>DockerTemplateX7.ico</Icon>
+        <PreviewImage>PreviewImage.png</PreviewImage>
+        <Tags>coreldraw,x7,x8,2017,2018,2019,2020,2021,2022,docker,addons</Tags>
+    </Metadata>
+    <Installation InstalledByMsi="false">
+
+        <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Pro">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+
+        <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+
+        <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="ProjectHelper" Path="|ProjectHelper|" AssemblyName="|ProjectHelper;AssemblyName|" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Wizard2022" Path="|Wizard2022|" AssemblyName="|Wizard2022;AssemblyName|" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ButtonTemplateCS2022" d:TargetPath="|ButtonTemplateCS2022;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ButtonTemplateVB2022" d:TargetPath="|ButtonTemplateVB2022;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CustomToolTemplateCS2022" d:TargetPath="|CustomToolTemplateCS2022;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CustomToolTemplateVB2022" d:TargetPath="|CustomToolTemplateVB2022;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateCS2022" d:TargetPath="|DockerTemplateCS2022;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateVB2022" d:TargetPath="|DockerTemplateVB2022;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="MenuItemTemplateCS2022" d:TargetPath="|MenuItemTemplateCS2022;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="MenuItemTemplateVB2022" d:TargetPath="|MenuItemTemplateVB2022;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+
+    </Assets>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.Net.Component.4.6.TargetingPack" Version="[17.0.31804.368,18.0)" DisplayName=".NET Framework 4.6 targeting pack" />
+    </Prerequisites>
+
+
+</PackageManifest>

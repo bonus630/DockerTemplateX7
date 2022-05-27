@@ -36,9 +36,10 @@
 	$corel21$
 
 	$corel22$
-	
+
 	$corel23$
 
+	$corel24$
 	<Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 	<PropertyGroup>
 		<Win32Resource>$(ProjectDir)\resources.rct</Win32Resource>
