@@ -74,7 +74,7 @@
 
       <!-- Define the web docker -->
       <dockerData guid="$GuidC$"
-                  userCaption="$Caption"
+                  userCaption="$Caption$"
                   wantReturn="true"
                   focusStyle="noThrow">
         <container>
