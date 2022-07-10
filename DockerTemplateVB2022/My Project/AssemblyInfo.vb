@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("DockerTemplateVB2022")>
+<Assembly: AssemblyTitle("DockerTemplateVB")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Bonus630")>
-<Assembly: AssemblyProduct("DockerTemplateVB2022")>
-<Assembly: AssemblyCopyright("Copyright © Bonus630 2022")>
+<Assembly: AssemblyProduct("DockerTemplateVB")>
+<Assembly: AssemblyCopyright("Copyright © Bonus630 2016")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("bb958ba2-f659-428d-a59e-97dbae9d6059")>
+<Assembly: Guid("09963a79-c60e-420e-a5b9-4f97f2b6cd8a")>
 
 ' Version information for an assembly consists of the following four values:
 '

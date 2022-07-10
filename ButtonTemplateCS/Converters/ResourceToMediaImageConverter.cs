@@ -45,8 +45,9 @@ namespace $safeprojectname$.Converters
             Assembly.GetExecutingAssembly());
             try
             {
-                return (System.Drawing.Bitmap)rm.GetObject(ResourceName);
-            }
+                CultureInfo enCulture = new CultureInfo("");
+                return (System.Drawing.Bitmap)rm.GetObject(ResourceName, enCulture);
+        }
             catch (ArgumentNullException ex)
 
             { throw ex; }

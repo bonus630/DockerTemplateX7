@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--<Import Project="$targetvar$bonus630.CDRCommon.targets" Condition="Exists('$targetvar$bonus630.CDRCommon.targets')"/>-->
+	<!--<Error Condition="!Exists('$targetvar$bonus630.CDRCommon.targets')" Text="Targets file with contains CorelDraw Paths is not found!" />-->
+	<PropertyGroup>
+		<CdrTargetPath>$targetvar$bonus630.CDRCommon.targets</CdrTargetPath>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProductVersion>8.0.30703</ProductVersion>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>$guid1$</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>$safeprojectname$</RootNamespace>
+		<AssemblyName>$safeprojectname$</AssemblyName>
+		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+		<ProjectTypeGuids>{$CSGuid$}</ProjectTypeGuids>
+		<TemplateGuid>{0AC96025-9E94-4F81-B6FD-C25731EED4A7}</TemplateGuid>
+		<FileAlignment>512</FileAlignment>
+	</PropertyGroup>
+	<Import Project="$(CdrTargetPath)" Condition="Exists('$(CdrTargetPath)')"/>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug\</OutputPath>
+		<!--<OutDir>bin\Debug\$(SolutionName)</OutDir>-->
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+	$corel17$
+
+	$corel18$
+
+	$corel19$
+
+	$corel20$
+
+	$corel21$
+
+	$corel22$
+	
+	$corel23$
+
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<PropertyGroup>
+		<Win32Resource>$(ProjectDir)\resources.rct</Win32Resource>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System"/>
+		$if$ ($targetframeworkversion$ >= 3.5)
+		<Reference Include="System.Core"/>
+		<Reference Include="System.Xml.Linq"/>
+		<Reference Include="System.Data.DataSetExtensions"/>
+		$endif$
+		$if$ ($targetframeworkversion$ >= 4.0)
+		<Reference Include="Microsoft.CSharp"/>
+		$endif$
+		<Reference Include="System.Data"/>
+		<Reference Include="System.Xml"/>
+	</ItemGroup>
+
+	<ItemGroup Label="VGCoreReferences">
+		<Reference Include="$(CurrentCorelPath)$(VGCoreDLL)">
+			<Name>Corel.Interop.VGCore</Name>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="Addon.cs" />
+		<Compile Include="$safeprojectname$.cs" />
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Extensions.cs" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Content Include="AppUI.xslt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="UserUI.xslt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="CorelDrw.addon">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="config.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="resources.rct"/>
+	</ItemGroup>
+	<PropertyGroup>
+		<StartAction>Program</StartAction>
+		<StartProgram>$(CurrentCorelPath)CorelDRW.exe</StartProgram>
+	</PropertyGroup>
+
+
+</Project>

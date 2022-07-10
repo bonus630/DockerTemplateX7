@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	
+	<!--<Error Condition="!Exists('$targetvar$bonus630.CDRCommon.targets')" Text="Targets file with contains CorelDraw Paths is not found!" />-->
+	<PropertyGroup>
+		<CdrTargetPath>$targetvar$bonus630.CDRCommon.targets</CdrTargetPath>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProductVersion>
+		</ProductVersion>
+		<SchemaVersion>
+		</SchemaVersion>
+		<ProjectGuid>{$guid2$}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<RootNamespace>$safeprojectname$</RootNamespace>
+		<AssemblyName>$safeprojectname$</AssemblyName>
+		<FileAlignment>512</FileAlignment>
+		<MyType>Custom</MyType>
+		<OutputPath>bin\Debug\</OutputPath>
+		<OutDir>bin\Debug\</OutDir>
+		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+		<ProjectTypeGuids>{$WPFUserControlGuid$};{$VBGuid$}</ProjectTypeGuids>
+		<TemplateGuid>{678f71b7-abf7-4164-8850-df07f94c2fd9}</TemplateGuid>
+	</PropertyGroup>
+	<Import Project="$(CdrTargetPath)" Condition="Exists('$(CdrTargetPath)')"/>
+
+	$corel17$
+
+	$corel18$
+
+	$corel19$
+
+	$corel20$
+
+	$corel21$
+
+	$corel22$
+
+	$corel23$
+
+	$corel24$
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Import Include="$(CurrentCorelPath)$(VGCoreDLL)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="System"/>
+		$if$ ($targetframeworkversion$ >= 3.5)
+		<Reference Include="System.Core"/>
+		<Reference Include="System.Xml.Linq"/>
+		<Reference Include="System.Data.DataSetExtensions"/>
+		$endif$
+		<Reference Include="System.Data"/>
+		<Reference Include="System.Xml"/>
+		<Reference Include="System.Xaml"/>
+		<Reference Include="PresentationCore" />
+		<Reference Include="PresentationFramework" />
+		<Reference Include="WindowsBase" />
+		<Reference Include="System.Drawing"/>
+	</ItemGroup>
+
+	<ItemGroup Label="VGCoreReferences">
+		<Reference Include="$(CurrentCorelPath)$(VGCoreDLL)">
+			<Name>Corel.Interop.VGCore</Name>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Include="DockerUI.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+		</Page>
+		<Compile Include="DockerUI.xaml.vb">
+			<DependentUpon>DockerUI.xaml</DependentUpon>
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Include="Converters\ResourceToMediaImageConverter.vb">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Include="Extensions.vb">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Include="MessageBox.vb">
+			<SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<Page Include="Styles\Colors.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Styles\Styles.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Resources\Images.xaml">
+			<SubType>Designer</SubType>
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Compile Include="Styles\StylesController.vb">
+			<SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Compile Include="My Project\AssemblyInfo.vb">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Include="My Project\Resources.Designer.vb">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Include="My Project\Settings.Designer.vb">
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+		</Compile>
+		<EmbeddedResource Include="My Project\Resources.resx">
+			<Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.vb</LastGenOutput>
+			<CustomToolNamespace>My.Resources</CustomToolNamespace>
+		</EmbeddedResource>
+		<None Include="My Project\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.vb</LastGenOutput>
+		</None>
+		<AppDesigner Include="My Project\" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Content Include="AppUI.xslt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="UserUI.xslt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="CorelDrw.addon">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+
+	</ItemGroup>
+	<Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+
+	<PropertyGroup>
+		<StartAction>Program</StartAction>
+		<StartProgram>$(CurrentCorelPath)CorelDRW.exe</StartProgram>
+	</PropertyGroup>
+
+</Project>
