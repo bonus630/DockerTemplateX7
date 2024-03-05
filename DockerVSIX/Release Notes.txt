@@ -62,3 +62,6 @@ Version 2.620
 Version 2.7**
 * Prepare to CorelDraw 2022
 * Prepare to Visual Studio 2022
+
+Version 2.925
+* Prepare to CorelDraw 2024

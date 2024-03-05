@@ -95,6 +95,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\CommandBarStaticTemplate\CommandBarStaticTemplate.csproj">
+      <Project>{06F95048-0981-42A1-9D1B-4ABC69DEECF0}</Project>
+      <Name>CommandBarStaticTemplate</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\CustomToolTemplateCS\CustomToolTemplateCS.csproj">
       <Project>{F642EDD1-9D30-4DE8-B3D8-9732C4089891}</Project>
       <Name>CustomToolTemplateCS</Name>

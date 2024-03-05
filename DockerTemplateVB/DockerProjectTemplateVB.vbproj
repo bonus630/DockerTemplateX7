@@ -39,6 +39,9 @@
 	$corel23$
 
 	$corel24$
+
+	$corel25$
+	
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 	</PropertyGroup>

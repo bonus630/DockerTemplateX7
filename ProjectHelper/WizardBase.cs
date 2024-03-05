@@ -113,6 +113,8 @@ namespace ProjectHelper
                     replacementsDictionary.Add("$GuidA$", Guid.NewGuid().ToString());
                     replacementsDictionary.Add("$GuidB$", Guid.NewGuid().ToString());
                     replacementsDictionary.Add("$GuidC$", Guid.NewGuid().ToString());
+                    replacementsDictionary.Add("$GuidD$", Guid.NewGuid().ToString());
+                    replacementsDictionary.Add("$GuidE$", Guid.NewGuid().ToString());
                     replacementsDictionary.Add("$Caption$", form.DockerCaption);
 
                     finish = true;

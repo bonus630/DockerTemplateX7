@@ -37,7 +37,8 @@ Namespace Converters
             Dim rm As New ResourceManager("$safeprojectname$.Resources",
                 Assembly.GetExecutingAssembly())
             Try
-                Return rm.GetObject(ResourceName)
+                Dim enCulture As New CultureInfo("");
+                Return rm.GetObject(ResourceName, enCulture)
             Catch ex As ArgumentNullException
                 Throw ex
             End Try

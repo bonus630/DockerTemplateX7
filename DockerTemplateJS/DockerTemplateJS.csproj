@@ -81,6 +81,7 @@
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="3rdParties\" />
     <Folder Include="images\" />
     <Folder Include="pages\" />
     <Folder Include="Properties\" />
@@ -98,8 +99,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="3rdParties\jquery-1.12.3.min.js" />
-    <Content Include="3rdParties\jquery-2.2.3.min.js" />
     <Content Include="AppUI.xslt" />
     <Content Include="DockerUI.html" />
     <Content Include="js\basic.js" />

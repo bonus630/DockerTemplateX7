@@ -111,6 +111,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2022 Templates", "2022 Temp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common Templates", "Common Templates", "{D9CB43B5-C923-41C8-A697-A08B221BB37B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandBarStaticTemplate", "CommandBarStaticTemplate\CommandBarStaticTemplate.csproj", "{06F95048-0981-42A1-9D1B-4ABC69DEECF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandBar", "CommandBar", "{5526F2E2-1146-42E5-B6F8-2755EB32640B}"
+	ProjectSection(SolutionItems) = preProject
+		SharedFiles\CommandBar\AppUI.xslt = SharedFiles\CommandBar\AppUI.xslt
+		SharedFiles\CommandBar\AssemblyInfo.cs = SharedFiles\CommandBar\AssemblyInfo.cs
+		SharedFiles\CommandBar\ControlUI.xaml = SharedFiles\CommandBar\ControlUI.xaml
+		SharedFiles\CommandBar\UserUI.xslt = SharedFiles\CommandBar\UserUI.xslt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -393,6 +403,18 @@ Global
 		{34CE07B7-6F46-4E75-8CC7-3171850936A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{34CE07B7-6F46-4E75-8CC7-3171850936A3}.Release|x86.ActiveCfg = Release|x86
 		{34CE07B7-6F46-4E75-8CC7-3171850936A3}.Release|x86.Build.0 = Release|x86
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.Debug|x86.ActiveCfg = Debug|x86
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.Debug|x86.Build.0 = Debug|x86
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.My|Any CPU.ActiveCfg = My|Any CPU
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.My|Any CPU.Build.0 = My|Any CPU
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.My|x86.ActiveCfg = My|x86
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.My|x86.Build.0 = My|x86
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.Release|x86.ActiveCfg = Release|x86
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -421,6 +443,8 @@ Global
 		{BB958BA2-F659-428D-A59E-97DBAE9D6059} = {DCEF09D2-9333-47C0-A950-E5546CEE6A3C}
 		{30FC8286-A751-4768-840E-4C13DDBE62D4} = {DCEF09D2-9333-47C0-A950-E5546CEE6A3C}
 		{34CE07B7-6F46-4E75-8CC7-3171850936A3} = {DCEF09D2-9333-47C0-A950-E5546CEE6A3C}
+		{06F95048-0981-42A1-9D1B-4ABC69DEECF0} = {D9CB43B5-C923-41C8-A697-A08B221BB37B}
+		{5526F2E2-1146-42E5-B6F8-2755EB32640B} = {BED1B82F-1341-43B6-BFFC-C1A1DD64E06F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C67B0612-AC1C-4996-B91F-70FCD0B2F528}

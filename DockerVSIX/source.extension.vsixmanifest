@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="2.702" Language="en-US" Publisher="Bonus630" />
+        <Identity Id="DockerVSIX.Bonus630.383cedc2-8b1d-4823-b334-aad4cdd63f64" Version="2.925" Language="en-US" Publisher="Bonus630" />
         <DisplayName>CorelDraw Addons Templates</DisplayName>
         <Description xml:space="preserve">CSharp, VisualBasic, JavaScript Addons Projects Templates for CorelDraw X7 or heigher, CorelDraw is trademaker from Corel Corporation</Description>
         <MoreInfo>https://bonus630.com.br</MoreInfo>
@@ -9,7 +9,7 @@
         <ReleaseNotes>Release Notes.txt</ReleaseNotes>
         <Icon>DockerTemplateX7.ico</Icon>
         <PreviewImage>PreviewImage.png</PreviewImage>
-        <Tags>coreldraw,x7,x8,2017,2018,2019,2020,2021,2022,docker,addons</Tags>
+        <Tags>coreldraw,x7,x8,2017,2018,2019,2020,2021,2022,2023,2024,docker,addons</Tags>
     </Metadata>
     <Installation>
         <!--<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />-->
@@ -35,6 +35,7 @@
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CustomToolTemplateVB" d:TargetPath="|CustomToolTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="DockerTemplateVB" d:TargetPath="|DockerTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="MenuItemTemplateVB" d:TargetPath="|MenuItemTemplateVB;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CommandBarStaticTemplate" d:TargetPath="|CommandBarStaticTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
 
     </Assets>
     <Prerequisites>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="DockerVSIX.2022.Bonus630.9f4c8ad8-d80c-4ed5-8a43-e097af4a83be" Version="0.101" Language="en-US" Publisher="Bonus630" />
+        <Identity Id="DockerVSIX.2022.Bonus630.9f4c8ad8-d80c-4ed5-8a43-e097af4a83be" Version="0.125" Language="en-US" Publisher="Bonus630" />
         <DisplayName>CorelDraw Addons Templates</DisplayName>
         <Description xml:space="preserve">CSharp, VisualBasic, JavaScript Addons Projects Templates for CorelDraw X7 or heigher, CorelDraw is trademaker from Corel Corporation</Description>
         <MoreInfo>http://bonus630.com.br</MoreInfo>
@@ -9,7 +9,7 @@
         <ReleaseNotes>Release Notes.txt</ReleaseNotes>
         <Icon>DockerTemplateX7.ico</Icon>
         <PreviewImage>PreviewImage.png</PreviewImage>
-        <Tags>coreldraw,x7,x8,2017,2018,2019,2020,2021,2022,docker,addons</Tags>
+        <Tags>coreldraw,x7,x8,2017,2018,2019,2020,2021,2022,2023,2024docker,addons</Tags>
     </Metadata>
     <Installation InstalledByMsi="false">
 

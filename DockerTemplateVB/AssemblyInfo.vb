@@ -1,6 +1,7 @@
 ﻿Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
+Imports System.Resources
 
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
@@ -14,6 +15,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyProduct("$projectname$")>
 <Assembly: AssemblyCopyright("Copyright © $registeredorganization$ $year$")>
 <Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyCulture("")>
+<Assembly: NeutralResourcesLanguageAttribute("", UltimateResourceFallbackLocation.MainAssembly)>
 
 <Assembly: ComVisible(False)>
 

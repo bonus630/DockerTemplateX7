@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name>CorelDraw Macro Library</Name>
+		<Description>Create a class library project</Description>
+		<Icon>DockerTemplateX7.ico</Icon>
+		<ProjectType>csharp</ProjectType>
+		<ProjectSubType>CorelDRAW Addons</ProjectSubType>
+		<LanguageTag>csharp</LanguageTag>
+		<PlatformTag>windows</PlatformTag>
+		<ProjectTypeTag>CorelDRAW Addons</ProjectTypeTag>
+		<RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+		<SortOrder>9000</SortOrder>
+		<TemplateID>e701ec5d-ea28-4cb1-b3a6-e5af02156480</TemplateID>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>MacroCS</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="MacroClassLibraryCS.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+		</Project>
+		<CustomParameters>
+			<CustomParameter Name="$type$" Value="Macro"/>
+			<CustomParameter Name="$lang$" Value="cs"/>
+		</CustomParameters>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Wizard001, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=null</Assembly>
+		<FullClassName>Wizard001.Wizard</FullClassName>
+	</WizardExtension>
+
+</VSTemplate>
