@@ -39,7 +39,7 @@ namespace ProjectHelper
         public string CorelInstallationPath64 { get; private set; }
         public CorelIs64Bit Corel64Bit { get; set; }
         public int CorelVersion { get; private set; }
-        private static string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017", "2018", "2019", "2020","2021", "2022","25" };
+        private static string[] corelAbb = new string[] { "10", "11", "12", "X3", "X4", "X5", "X6", "X7", "X8", "2017", "2018", "2019", "2020","2021", "2022","2024" };
         private string[] corelFolderList = new string[] { "Graphics10", "Corel Graphics 11", "Corel Graphics 12",
                 "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5",
                 "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8",
@@ -341,8 +341,10 @@ namespace ProjectHelper
                 string path = (string)key.GetValue("");
                 path = path.Substring(1).ToLower();
                 //Corel 10 use %1
-                path = path.Replace("coreldrw.exe\" -dde", "");
-                path = path.Replace("coreldrw.exe\" %1", "");
+                if (path.Contains("coreldrw.exe"))
+                    path = path.Substring(0, path.IndexOf("coreldrw.exe"));
+                else
+                    return false;
                 key.Close();
                 if (path.Contains("programs64"))
                 {

@@ -17,7 +17,7 @@
 		<ProvideDefaultName>true</ProvideDefaultName>
 	</TemplateData>
 	<TemplateContent>
-		<Project File="MacroClassLibraryCS.csproj" ReplaceParameters="true">
+		<Project File="CommandBarStaticProject.csproj" ReplaceParameters="true">
 			<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
 		</Project>
 		<CustomParameters>

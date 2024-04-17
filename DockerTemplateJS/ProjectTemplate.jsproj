@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="$targetvar$bonus630.CDRCommon.targets"/>
-
 	<PropertyGroup>
-
+		<CdrTargetPath>$targetvar$bonus630.CDRCommon.targets</CdrTargetPath>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProductVersion>8.0.30703</ProductVersion>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>$guid1$</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>$safeprojectname$</RootNamespace>
+		<AssemblyName>$safeprojectname$</AssemblyName>
+		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+		<FileAlignment>512</FileAlignment>
+		<ProjectTypeGuids>{$WPFUserControlGuid$};{$CSGuid$}</ProjectTypeGuids>
+		<TemplateGuid>{8AAFD9D4-608E-49AA-8035-EEB1F6F86213}</TemplateGuid>
 	</PropertyGroup>
+	<Import Project="$(CdrTargetPath)" Condition="Exists('$(CdrTargetPath)')"/>
 	<!--<PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -66,19 +78,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-	<PropertyGroup>
-		<PostBuildEvent>
-			if not exist "$CorelAddonsPath$$(SolutionName)" md "$CorelAddonsPath$$(SolutionName)"
-			xcopy "$(ProjectDir)3rdParties" "$CorelAddonsPath$3rdParties" /e /y /i /r
-			copy "$(TargetPath)" "$CorelAddonsPath$$(SolutionName)" /y
-			copy "$(ProjectDir)CorelDrw.addon" "$CorelAddonsPath$$(SolutionName)" /y
-			copy "$(ProjectDir)AppUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
-			copy "$(ProjectDir)UserUI.xslt" "$CorelAddonsPath$$(SolutionName)" /y
-			copy "$(ProjectDir)DockerUI.html" "$CorelAddonsPath$$(SolutionName)" /y
-		</PostBuildEvent>
-	</PropertyGroup>
-	<PropertyGroup>
-		<StartAction>Program</StartAction>
-		<StartProgram>$CorelProgramPath$CorelDRW.exe</StartProgram>
-	</PropertyGroup>
+	
 </Project>

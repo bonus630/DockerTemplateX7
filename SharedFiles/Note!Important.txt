@@ -1,1 +1,2 @@
-All similar files in all project include here, in "SharedFiles", must to be edit here, theses files in the projects will be replaced to them
+All similar files across all projects are included here, under "SharedFiles". 
+They must be edited here, these files in the projects will be replaced with them
