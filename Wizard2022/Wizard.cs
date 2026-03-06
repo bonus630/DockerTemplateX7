@@ -73,6 +73,9 @@ namespace Wizard2022
             {
                 switch (item.Name)
                 {
+                    case "2025 Debug":
+                        item.Activate();
+                        break;
                     case "2024 Debug":
                         item.Activate();
                         break;

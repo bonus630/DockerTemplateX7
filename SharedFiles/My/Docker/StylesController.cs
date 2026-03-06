@@ -71,20 +71,14 @@ namespace $safeprojectname$.Styles
             try
             {
                 string result = string.Empty;
-#if X8
-                 result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString();
+#if !X7
+            result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString();
 #endif
-#if X9
-                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString();
-#endif
-#if X10
-                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString();
-#endif
-#if X11
-                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString();
-#endif
-#if X12
-                  result = corelApp.GetApplicationPreferenceValue("WindowScheme", "Colors").ToString();
+#if X17
+                if (result.Equals("Scheme_12_ModernUIDark"))
+                    result = "DarkGrey";
+                if (result.Equals("Scheme_11_ModernUI"))
+                    result = "LightestGrey";        
 #endif
             if (!result.Equals(currentTheme))
                 {
