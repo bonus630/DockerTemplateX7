@@ -44,7 +44,7 @@ namespace ProjectHelper
                 "CorelDRAW Graphics Suite 13", "CorelDRAW Graphics Suite X4", "CorelDRAW Graphics Suite X5",
                 "CorelDRAW Graphics Suite X6", "CorelDRAW Graphics Suite X7", "CorelDRAW Graphics Suite X8",
                 "CorelDRAW Graphics Suite 2017","CorelDRAW Graphics Suite 2018","CorelDRAW Graphics Suite 2019","CorelDRAW Graphics Suite 2020",
-            "CorelDRAW Graphics Suite 2021","CorelDRAW Graphics Suite 2022","CorelDRAW Graphics Suite\\25","CorelDRAW Graphics Suite\\26","CorelDRAW Graphics Suite\\26" };
+            "CorelDRAW Graphics Suite 2021","CorelDRAW Graphics Suite 2022","CorelDRAW Graphics Suite\\25","CorelDRAW Graphics Suite\\26","CorelDRAW Graphics Suite\\27" };
         public static string  GetCorelAbreviation(int version) { return corelAbb[version - 10];  }
         private const string corelName = "CorelDraw Graphics Suite";
         //private string[] corelReferenceLabel = new string[] { "", "", "", "", "", "", "", "X7Reference", "X8Reference", "X9Reference", "X10Reference", "X11Reference","X12Reference" };
